@@ -1,4 +1,9 @@
 import { test, expect } from "@playwright/test";
+import players2026 from "../src/data/2026-players.jsonl.json";
+
+const NUMBER_11 = (
+  players2026 as { number_disp: string; name: string }[]
+).find((p) => p.number_disp === "11")!.name;
 
 test.describe("選手名鑑", () => {
   test("選手一覧テーブルが表示される", async ({ page }) => {
@@ -11,8 +16,8 @@ test.describe("選手名鑑", () => {
     await expect(page.getByRole("columnheader", { name: /名前/ })).toBeVisible();
     await expect(page.getByRole("columnheader", { name: /生年月日/ })).toBeVisible();
 
-    // 選手データが表示されている
-    await expect(page.getByText("東 克樹")).toBeVisible();
+    // 選手データが表示されている（背番号11の選手）
+    await expect(page.getByText(NUMBER_11)).toBeVisible();
   });
 
   test("背番号でソートできる", async ({ page }) => {

@@ -1,4 +1,9 @@
 import { test, expect } from "@playwright/test";
+import players2026 from "../src/data/2026-players.jsonl.json";
+
+const NUMBER_11 = (
+  players2026 as { number_disp: string; name: string }[]
+).find((p) => p.number_disp === "11")!.name;
 
 test.describe("スタメン作成", () => {
   test("ページが表示される", async ({ page }) => {
@@ -64,7 +69,7 @@ test.describe("スタメン作成", () => {
     // スターティングメンバーに行がある
     await expect(page.getByText("打順が設定されていません")).not.toBeAttached();
 
-    // 先発投手が設定されている
-    await expect(page.getByText("東 克樹").first()).toBeVisible();
+    // 先発投手が設定されている（背番号11）
+    await expect(page.getByText(NUMBER_11).first()).toBeVisible();
   });
 });

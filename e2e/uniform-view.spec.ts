@@ -1,4 +1,9 @@
 import { test, expect } from "@playwright/test";
+import players2026 from "../src/data/2026-players.jsonl.json";
+
+const NUMBER_11 = (
+  players2026 as { number_disp: string; name: string }[]
+).find((p) => p.number_disp === "11")!.name;
 
 test.describe("ユニフォームビュー", () => {
   test("ページが表示される", async ({ page }) => {
@@ -32,7 +37,7 @@ test.describe("ユニフォームビュー", () => {
   test("URLパラメータ ?number=11 で背番号11の選手が表示される", async ({ page }) => {
     await page.goto("/uniform-view/2026?number=11");
 
-    await expect(page.getByText("東 克樹")).toBeVisible();
+    await expect(page.getByText(NUMBER_11)).toBeVisible();
   });
 
   test("URLコピーボタンが存在する", async ({ page }) => {

@@ -12,7 +12,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "clean": "rm -rf .next out",
-    "test:e2e": "npm run clean && npm run build && playwright test",
+    "test:e2e": "npm run clean && CAPACITOR=true npm run build && playwright test",
     "cap:build": "CAPACITOR=true npm run build",
     "cap:sync": "npm run cap:build && npx cap sync",
     "cap:open:ios": "npx cap open ios",

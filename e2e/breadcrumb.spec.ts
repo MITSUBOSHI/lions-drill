@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import team from "../src/config/team.config.json";
 
 test.describe("パンくずリスト", () => {
   test("サブページで表示され、正しいリンクを持つ", async ({ page }) => {
@@ -22,7 +23,7 @@ test.describe("パンくずリスト", () => {
     await nav.getByRole("link", { name: "トップ" }).click();
     await page.waitForURL("**/");
 
-    await expect(page.getByRole("heading", { name: "Baystars Drill" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: team.name })).toBeVisible();
   });
 
   test("トップページではパンくずリストが表示されない", async ({ page }) => {
