@@ -112,9 +112,9 @@ afterEach(() => {
 const mockPlayers: PlayerType[] = [
   {
     year: 2026,
-    name: "牧 秀悟",
-    name_kana: "まき しゅうご",
-    uniform_name: "MAKI",
+    name: "外崎 修汰",
+    name_kana: "とのさき しゅうた",
+    uniform_name: "TONOSAKI",
     number_calc: 2,
     number_disp: "2",
     role: Role.Roster,
@@ -125,9 +125,9 @@ const mockPlayers: PlayerType[] = [
   },
   {
     year: 2026,
-    name: "東 克樹",
-    name_kana: "あずま かつき",
-    uniform_name: "AZUMA",
+    name: "上田 大河",
+    name_kana: "うえだ たいが",
+    uniform_name: "UEDA",
     number_calc: 11,
     number_disp: "11",
     role: Role.Roster,
@@ -138,9 +138,9 @@ const mockPlayers: PlayerType[] = [
   },
   {
     year: 2026,
-    name: "三浦 大輔",
-    name_kana: "みうら だいすけ",
-    uniform_name: "MIURA",
+    name: "西口 文也",
+    name_kana: "にしぐち ふみや",
+    uniform_name: "NISHIGUCHI",
     number_calc: 81,
     number_disp: "81",
     role: Role.Coach,
@@ -170,7 +170,7 @@ const mockPlayersWithZero: PlayerType[] = [
     year: 2026,
     name: "J.デュプランティエ",
     name_kana: "じょん・でゅぷらんてぃえ",
-    uniform_name: "DUPLANTIER",
+    uniform_name: "NEVIN",
     number_calc: 0,
     number_disp: "0",
     role: Role.Roster,
@@ -181,9 +181,9 @@ const mockPlayersWithZero: PlayerType[] = [
   },
   {
     year: 2026,
-    name: "林 琢真",
-    name_kana: "はやし たくま",
-    uniform_name: "HAYASHI",
+    name: "蛭間 拓哉",
+    name_kana: "ひるま たくや",
+    uniform_name: "HIRUMA",
     number_calc: 0,
     number_disp: "00",
     role: Role.Roster,
@@ -232,8 +232,8 @@ describe("NumberCounter", () => {
     act(() => {
       jest.advanceTimersByTime(150);
     });
-    expect(screen.getByText("牧 秀悟")).toBeInTheDocument();
-    expect(screen.getByTestId("uniform-back")).toHaveTextContent("MAKI #2");
+    expect(screen.getByText("外崎 修汰")).toBeInTheDocument();
+    expect(screen.getByTestId("uniform-back")).toHaveTextContent("TONOSAKI #2");
   });
 
   it("再生ボタンでカウント開始、音声ONなら音声が呼ばれる", () => {
@@ -356,9 +356,7 @@ describe("NumberCounter", () => {
 
     // 背番号0（デュプランティエ）から開始
     expect(screen.getByText("J.デュプランティエ")).toBeInTheDocument();
-    expect(screen.getByTestId("uniform-back")).toHaveTextContent(
-      "DUPLANTIER #0",
-    );
+    expect(screen.getByTestId("uniform-back")).toHaveTextContent("NEVIN #0");
     expect(screen.getByText("0 / 30")).toBeInTheDocument();
 
     // 再生して1ステップ進む → 背番号00（林）
@@ -371,8 +369,8 @@ describe("NumberCounter", () => {
     act(() => {
       jest.advanceTimersByTime(150);
     });
-    expect(screen.getByText("林 琢真")).toBeInTheDocument();
-    expect(screen.getByTestId("uniform-back")).toHaveTextContent("HAYASHI #00");
+    expect(screen.getByText("蛭間 拓哉")).toBeInTheDocument();
+    expect(screen.getByTestId("uniform-back")).toHaveTextContent("HIRUMA #00");
   });
 
   it("「0を含める」ONでカウントダウン時に00→0まで到達する", () => {

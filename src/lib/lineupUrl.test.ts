@@ -21,13 +21,13 @@ const player = (
 });
 
 const allPlayers: PlayerType[] = [
-  player("11", "東 克樹"),
-  player("2", "牧 秀悟"),
+  player("11", "上田 大河"),
+  player("2", "外崎 修汰"),
   player("50", "山本 祐大"),
-  player("51", "宮﨑 敏郎"),
-  player("7", "佐野 恵太"),
+  player("51", "栗山 巧"),
+  player("7", "中村 剛也"),
   player("3", "オースティン"),
-  player("44", "度会 隆輝"),
+  player("44", "西川 愛也"),
   player("9", "桑原 将志"),
   player("00", "松尾 汐恩", 0),
   player("122", "育成選手", 122),
@@ -121,13 +121,13 @@ describe("lineupUrl", () => {
         hasDH: true,
         isFarmMode: true,
         nameDisplay: "both",
-        customTitle: "ベイスターズ打線",
+        customTitle: "ライオンズ打線",
       };
       const params = encodeLineupParams(state);
       expect(params.get("dh")).toBe("1");
       expect(params.get("farm")).toBe("1");
       expect(params.get("name")).toBe("both");
-      expect(params.get("title")).toBe("ベイスターズ打線");
+      expect(params.get("title")).toBe("ライオンズ打線");
     });
 
     it("DHモードで DH ポジションをエンコードする", () => {

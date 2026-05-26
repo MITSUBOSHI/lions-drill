@@ -11,6 +11,7 @@ type UniformBackProps = {
 const PRIMARY = TEAM.uniform.svg.primaryColor;
 const ACCENT = TEAM.uniform.svg.accentColor;
 const NUMBER_FONT = TEAM.uniform.svg.numberFontFamily;
+const SHOW_STRIPES = TEAM.uniform.svg.stripeStyle !== "none";
 
 /*
  * viewBox 480x340
@@ -87,11 +88,13 @@ export default function UniformBack({
         role="img"
         aria-label={`${uniformName} ${numberDisp}番のユニフォーム背面`}
       >
-        <defs>
-          <clipPath id={clipPathId}>
-            <path d={UNIFORM_PATH} />
-          </clipPath>
-        </defs>
+        {SHOW_STRIPES && (
+          <defs>
+            <clipPath id={clipPathId}>
+              <path d={UNIFORM_PATH} />
+            </clipPath>
+          </defs>
+        )}
 
         {/* ユニフォーム外形 */}
         <path
@@ -101,7 +104,7 @@ export default function UniformBack({
           strokeWidth="1.2"
         />
 
-        {/* 首元のカーブ（ブルーの襟トリム） */}
+        {/* 首元のカーブ（襟トリム） */}
         <path
           d="M 190,0 Q 240,20 290,0"
           fill="#FFFFFF"
@@ -110,37 +113,39 @@ export default function UniformBack({
         />
 
         {/* クリッピングされたストライプ群 */}
-        <g clipPath={`url(#${clipPathId})`}>
-          {/* 上部ストライプ（襟下〜名前の手前） */}
-          <Stripe
-            x={LEFT_X}
-            y={STRIPE_UPPER_Y}
-            h={STRIPE_UPPER_H}
-            goldSide="left"
-          />
-          <Stripe
-            x={RIGHT_X}
-            y={STRIPE_UPPER_Y}
-            h={STRIPE_UPPER_H}
-            goldSide="right"
-          />
+        {SHOW_STRIPES && (
+          <g clipPath={`url(#${clipPathId})`}>
+            {/* 上部ストライプ（襟下〜名前の手前） */}
+            <Stripe
+              x={LEFT_X}
+              y={STRIPE_UPPER_Y}
+              h={STRIPE_UPPER_H}
+              goldSide="left"
+            />
+            <Stripe
+              x={RIGHT_X}
+              y={STRIPE_UPPER_Y}
+              h={STRIPE_UPPER_H}
+              goldSide="right"
+            />
 
-          {/* 下部ストライプ（背番号の下〜裾） */}
-          <Stripe
-            x={LEFT_X}
-            y={STRIPE_LOWER_Y}
-            h={STRIPE_LOWER_H}
-            goldSide="left"
-          />
-          <Stripe
-            x={RIGHT_X}
-            y={STRIPE_LOWER_Y}
-            h={STRIPE_LOWER_H}
-            goldSide="right"
-          />
-        </g>
+            {/* 下部ストライプ（背番号の下〜裾） */}
+            <Stripe
+              x={LEFT_X}
+              y={STRIPE_LOWER_Y}
+              h={STRIPE_LOWER_H}
+              goldSide="left"
+            />
+            <Stripe
+              x={RIGHT_X}
+              y={STRIPE_LOWER_Y}
+              h={STRIPE_LOWER_H}
+              goldSide="right"
+            />
+          </g>
+        )}
 
-        {/* uniform_name テキスト（上部ストライプと背番号の間の余白） */}
+        {/* uniform_name テキスト（背番号の上の余白） */}
         <text
           x={CENTER_X}
           y="80"

@@ -1,12 +1,12 @@
 [
-  {"year":2018,"category":"regular","round":1,"name":"松本 航","name_kana":"","position":"投手","team":"日本体育大学","team_kana":"","isLotteryLoss":false},
-  {"year":2018,"category":"regular","round":2,"name":"渡邉 勇太朗","name_kana":"","position":"投手","team":"浦和学院高","team_kana":"","isLotteryLoss":false},
-  {"year":2018,"category":"regular","round":3,"name":"山野辺 翔","name_kana":"","position":"内野手","team":"三菱自動車岡崎","team_kana":"","isLotteryLoss":false},
-  {"year":2018,"category":"regular","round":4,"name":"粟津 凱士","name_kana":"","position":"投手","team":"東日本国際大学","team_kana":"","isLotteryLoss":false},
-  {"year":2018,"category":"regular","round":5,"name":"牧野 翔矢","name_kana":"","position":"捕手","team":"遊学館高","team_kana":"","isLotteryLoss":false},
-  {"year":2018,"category":"regular","round":6,"name":"森脇 亮介","name_kana":"","position":"投手","team":"セガサミー","team_kana":"","isLotteryLoss":false},
-  {"year":2018,"category":"regular","round":7,"name":"佐藤 龍世","name_kana":"","position":"内野手","team":"富士大学","team_kana":"","isLotteryLoss":false},
-  {"year":2018,"category":"development","round":1,"name":"東野 葵","name_kana":"","position":"投手","team":"日本経済大学","team_kana":"","isLotteryLoss":false},
-  {"year":2018,"category":"development","round":2,"name":"大窪 士夢","name_kana":"","position":"投手","team":"北海高","team_kana":"","isLotteryLoss":false},
-  {"year":2018,"category":"development","round":3,"name":"中熊 大智","name_kana":"","position":"捕手","team":"徳山大学","team_kana":"","isLotteryLoss":false}
+  {"year":2018,"category":"regular","round":1,"name":"松本 航","name_kana":"まつもと わたる","position":"投手","team":"日本体育大学","team_kana":"","isLotteryLoss":false},
+  {"year":2018,"category":"regular","round":2,"name":"渡邉 勇太朗","name_kana":"わたなべ ゆうたろう","position":"投手","team":"浦和学院高","team_kana":"","isLotteryLoss":false},
+  {"year":2018,"category":"regular","round":3,"name":"山野辺 翔","name_kana":"やまのべ かける","position":"内野手","team":"三菱自動車岡崎","team_kana":"","isLotteryLoss":false},
+  {"year":2018,"category":"regular","round":4,"name":"粟津 凱士","name_kana":"あわつ かいと","position":"投手","team":"東日本国際大学","team_kana":"","isLotteryLoss":false},
+  {"year":2018,"category":"regular","round":5,"name":"牧野 翔矢","name_kana":"まきの しょうや","position":"捕手","team":"遊学館高","team_kana":"","isLotteryLoss":false},
+  {"year":2018,"category":"regular","round":6,"name":"森脇 亮介","name_kana":"もりわき りょうすけ","position":"投手","team":"セガサミー","team_kana":"","isLotteryLoss":false},
+  {"year":2018,"category":"regular","round":7,"name":"佐藤 龍世","name_kana":"さとう りゅうせい","position":"内野手","team":"富士大学","team_kana":"","isLotteryLoss":false},
+  {"year":2018,"category":"development","round":1,"name":"東野 葵","name_kana":"とうの あおい","position":"投手","team":"日本経済大学","team_kana":"","isLotteryLoss":false},
+  {"year":2018,"category":"development","round":2,"name":"大窪 士夢","name_kana":"おおくぼ じゆ","position":"投手","team":"北海高","team_kana":"","isLotteryLoss":false},
+  {"year":2018,"category":"development","round":3,"name":"中熊 大智","name_kana":"なかぐま だいち","position":"捕手","team":"徳山大学","team_kana":"","isLotteryLoss":false}
 ]

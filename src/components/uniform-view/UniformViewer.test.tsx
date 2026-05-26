@@ -56,9 +56,9 @@ jest.mock("@next/third-parties/google", () => ({
 const mockPlayers: PlayerType[] = [
   {
     year: 2026,
-    name: "牧 秀悟",
-    name_kana: "まき しゅうご",
-    uniform_name: "MAKI",
+    name: "外崎 修汰",
+    name_kana: "とのさき しゅうた",
+    uniform_name: "TONOSAKI",
     number_calc: 2,
     number_disp: "2",
     role: Role.Roster,
@@ -69,9 +69,9 @@ const mockPlayers: PlayerType[] = [
   },
   {
     year: 2026,
-    name: "東 克樹",
-    name_kana: "あずま かつき",
-    uniform_name: "AZUMA",
+    name: "上田 大河",
+    name_kana: "うえだ たいが",
+    uniform_name: "UEDA",
     number_calc: 11,
     number_disp: "11",
     role: Role.Roster,
@@ -82,9 +82,9 @@ const mockPlayers: PlayerType[] = [
   },
   {
     year: 2026,
-    name: "三浦 大輔",
-    name_kana: "みうら だいすけ",
-    uniform_name: "MIURA",
+    name: "西口 文也",
+    name_kana: "にしぐち ふみや",
+    uniform_name: "NISHIGUCHI",
     number_calc: 81,
     number_disp: "81",
     role: Role.Coach,
@@ -98,8 +98,8 @@ const mockPlayers: PlayerType[] = [
 describe("UniformViewer", () => {
   it("renders first player sorted by number", () => {
     render(<UniformViewer players={mockPlayers} year={2026} />);
-    expect(screen.getByText("牧 秀悟")).toBeInTheDocument();
-    expect(screen.getByTestId("uniform-back")).toHaveTextContent("MAKI #2");
+    expect(screen.getByText("外崎 修汰")).toBeInTheDocument();
+    expect(screen.getByTestId("uniform-back")).toHaveTextContent("TONOSAKI #2");
   });
 
   it("shows all players by default including coaches", () => {
@@ -118,15 +118,15 @@ describe("UniformViewer", () => {
     render(<UniformViewer players={mockPlayers} year={2026} />);
     const nextButton = screen.getByLabelText("次の選手");
     fireEvent.click(nextButton);
-    expect(screen.getByText("東 克樹")).toBeInTheDocument();
-    expect(screen.getByTestId("uniform-back")).toHaveTextContent("AZUMA #11");
+    expect(screen.getByText("上田 大河")).toBeInTheDocument();
+    expect(screen.getByTestId("uniform-back")).toHaveTextContent("UEDA #11");
   });
 
   it("navigates to previous player on left arrow click", () => {
     render(<UniformViewer players={mockPlayers} year={2026} />);
     const prevButton = screen.getByLabelText("前の選手");
     fireEvent.click(prevButton);
-    expect(screen.getByText("三浦 大輔")).toBeInTheDocument();
+    expect(screen.getByText("西口 文也")).toBeInTheDocument();
   });
 
   it("wraps around at the end of the list", () => {
@@ -135,7 +135,7 @@ describe("UniformViewer", () => {
     fireEvent.click(nextButton);
     fireEvent.click(nextButton);
     fireEvent.click(nextButton);
-    expect(screen.getByText("牧 秀悟")).toBeInTheDocument();
+    expect(screen.getByText("外崎 修汰")).toBeInTheDocument();
   });
 
   it("shows empty message when no players", () => {
@@ -148,15 +148,17 @@ describe("UniformViewer", () => {
     const input = screen.getByLabelText("背番号を選択") as HTMLInputElement;
     expect(input.value).toBe("2");
     expect(input.getAttribute("list")).toBe("player-numbers");
-    expect(screen.getByText("/ まき しゅうご")).toBeInTheDocument();
+    expect(screen.getByText("/ とのさき しゅうた")).toBeInTheDocument();
   });
 
   it("jumps to player when number is typed into searchable input", () => {
     render(<UniformViewer players={mockPlayers} year={2026} />);
     const input = screen.getByLabelText("背番号を選択");
     fireEvent.change(input, { target: { value: "81" } });
-    expect(screen.getByText("三浦 大輔")).toBeInTheDocument();
-    expect(screen.getByTestId("uniform-back")).toHaveTextContent("MIURA #81");
+    expect(screen.getByText("西口 文也")).toBeInTheDocument();
+    expect(screen.getByTestId("uniform-back")).toHaveTextContent(
+      "NISHIGUCHI #81",
+    );
   });
 
   it("shows player matching ?number query param on mount", () => {
@@ -164,7 +166,7 @@ describe("UniformViewer", () => {
       new URLSearchParams("number=81"),
     );
     render(<UniformViewer players={mockPlayers} year={2026} />);
-    expect(screen.getByText("三浦 大輔")).toBeInTheDocument();
+    expect(screen.getByText("西口 文也")).toBeInTheDocument();
     (useSearchParams as jest.Mock).mockReturnValue(new URLSearchParams(""));
   });
 

@@ -1,6 +1,6 @@
 [
-  {"year":2001,"category":"regular","round":0,"name":"細川 亨","name_kana":"","position":"捕 手","team":"青森大学","team_kana":"","isLotteryLoss":false},
-  {"year":2001,"category":"regular","round":2,"name":"中村 剛也","name_kana":"","position":"内野手","team":"大阪桐蔭","team_kana":"","isLotteryLoss":false},
-  {"year":2001,"category":"regular","round":4,"name":"栗山 巧","name_kana":"","position":"外野手","team":"育英","team_kana":"","isLotteryLoss":false},
-  {"year":2001,"category":"regular","round":5,"name":"竹内 和也","name_kana":"","position":"投 手","team":"近江高","team_kana":"","isLotteryLoss":false}
+  {"year":2001,"category":"regular","round":0,"name":"細川 亨","name_kana":"","position":"捕手","team":"青森大学","team_kana":"","isLotteryLoss":false},
+  {"year":2001,"category":"regular","round":2,"name":"中村 剛也","name_kana":"なかむら たけや","position":"内野手","team":"大阪桐蔭","team_kana":"","isLotteryLoss":false},
+  {"year":2001,"category":"regular","round":4,"name":"栗山 巧","name_kana":"くりやま たくみ","position":"外野手","team":"育英","team_kana":"","isLotteryLoss":false},
+  {"year":2001,"category":"regular","round":5,"name":"竹内 和也","name_kana":"","position":"投手","team":"近江高","team_kana":"","isLotteryLoss":false}
 ]

@@ -1,9 +1,9 @@
 [
-  {"year":2013,"category":"regular","round":1,"name":"森 友哉","name_kana":"","position":"捕 手","team":"大阪桐蔭高","team_kana":"","isLotteryLoss":false},
-  {"year":2013,"category":"regular","round":2,"name":"山川 穂高","name_kana":"","position":"内野手","team":"富士大","team_kana":"","isLotteryLoss":false},
-  {"year":2013,"category":"regular","round":3,"name":"豊田 拓矢","name_kana":"","position":"投 手","team":"TDK","team_kana":"","isLotteryLoss":false},
+  {"year":2013,"category":"regular","round":1,"name":"森 友哉","name_kana":"もり ともや","position":"捕手","team":"大阪桐蔭高","team_kana":"","isLotteryLoss":false},
+  {"year":2013,"category":"regular","round":2,"name":"山川 穂高","name_kana":"やまかわ ほたか","position":"内野手","team":"富士大","team_kana":"","isLotteryLoss":false},
+  {"year":2013,"category":"regular","round":3,"name":"豊田 拓矢","name_kana":"","position":"投手","team":"TDK","team_kana":"","isLotteryLoss":false},
   {"year":2013,"category":"regular","round":4,"name":"金子 一輝","name_kana":"","position":"内野手","team":"日大藤沢高","team_kana":"","isLotteryLoss":false},
-  {"year":2013,"category":"regular","round":5,"name":"山口 嵩之","name_kana":"","position":"投 手","team":"トヨタ自動車東日本","team_kana":"","isLotteryLoss":false},
-  {"year":2013,"category":"regular","round":6,"name":"岡田 雅利","name_kana":"","position":"捕 手","team":"大阪ガス","team_kana":"","isLotteryLoss":false},
-  {"year":2013,"category":"regular","round":7,"name":"福倉 健太郎","name_kana":"","position":"投 手","team":"第一工業大","team_kana":"","isLotteryLoss":false}
+  {"year":2013,"category":"regular","round":5,"name":"山口 嵩之","name_kana":"","position":"投手","team":"トヨタ自動車東日本","team_kana":"","isLotteryLoss":false},
+  {"year":2013,"category":"regular","round":6,"name":"岡田 雅利","name_kana":"おかだ まさとし","position":"捕手","team":"大阪ガス","team_kana":"","isLotteryLoss":false},
+  {"year":2013,"category":"regular","round":7,"name":"福倉 健太郎","name_kana":"","position":"投手","team":"第一工業大","team_kana":"","isLotteryLoss":false}
 ]

@@ -81,7 +81,7 @@
     "svg": {
       "primaryColor": "#003B89",
       "accentColor": "#C8102E",
-      "stripeStyle": "vertical",
+      "stripeStyle": "none",
       "numberFontFamily": "var(--font-oswald), 'Oswald', 'Impact', sans-serif"
     }
   },

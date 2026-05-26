@@ -133,6 +133,18 @@ export function toJsonlJson(records) {
   return "[\n" + lines.join(",\n") + "\n]\n";
 }
 
+// NPB の pc_v_kana を表示用ふりがなに整形する。
+// 日本人: "うえだ・たいが" → "うえだ たいが"
+// 外国人: "アラン・ワイナンス　(ALLAN WINANS)" → "アラン ワイナンス"
+export function cleanKana(raw) {
+  if (!raw) return "";
+  return raw
+    .replace(/[（(].*$/s, "") // 括弧以降の英字表記を除去
+    .replace(/・/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 export async function fetchPlayerKana(playerUrl) {
   if (!playerUrl) return "";
   try {
@@ -140,8 +152,7 @@ export async function fetchPlayerKana(playerUrl) {
     const root = parse(html);
     const kanaEl = root.querySelector("#pc_v_kana");
     const raw = (kanaEl?.text ?? "").trim();
-    // NPB 形式 "うえだ・たいが" → "うえだ たいが"
-    return raw.replace(/・/g, " ");
+    return cleanKana(raw);
   } catch (e) {
     console.warn(`failed to fetch kana for ${playerUrl}: ${e.message}`);
     return "";

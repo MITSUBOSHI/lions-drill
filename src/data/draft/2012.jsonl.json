@@ -1,8 +1,8 @@
 [
-  {"year":2012,"category":"regular","round":1,"name":"増田 達至","name_kana":"","position":"投 手","team":"NTT西日本","team_kana":"","isLotteryLoss":false},
-  {"year":2012,"category":"regular","round":2,"name":"相内 誠","name_kana":"","position":"投 手","team":"千葉国際高","team_kana":"","isLotteryLoss":false},
-  {"year":2012,"category":"regular","round":3,"name":"金子 侑司","name_kana":"","position":"内野手","team":"立命館大","team_kana":"","isLotteryLoss":false},
-  {"year":2012,"category":"regular","round":4,"name":"高橋 朋己","name_kana":"","position":"投 手","team":"西濃運輸","team_kana":"","isLotteryLoss":false},
-  {"year":2012,"category":"regular","round":5,"name":"佐藤 勇","name_kana":"","position":"投 手","team":"光南高","team_kana":"","isLotteryLoss":false},
-  {"year":2012,"category":"development","round":1,"name":"水口 大地","name_kana":"","position":"内野手","team":"香川オリーブガイナーズ","team_kana":"","isLotteryLoss":false}
+  {"year":2012,"category":"regular","round":1,"name":"増田 達至","name_kana":"ますだ たつし","position":"投手","team":"NTT西日本","team_kana":"","isLotteryLoss":false},
+  {"year":2012,"category":"regular","round":2,"name":"相内 誠","name_kana":"あいうち まこと","position":"投手","team":"千葉国際高","team_kana":"","isLotteryLoss":false},
+  {"year":2012,"category":"regular","round":3,"name":"金子 侑司","name_kana":"かねこ ゆうじ","position":"内野手","team":"立命館大","team_kana":"","isLotteryLoss":false},
+  {"year":2012,"category":"regular","round":4,"name":"高橋 朋己","name_kana":"","position":"投手","team":"西濃運輸","team_kana":"","isLotteryLoss":false},
+  {"year":2012,"category":"regular","round":5,"name":"佐藤 勇","name_kana":"","position":"投手","team":"光南高","team_kana":"","isLotteryLoss":false},
+  {"year":2012,"category":"development","round":1,"name":"水口 大地","name_kana":"みずぐち だいち","position":"内野手","team":"香川オリーブガイナーズ","team_kana":"","isLotteryLoss":false}
 ]

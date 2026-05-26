@@ -56,7 +56,7 @@ const mockSongs: CheerSongType[] = [
   }),
   makeSong({
     id: "batter-1",
-    title: "牧 秀悟",
+    title: "外崎 修汰",
     category: "individual_batter",
     playerNumber: "2",
   }),
@@ -75,14 +75,14 @@ describe("CheerSongViewer", () => {
   it("デフォルトで投手共通タブが選択される", () => {
     render(<CheerSongViewer songs={mockSongs} year={2026} />);
     expect(screen.getByText("右投手の歌")).toBeInTheDocument();
-    expect(screen.queryByText("牧 秀悟")).not.toBeInTheDocument();
+    expect(screen.queryByText("外崎 修汰")).not.toBeInTheDocument();
   });
 
   it("タブを切り替えると対応する曲が表示される", () => {
     render(<CheerSongViewer songs={mockSongs} year={2026} />);
 
     fireEvent.click(screen.getByText("野手個人"));
-    expect(screen.getByText("牧 秀悟")).toBeInTheDocument();
+    expect(screen.getByText("外崎 修汰")).toBeInTheDocument();
     expect(screen.queryByText("右投手の歌")).not.toBeInTheDocument();
 
     fireEvent.click(screen.getByText("監督"));
@@ -105,8 +105,8 @@ describe("CheerSongViewer", () => {
     );
 
     render(<CheerSongViewer songs={mockSongs} year={2026} />);
-    // 背番号2 = 牧 秀悟 (individual_batter) → 野手個人タブ
-    expect(screen.getByText("牧 秀悟")).toBeInTheDocument();
+    // 背番号2 = 外崎 修汰 (individual_batter) → 野手個人タブ
+    expect(screen.getByText("外崎 修汰")).toBeInTheDocument();
   });
 
   it("tabpanel に適切な role と aria-labelledby が設定される", () => {

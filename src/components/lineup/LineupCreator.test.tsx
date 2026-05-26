@@ -169,9 +169,9 @@ jest.mock("./DraggableLineup", () => {
 
 const mockPlayers: PlayerType[] = [
   {
-    name: "佐野 恵太",
-    name_kana: "さの けいた",
-    uniform_name: "SANO",
+    name: "中村 剛也",
+    name_kana: "なかむら たけや",
+    uniform_name: "NAKAMURA",
     number_disp: "7",
     number_calc: 7,
     role: Role.Roster,
@@ -182,9 +182,9 @@ const mockPlayers: PlayerType[] = [
     weight_kg: 88,
   },
   {
-    name: "牧 秀悟",
-    name_kana: "まき しゅうご",
-    uniform_name: "MAKI",
+    name: "外崎 修汰",
+    name_kana: "とのさき しゅうた",
+    uniform_name: "TONOSAKI",
     number_disp: "2",
     number_calc: 2,
     role: Role.Roster,
@@ -197,7 +197,7 @@ const mockPlayers: PlayerType[] = [
   {
     name: "山本 祐大",
     name_kana: "やまもと ゆうだい",
-    uniform_name: "YAMAMOTO",
+    uniform_name: "YAMADA",
     number_disp: "50",
     number_calc: 50,
     role: Role.Roster,
@@ -208,9 +208,9 @@ const mockPlayers: PlayerType[] = [
     weight_kg: 87,
   },
   {
-    name: "宮﨑 敏郎",
-    name_kana: "みやざき としろう",
-    uniform_name: "MIYAZAKI",
+    name: "栗山 巧",
+    name_kana: "くりやま たくみ",
+    uniform_name: "KURIYAMA",
     number_disp: "51",
     number_calc: 51,
     role: Role.Roster,
@@ -223,7 +223,7 @@ const mockPlayers: PlayerType[] = [
   {
     name: "粟飯原 龍之介",
     name_kana: "あいばら りゅうのすけ",
-    uniform_name: "AIBARA",
+    uniform_name: "NISHIGUCHI",
     number_disp: "133",
     number_calc: 133,
     role: Role.Training,

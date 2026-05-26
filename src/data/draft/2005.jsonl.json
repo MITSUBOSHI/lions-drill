@@ -1,9 +1,9 @@
 [
-  {"year":2005,"category":"regular","round":0,"name":"松永 浩典","name_kana":"","position":"（21）","team":"投 手","team_kana":"","isLotteryLoss":false},
-  {"year":2005,"category":"regular","round":0,"name":"吉見 太一","name_kana":"","position":"（25）","team":"捕 手","team_kana":"","isLotteryLoss":false},
-  {"year":2005,"category":"regular","round":0,"name":"西川 純司","name_kana":"","position":"（22）","team":"投 手","team_kana":"","isLotteryLoss":false},
-  {"year":2005,"category":"regular","round":0,"name":"山本 歩","name_kana":"","position":"（22）","team":"投 手","team_kana":"","isLotteryLoss":false},
-  {"year":2005,"category":"regular","round":0,"name":"炭谷 銀仁朗","name_kana":"","position":"（18）","team":"捕 手","team_kana":"","isLotteryLoss":false},
-  {"year":2005,"category":"regular","round":0,"name":"田沢 由哉","name_kana":"","position":"（18）","team":"投 手","team_kana":"","isLotteryLoss":false},
-  {"year":2005,"category":"regular","round":0,"name":"田中 靖洋","name_kana":"","position":"（18）","team":"投 手","team_kana":"","isLotteryLoss":false}
+  {"year":2005,"category":"regular","round":0,"name":"松永 浩典","name_kana":"","position":"投手","team":"三菱重工長崎","team_kana":"","isLotteryLoss":false},
+  {"year":2005,"category":"regular","round":3,"name":"吉見 太一","name_kana":"","position":"捕手","team":"サンワード貿易","team_kana":"","isLotteryLoss":false},
+  {"year":2005,"category":"regular","round":4,"name":"西川 純司","name_kana":"","position":"投手","team":"三重中京大","team_kana":"","isLotteryLoss":false},
+  {"year":2005,"category":"regular","round":5,"name":"山本 歩","name_kana":"","position":"投手","team":"関西学院大","team_kana":"","isLotteryLoss":false},
+  {"year":2005,"category":"regular","round":1,"name":"炭谷 銀仁朗","name_kana":"","position":"捕手","team":"平安高","team_kana":"","isLotteryLoss":false},
+  {"year":2005,"category":"regular","round":3,"name":"田沢 由哉","name_kana":"","position":"投手","team":"旭川大高","team_kana":"","isLotteryLoss":false},
+  {"year":2005,"category":"regular","round":4,"name":"田中 靖洋","name_kana":"","position":"投手","team":"加賀高","team_kana":"","isLotteryLoss":false}
 ]

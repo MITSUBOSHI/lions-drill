@@ -1,8 +1,8 @@
 [
-  {"year":2011,"category":"regular","round":1,"name":"十亀 剣","name_kana":"","position":"投 手","team":"ＪＲ東日本","team_kana":"","isLotteryLoss":false},
-  {"year":2011,"category":"regular","round":2,"name":"小石 博孝","name_kana":"","position":"投 手","team":"ＮＴＴ東日本","team_kana":"","isLotteryLoss":false},
-  {"year":2011,"category":"regular","round":3,"name":"駒月 仁人","name_kana":"","position":"捕 手","team":"塔南高","team_kana":"","isLotteryLoss":false},
-  {"year":2011,"category":"regular","round":4,"name":"永江 恭平","name_kana":"","position":"内野手","team":"海星高","team_kana":"","isLotteryLoss":false},
+  {"year":2011,"category":"regular","round":1,"name":"十亀 剣","name_kana":"とがめ けん","position":"投手","team":"ＪＲ東日本","team_kana":"","isLotteryLoss":false},
+  {"year":2011,"category":"regular","round":2,"name":"小石 博孝","name_kana":"","position":"投手","team":"ＮＴＴ東日本","team_kana":"","isLotteryLoss":false},
+  {"year":2011,"category":"regular","round":3,"name":"駒月 仁人","name_kana":"こまづき ひとと","position":"捕手","team":"塔南高","team_kana":"","isLotteryLoss":false},
+  {"year":2011,"category":"regular","round":4,"name":"永江 恭平","name_kana":"ながえ きょうへい","position":"内野手","team":"海星高","team_kana":"","isLotteryLoss":false},
   {"year":2011,"category":"regular","round":5,"name":"田代 将太郎","name_kana":"","position":"外野手","team":"八戸大","team_kana":"","isLotteryLoss":false},
-  {"year":2011,"category":"development","round":1,"name":"藤澤 亨明","name_kana":"","position":"捕 手","team":"松本大","team_kana":"","isLotteryLoss":false}
+  {"year":2011,"category":"development","round":1,"name":"藤澤 亨明","name_kana":"","position":"捕手","team":"松本大","team_kana":"","isLotteryLoss":false}
 ]

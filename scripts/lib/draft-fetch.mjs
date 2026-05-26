@@ -16,9 +16,17 @@ function normalize(raw) {
 }
 
 function rankToRound(rankText) {
-  const m = rankText.match(/(\d+)/);
+  // 全角数字(２巡目 等)を半角へ正規化してから巡目を抽出
+  const normalized = (rankText ?? "").replace(/[０-９]/g, (c) =>
+    String.fromCharCode(c.charCodeAt(0) - 0xfee0),
+  );
+  const m = normalized.match(/(\d+)/);
   if (!m) return 0;
   return Number(m[1]);
+}
+
+function cleanPosition(s) {
+  return normalize(s).replace(/\s/g, "");
 }
 
 function parseSection(table, year, category) {
@@ -31,8 +39,11 @@ function parseSection(table, year, category) {
     if (tds.length < 3) continue;
     const rank = normalize(th.text);
     const name = normalize(tds[0]?.text);
-    const position = normalize(tds[1]?.text);
-    const team = normalize(tds[2]?.text);
+    // 旧フォーマット(2006以前)は 名前/年齢/ポジション/所属 の4列、
+    // 新フォーマットは 名前/ポジション/所属 の3列。
+    const hasAgeColumn = tds.length >= 4;
+    const position = cleanPosition(tds[hasAgeColumn ? 2 : 1]?.text);
+    const team = normalize(tds[hasAgeColumn ? 3 : 2]?.text);
     if (!name) continue;
     picks.push({
       year,
@@ -75,8 +86,8 @@ export function parseDraftHtml(html, { year }) {
     else regular.push(...picks);
   }
 
-  // 「（選択権なし）」など名前として無効なものを除外
-  const isInvalidName = (n) => !n || n.includes("選択権なし") || n.includes("なし");
+  // 「（選択権なし）」「（辞退）」など括弧で囲まれた非選手行を除外
+  const isInvalidName = (n) => !n || /^[（(]/.test(n.trim());
 
   return [...regular, ...development].filter((p) => !isInvalidName(p.name));
 }

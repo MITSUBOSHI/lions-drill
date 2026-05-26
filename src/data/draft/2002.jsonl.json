@@ -1,7 +1,7 @@
 [
-  {"year":2002,"category":"regular","round":0,"name":"後藤 武敏","name_kana":"","position":"（２２）","team":"内野手","team_kana":"","isLotteryLoss":false},
-  {"year":2002,"category":"regular","round":0,"name":"長田 秀一郎","name_kana":"","position":"（２２）","team":"投 手","team_kana":"","isLotteryLoss":false},
-  {"year":2002,"category":"regular","round":0,"name":"小野寺 力","name_kana":"","position":"（２１）","team":"投 手","team_kana":"","isLotteryLoss":false},
-  {"year":2002,"category":"regular","round":0,"name":"春日 伸介","name_kana":"","position":"（１８）","team":"内野手","team_kana":"","isLotteryLoss":false},
-  {"year":2002,"category":"regular","round":0,"name":"上本 達之","name_kana":"","position":"（２２）","team":"捕 手","team_kana":"","isLotteryLoss":false}
+  {"year":2002,"category":"regular","round":0,"name":"後藤 武敏","name_kana":"","position":"内野手","team":"法政大","team_kana":"","isLotteryLoss":false},
+  {"year":2002,"category":"regular","round":0,"name":"長田 秀一郎","name_kana":"","position":"投手","team":"慶応義塾大","team_kana":"","isLotteryLoss":false},
+  {"year":2002,"category":"regular","round":4,"name":"小野寺 力","name_kana":"","position":"投手","team":"常磐大","team_kana":"","isLotteryLoss":false},
+  {"year":2002,"category":"regular","round":5,"name":"春日 伸介","name_kana":"","position":"内野手","team":"田辺高","team_kana":"","isLotteryLoss":false},
+  {"year":2002,"category":"regular","round":6,"name":"上本 達之","name_kana":"","position":"捕手","team":"協和発酵","team_kana":"","isLotteryLoss":false}
 ]

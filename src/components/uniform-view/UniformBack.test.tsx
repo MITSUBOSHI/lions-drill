@@ -5,22 +5,22 @@ import UniformBack from "./UniformBack";
 describe("UniformBack", () => {
   it("renders uniform name and number", () => {
     const { container } = render(
-      <UniformBack uniformName="MAKI" numberDisp="2" />,
+      <UniformBack uniformName="TONOSAKI" numberDisp="2" />,
     );
 
     const texts = container.querySelectorAll("text");
     expect(texts).toHaveLength(2);
-    expect(texts[0].textContent).toBe("MAKI");
+    expect(texts[0].textContent).toBe("TONOSAKI");
     expect(texts[1].textContent).toBe("2");
   });
 
   it("has accessible aria-label", () => {
     const { container } = render(
-      <UniformBack uniformName="MAKI" numberDisp="2" />,
+      <UniformBack uniformName="TONOSAKI" numberDisp="2" />,
     );
 
     const svg = container.querySelector("svg");
-    expect(svg).toHaveAttribute("aria-label", "MAKI 2番のユニフォーム背面");
+    expect(svg).toHaveAttribute("aria-label", "TONOSAKI 2番のユニフォーム背面");
   });
 
   it("uses smaller font size for long names (> 8 chars)", () => {
@@ -43,7 +43,7 @@ describe("UniformBack", () => {
 
   it("uses default font size for short names (<= 6 chars)", () => {
     const { container } = render(
-      <UniformBack uniformName="MAKI" numberDisp="2" />,
+      <UniformBack uniformName="UEDA" numberDisp="2" />,
     );
 
     const nameText = container.querySelectorAll("text")[0];
@@ -61,7 +61,7 @@ describe("UniformBack", () => {
 
   it("uses default font size for 1-2 digit numbers", () => {
     const { container } = render(
-      <UniformBack uniformName="MAKI" numberDisp="2" />,
+      <UniformBack uniformName="TONOSAKI" numberDisp="2" />,
     );
 
     const numberText = container.querySelectorAll("text")[1];

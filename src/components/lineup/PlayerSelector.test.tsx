@@ -13,9 +13,9 @@ import PlayerSelector from "./PlayerSelector";
 // Mock data
 const mockPlayers: PlayerType[] = [
   {
-    name: "佐野 恵太",
-    name_kana: "さの けいた",
-    uniform_name: "SANO",
+    name: "中村 剛也",
+    name_kana: "なかむら たけや",
+    uniform_name: "NAKAMURA",
     number_disp: "7",
     number_calc: 7,
     role: Role.Roster,
@@ -26,9 +26,9 @@ const mockPlayers: PlayerType[] = [
     weight_kg: 88,
   },
   {
-    name: "牧 秀悟",
-    name_kana: "まき しゅうご",
-    uniform_name: "MAKI",
+    name: "外崎 修汰",
+    name_kana: "とのさき しゅうた",
+    uniform_name: "TONOSAKI",
     number_disp: "2",
     number_calc: 2,
     role: Role.Roster,
@@ -70,8 +70,8 @@ describe("PlayerSelector", () => {
 
     // ドロップダウンメニューが表示されていることを確認
     expect(screen.getByLabelText("選手を検索")).toBeInTheDocument();
-    expect(screen.getByText("佐野 恵太")).toBeInTheDocument();
-    expect(screen.getByText("牧 秀悟")).toBeInTheDocument();
+    expect(screen.getByText("中村 剛也")).toBeInTheDocument();
+    expect(screen.getByText("外崎 修汰")).toBeInTheDocument();
   });
 
   test("ドロップダウンを開くと検索フィールドに自動でフォーカスが当たる", () => {
@@ -96,14 +96,14 @@ describe("PlayerSelector", () => {
     render(<PlayerSelector {...defaultProps} />);
     fireEvent.click(screen.getByRole("button", { name: "投手の選手を選択" }));
 
-    // 検索フィールドに「佐野」と入力
+    // 検索フィールドに「中村」と入力
     fireEvent.change(screen.getByLabelText("選手を検索"), {
-      target: { value: "佐野" },
+      target: { value: "中村" },
     });
 
-    // 佐野のみが表示されていることを確認
-    expect(screen.getByText("佐野 恵太")).toBeInTheDocument();
-    expect(screen.queryByText("牧 秀悟")).not.toBeInTheDocument();
+    // 中村のみが表示されていることを確認
+    expect(screen.getByText("中村 剛也")).toBeInTheDocument();
+    expect(screen.queryByText("外崎 修汰")).not.toBeInTheDocument();
   });
 
   test("選手を選択すると、onSelectPlayerが呼び出される", () => {
@@ -111,7 +111,7 @@ describe("PlayerSelector", () => {
     fireEvent.click(screen.getByRole("button", { name: "投手の選手を選択" }));
 
     // 選手を選択
-    fireEvent.click(screen.getByText("佐野 恵太"));
+    fireEvent.click(screen.getByText("中村 剛也"));
 
     // コールバックが呼ばれたことを確認
     expect(defaultProps.onSelectPlayer).toHaveBeenCalledWith(mockPlayers[0]);
@@ -123,7 +123,7 @@ describe("PlayerSelector", () => {
     );
 
     // 選手情報が表示されていることを確認
-    expect(screen.getByText("佐野 恵太")).toBeInTheDocument();
+    expect(screen.getByText("中村 剛也")).toBeInTheDocument();
     expect(screen.getByText("7")).toBeInTheDocument();
 
     // クリアボタンをクリック

@@ -1,8 +1,8 @@
 [
-  {"year":2016,"category":"regular","round":1,"name":"今井 達也","name_kana":"","position":"投手","team":"作新学院高","team_kana":"","isLotteryLoss":false},
-  {"year":2016,"category":"regular","round":2,"name":"中塚 駿太","name_kana":"","position":"投手","team":"白鴎大","team_kana":"","isLotteryLoss":false},
-  {"year":2016,"category":"regular","round":3,"name":"源田 壮亮","name_kana":"","position":"内野手","team":"トヨタ自動車","team_kana":"","isLotteryLoss":false},
-  {"year":2016,"category":"regular","round":4,"name":"鈴木 将平","name_kana":"","position":"外野手","team":"静岡高","team_kana":"","isLotteryLoss":false},
-  {"year":2016,"category":"regular","round":5,"name":"平井 克典","name_kana":"","position":"投手","team":"Honda鈴鹿","team_kana":"","isLotteryLoss":false},
-  {"year":2016,"category":"regular","round":6,"name":"田村 伊知郎","name_kana":"","position":"投手","team":"立教大","team_kana":"","isLotteryLoss":false}
+  {"year":2016,"category":"regular","round":1,"name":"今井 達也","name_kana":"いまい たつや","position":"投手","team":"作新学院高","team_kana":"","isLotteryLoss":false},
+  {"year":2016,"category":"regular","round":2,"name":"中塚 駿太","name_kana":"なかつか しゅんた","position":"投手","team":"白鴎大","team_kana":"","isLotteryLoss":false},
+  {"year":2016,"category":"regular","round":3,"name":"源田 壮亮","name_kana":"げんだ そうすけ","position":"内野手","team":"トヨタ自動車","team_kana":"","isLotteryLoss":false},
+  {"year":2016,"category":"regular","round":4,"name":"鈴木 将平","name_kana":"すずき しょうへい","position":"外野手","team":"静岡高","team_kana":"","isLotteryLoss":false},
+  {"year":2016,"category":"regular","round":5,"name":"平井 克典","name_kana":"ひらい かつのり","position":"投手","team":"Honda鈴鹿","team_kana":"","isLotteryLoss":false},
+  {"year":2016,"category":"regular","round":6,"name":"田村 伊知郎","name_kana":"たむら いちろう","position":"投手","team":"立教大","team_kana":"","isLotteryLoss":false}
 ]
