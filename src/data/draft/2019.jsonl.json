@@ -1,0 +1,11 @@
+[
+  {"year":2019,"category":"regular","round":1,"name":"宮川 哲","name_kana":"","position":"投手","team":"東芝","team_kana":"","isLotteryLoss":false},
+  {"year":2019,"category":"regular","round":2,"name":"浜屋 将太","name_kana":"","position":"投手","team":"三菱日立パワーシステムズ","team_kana":"","isLotteryLoss":false},
+  {"year":2019,"category":"regular","round":3,"name":"松岡 洸希","name_kana":"","position":"投手","team":"埼玉武蔵ヒートベアーズ","team_kana":"","isLotteryLoss":false},
+  {"year":2019,"category":"regular","round":4,"name":"川野 涼多","name_kana":"","position":"内野手","team":"九州学院高","team_kana":"","isLotteryLoss":false},
+  {"year":2019,"category":"regular","round":5,"name":"柘植 世那","name_kana":"","position":"捕手","team":"Honda鈴鹿","team_kana":"","isLotteryLoss":false},
+  {"year":2019,"category":"regular","round":6,"name":"井上 広輝","name_kana":"","position":"投手","team":"日本大学第三高","team_kana":"","isLotteryLoss":false},
+  {"year":2019,"category":"regular","round":7,"name":"上間 永遠","name_kana":"","position":"投手","team":"徳島インディゴソックス","team_kana":"","isLotteryLoss":false},
+  {"year":2019,"category":"regular","round":8,"name":"岸 潤一郎","name_kana":"","position":"外野手","team":"徳島インディゴソックス","team_kana":"","isLotteryLoss":false},
+  {"year":2019,"category":"development","round":1,"name":"出井 敏博","name_kana":"","position":"投手","team":"神奈川大学","team_kana":"","isLotteryLoss":false}
+]

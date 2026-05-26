@@ -1,0 +1,12 @@
+[
+  {"year":2021,"category":"regular","round":1,"name":"隅田 知一郎","name_kana":"","position":"投手","team":"西日本工業大学","team_kana":"","isLotteryLoss":false},
+  {"year":2021,"category":"regular","round":2,"name":"佐藤 隼輔","name_kana":"","position":"投手","team":"筑波大学","team_kana":"","isLotteryLoss":false},
+  {"year":2021,"category":"regular","round":3,"name":"古賀 悠斗","name_kana":"","position":"捕手","team":"中央大学","team_kana":"","isLotteryLoss":false},
+  {"year":2021,"category":"regular","round":4,"name":"羽田 慎之介","name_kana":"","position":"投手","team":"八王子学園八王子高","team_kana":"","isLotteryLoss":false},
+  {"year":2021,"category":"regular","round":5,"name":"黒田 将矢","name_kana":"","position":"投手","team":"八戸工業大第一高","team_kana":"","isLotteryLoss":false},
+  {"year":2021,"category":"regular","round":6,"name":"中山 誠吾","name_kana":"","position":"内野手","team":"白鴎大学","team_kana":"","isLotteryLoss":false},
+  {"year":2021,"category":"development","round":1,"name":"古市 尊","name_kana":"","position":"捕手","team":"徳島インディゴソックス","team_kana":"","isLotteryLoss":false},
+  {"year":2021,"category":"development","round":2,"name":"滝澤 夏央","name_kana":"","position":"内野手","team":"関根学園高","team_kana":"","isLotteryLoss":false},
+  {"year":2021,"category":"development","round":3,"name":"菅井 信也","name_kana":"","position":"投手","team":"山本学園高","team_kana":"","isLotteryLoss":false},
+  {"year":2021,"category":"development","round":4,"name":"川村 啓真","name_kana":"","position":"外野手","team":"國學院大學","team_kana":"","isLotteryLoss":false}
+]

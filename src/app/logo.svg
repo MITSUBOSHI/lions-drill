@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="64" fill="#003B89"/>
+  <text x="256" y="350" text-anchor="middle"
+        font-family="Impact, 'Arial Black', 'Helvetica Neue', sans-serif"
+        font-weight="900"
+        font-size="380"
+        fill="#FFFFFF"
+        letter-spacing="-10">L</text>
+  <text x="256" y="450" text-anchor="middle"
+        font-family="'Helvetica Neue', Arial, sans-serif"
+        font-weight="700"
+        font-size="56"
+        fill="#FFFFFF"
+        letter-spacing="6">LIONS DRILL</text>
+</svg>

@@ -1,0 +1,223 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useMemo, useState, useEffect, useRef } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
+import { useFurigana } from "@/contexts/FuriganaContext";
+import Ruby from "@/components/common/Ruby";
+import { navItems } from "@/constants/navigation";
+
+type BreadcrumbItemType = {
+  label: string;
+  reading?: string;
+  href: string;
+  isCurrentPage: boolean;
+};
+
+const pathMap: Record<string, { label: string; reading: string }> = {
+  "player-directory": { label: "選手名鑑", reading: "せんしゅめいかん" },
+  "number-drill": {
+    label: "背番号計算ドリル",
+    reading: "せばんごうけいさんどりる",
+  },
+  "lineup-maker": { label: "スタメン作成", reading: "すためんさくせい" },
+  "lineup-custom-maker": {
+    label: "スタメン作成（自由入力）",
+    reading: "すためんさくせい（じゆうにゅうりょく）",
+  },
+  "uniform-view": {
+    label: "ユニフォームビュー",
+    reading: "ゆにふぉーむびゅー",
+  },
+  "number-count": { label: "背番号タイマー", reading: "せばんごうたいまー" },
+  "cheer-songs": { label: "応援歌", reading: "おうえんか" },
+  "uniform-number": { label: "背番号", reading: "せばんごう" },
+  drill: { label: "計算ドリル", reading: "けいさんどりる" },
+  gallery: { label: "選手名鑑", reading: "せんしゅめいかん" },
+  lineup: { label: "スタメン作成", reading: "すためんさくせい" },
+  draft: { label: "ドラフト一覧", reading: "どらふといちらん" },
+};
+
+function BreadcrumbLabel({
+  label,
+  reading,
+}: {
+  label: string;
+  reading?: string;
+}) {
+  if (!reading) return <>{label}</>;
+  return <Ruby reading={reading}>{label}</Ruby>;
+}
+
+export default function AppBreadcrumb() {
+  const pathname = usePathname();
+  const { furigana, setFurigana } = useFurigana();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    function handleClick(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    }
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
+  }, [menuOpen]);
+
+  const breadcrumbItems = useMemo(() => {
+    const pathSegments = pathname.split("/").filter(Boolean);
+
+    const items: BreadcrumbItemType[] = [
+      {
+        label: "トップ",
+        reading: "とっぷ",
+        href: "/",
+        isCurrentPage: pathname === "/",
+      },
+    ];
+
+    let currentPath = "";
+    for (let i = 0; i < pathSegments.length; i++) {
+      currentPath += `/${pathSegments[i]}`;
+      const isLast = i === pathSegments.length - 1;
+
+      const segment = pathSegments[i];
+      const mapped = pathMap[segment];
+      const label = mapped
+        ? mapped.label
+        : /^\d{4}$/.test(segment)
+          ? `${segment}年`
+          : segment;
+      const reading = mapped
+        ? mapped.reading
+        : /^\d{4}$/.test(segment)
+          ? `${segment}ねん`
+          : undefined;
+
+      items.push({
+        label,
+        reading,
+        href: currentPath,
+        isCurrentPage: isLast,
+      });
+    }
+
+    return items;
+  }, [pathname]);
+
+  return (
+    <div className="relative" ref={menuRef}>
+      <div className="flex w-full max-w-[1200px] mx-auto mb-4 px-4 pt-4 justify-between items-center">
+        <div className="flex items-center gap-2">
+          <button
+            className="flex md:hidden p-1 bg-transparent border-none cursor-pointer"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label="メニューを開く"
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
+          </button>
+
+          {breadcrumbItems.length > 1 ? (
+            <nav aria-label="パンくずリスト">
+              <ol className="flex items-center gap-2 list-none">
+                {breadcrumbItems.map((item, index) => (
+                  <li key={index} className="flex items-center">
+                    {index > 0 && (
+                      <span
+                        className="mx-2 text-[var(--text-secondary)]"
+                        aria-hidden="true"
+                      >
+                        &gt;
+                      </span>
+                    )}
+                    {item.isCurrentPage ? (
+                      <span
+                        className="font-bold text-[var(--interactive-primary)]"
+                        aria-current="page"
+                      >
+                        <BreadcrumbLabel
+                          label={item.label}
+                          reading={item.reading}
+                        />
+                      </span>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="text-[var(--text-secondary)] hover:text-[var(--interactive-primary)] hover:underline"
+                      >
+                        <BreadcrumbLabel
+                          label={item.label}
+                          reading={item.reading}
+                        />
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          ) : (
+            <div />
+          )}
+        </div>
+
+        <button
+          className={`text-xs rounded-full px-3 py-1 border cursor-pointer transition-colors ${
+            furigana
+              ? "bg-[var(--interactive-primary)] text-white border-[var(--interactive-primary)]"
+              : "bg-transparent text-[var(--interactive-primary)] border-[var(--interactive-primary)]"
+          }`}
+          onClick={() => setFurigana(!furigana)}
+          aria-pressed={furigana}
+          aria-label="ふりがなモード切り替え"
+        >
+          ふりがな{furigana ? "ON" : "OFF"}
+        </button>
+      </div>
+
+      {menuOpen && (
+        <div className="block md:hidden absolute top-full left-0 right-0 z-50 bg-[var(--surface-card)] border-b border-[var(--border-card)] shadow-md">
+          <nav aria-label="メニュー" className="flex flex-col">
+            <Link
+              href="/"
+              className={`flex items-center gap-3 px-6 py-3 hover:bg-[var(--surface-card-subtle)] no-underline ${
+                pathname === "/"
+                  ? "font-bold text-[var(--interactive-primary)]"
+                  : "text-[var(--text-primary)]"
+              }`}
+            >
+              <span className="text-lg">🏠</span>
+              <Ruby reading="とっぷ">トップ</Ruby>
+            </Link>
+            {navItems.map((item) => {
+              const isActive = pathname.startsWith(
+                item.href.replace(/\/\d{4}$/, ""),
+              );
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`flex items-center gap-3 px-6 py-3 hover:bg-[var(--surface-card-subtle)] no-underline ${
+                    isActive
+                      ? "font-bold text-[var(--interactive-primary)]"
+                      : "text-[var(--text-primary)]"
+                  }`}
+                >
+                  <span className="text-lg">{item.icon}</span>
+                  <Ruby reading={item.titleReading}>{item.title}</Ruby>
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+      )}
+    </div>
+  );
+}

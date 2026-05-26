@@ -1,0 +1,12 @@
+[
+  {"year":2022,"category":"regular","round":1,"name":"蛭間 拓哉","name_kana":"","position":"外野手","team":"早稲田大学","team_kana":"","isLotteryLoss":false},
+  {"year":2022,"category":"regular","round":2,"name":"古川 雄大","name_kana":"","position":"外野手","team":"佐伯鶴城高","team_kana":"","isLotteryLoss":false},
+  {"year":2022,"category":"regular","round":3,"name":"野田 海人","name_kana":"","position":"捕手","team":"九州国際大学付属高","team_kana":"","isLotteryLoss":false},
+  {"year":2022,"category":"regular","round":4,"name":"青山 美夏人","name_kana":"","position":"投手","team":"亜細亜大学","team_kana":"","isLotteryLoss":false},
+  {"year":2022,"category":"regular","round":5,"name":"山田 陽翔","name_kana":"","position":"投手","team":"近江高","team_kana":"","isLotteryLoss":false},
+  {"year":2022,"category":"regular","round":6,"name":"児玉 亮涼","name_kana":"","position":"内野手","team":"大阪ガス","team_kana":"","isLotteryLoss":false},
+  {"year":2022,"category":"development","round":1,"name":"野村 和輝","name_kana":"","position":"投手","team":"石川ミリオンスターズ","team_kana":"","isLotteryLoss":false},
+  {"year":2022,"category":"development","round":2,"name":"日隈 モンテル","name_kana":"","position":"外野手","team":"徳島インディゴソックス","team_kana":"","isLotteryLoss":false},
+  {"year":2022,"category":"development","round":3,"name":"三浦 大輝","name_kana":"","position":"投手","team":"中京大学","team_kana":"","isLotteryLoss":false},
+  {"year":2022,"category":"development","round":4,"name":"是澤 涼輔","name_kana":"","position":"捕手","team":"法政大学","team_kana":"","isLotteryLoss":false}
+]

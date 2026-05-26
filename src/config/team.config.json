@@ -1,0 +1,108 @@
+{
+  "id": "lions",
+  "name": "Lions Drill",
+  "shortName": "ライオンズ",
+  "shortNameReading": "らいおんず",
+  "fullName": "埼玉西武ライオンズ",
+  "subtitleSegments": [
+    { "text": "埼玉", "reading": "さいたま" },
+    { "text": "西武", "reading": "せいぶ" },
+    { "text": "ライオンズ", "reading": "らいおんず" },
+    { "text": "の" },
+    { "text": "背番号", "reading": "せばんごう" },
+    { "text": "で" },
+    { "text": "遊", "reading": "あそ" },
+    { "text": "ぼう!" }
+  ],
+  "siteSubtitle": "埼玉西武ライオンズの背番号で遊ぼう!",
+  "siteDescription": "埼玉西武ライオンズの背番号計算ドリル・スタメン作成・選手名鑑を楽しめるファンサイト",
+  "descriptionTemplate": {
+    "draft": "埼玉西武ライオンズ{year}年のドラフト指名選手一覧",
+    "numberDrill": "埼玉西武ライオンズ{year}年の選手背番号で計算ドリルに挑戦",
+    "playerDirectory": "埼玉西武ライオンズ{year}年の選手一覧・背番号名鑑",
+    "lineupMaker": "埼玉西武ライオンズ{year}年の選手でオリジナルスタメンを作成",
+    "numberCount": "埼玉西武ライオンズ{year}年の背番号タイマー。背番号順に選手名を読み上げてカウント。",
+    "uniformView": "埼玉西武ライオンズ{year}年のユニフォーム背面を再現。選手のユニフォーム名と背番号を表示。",
+    "cheerSongs": "埼玉西武ライオンズ{year}年の応援歌・歌詞一覧"
+  },
+  "keywords": [
+    "埼玉西武ライオンズ",
+    "Lions",
+    "Saitama Seibu Lions",
+    "ライオンズ",
+    "西武",
+    "背番号",
+    "計算ドリル",
+    "スタメン",
+    "選手名鑑",
+    "ユニフォーム",
+    "ふりがな"
+  ],
+  "disclaimer": "本サイトは個人が運営するファンサイトであり、株式会社西武ライオンズとは一切関係ありません。",
+  "basePath": "/lions-drill",
+  "siteUrl": "https://mitsuboshi.github.io/lions-drill",
+  "capacitor": {
+    "appId": "com.mitsuboshi.lionsdrill",
+    "appName": "Lions Drill"
+  },
+  "colors": {
+    "themeColor": "#003B89",
+    "brand": {
+      "50": "#E6ECF6",
+      "100": "#B3C2E0",
+      "200": "#8099CA",
+      "300": "#4D70B3",
+      "400": "#264C9C",
+      "500": "#003B89",
+      "600": "#00357B",
+      "700": "#002E6B",
+      "800": "#00265A",
+      "900": "#001D48"
+    }
+  },
+  "logo": {
+    "png": "logo.png",
+    "svg": "logo.svg",
+    "alt": "Lions Drill Logo"
+  },
+  "storage": {
+    "furiganaKey": "lions-drill-furigana",
+    "drillScoreKey": "lions-drill-scores",
+    "pwaCacheKey": "lions-drill-v1"
+  },
+  "lineup": {
+    "defaultTitle": "ライオンズ スタメン",
+    "imageFileName": "lions-lineup.png"
+  },
+  "uniform": {
+    "fallbackName": "LIONS",
+    "fallbackPlayerName": "ライオンズ",
+    "fallbackPlayerKana": "らいおんず",
+    "svg": {
+      "primaryColor": "#003B89",
+      "accentColor": "#C8102E",
+      "stripeStyle": "vertical",
+      "numberFontFamily": "var(--font-oswald), 'Oswald', 'Impact', sans-serif"
+    }
+  },
+  "npb": {
+    "teamCode": "l",
+    "rosterUrls": {
+      "2020": "https://web.archive.org/web/20200929110218/https://npb.jp/bis/teams/rst_l.html",
+      "2021": "https://web.archive.org/web/20211021181156/https://npb.jp/bis/teams/rst_l.html",
+      "2022": "https://web.archive.org/web/20220928062332/https://npb.jp/bis/teams/rst_l.html",
+      "2023": "https://web.archive.org/web/20230501000000/https://npb.jp/bis/teams/rst_l.html",
+      "2024": "https://web.archive.org/web/20241204023918/https://npb.jp/bis/teams/rst_l.html",
+      "2025": "https://web.archive.org/web/20250617234220/https://npb.jp/bis/teams/rst_l.html",
+      "2026": "https://npb.jp/bis/teams/rst_l.html"
+    },
+    "draftUrlTemplate": "https://draft.npb.jp/draft/{year}/draftlist_l.html"
+  },
+  "features": {
+    "cheerSongs": false
+  },
+  "analytics": {
+    "gaId": "G-99CW9NGC3X",
+    "googleSiteVerification": "vlzDVPRDmQPcycgM2kxNfnsjt5eA2wGV40ksGd7LRRI"
+  }
+}

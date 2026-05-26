@@ -1,0 +1,10 @@
+[
+  {"year":2017,"category":"regular","round":1,"name":"齊藤 大将","name_kana":"","position":"投手","team":"明治大学","team_kana":"","isLotteryLoss":false},
+  {"year":2017,"category":"regular","round":2,"name":"西川 愛也","name_kana":"","position":"外野手","team":"花咲徳栄高","team_kana":"","isLotteryLoss":false},
+  {"year":2017,"category":"regular","round":3,"name":"伊藤 翔","name_kana":"","position":"投手","team":"徳島インディゴソックス","team_kana":"","isLotteryLoss":false},
+  {"year":2017,"category":"regular","round":4,"name":"平良 海馬","name_kana":"","position":"投手","team":"八重山商工高","team_kana":"","isLotteryLoss":false},
+  {"year":2017,"category":"regular","round":5,"name":"與座 海人","name_kana":"","position":"投手","team":"岐阜経済大学","team_kana":"","isLotteryLoss":false},
+  {"year":2017,"category":"regular","round":6,"name":"綱島 龍生","name_kana":"","position":"内野手","team":"糸魚川白嶺高","team_kana":"","isLotteryLoss":false},
+  {"year":2017,"category":"development","round":1,"name":"高木 渉","name_kana":"","position":"外野手","team":"真颯館高","team_kana":"","isLotteryLoss":false},
+  {"year":2017,"category":"development","round":2,"name":"齊藤 誠人","name_kana":"","position":"捕手","team":"北海道教育大学岩見沢校","team_kana":"","isLotteryLoss":false}
+]

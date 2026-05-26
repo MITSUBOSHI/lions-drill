@@ -1,0 +1,15 @@
+[
+  {"year":2023,"category":"regular","round":1,"name":"武内 夏暉","name_kana":"","position":"投手","team":"國學院大學","team_kana":"","isLotteryLoss":false},
+  {"year":2023,"category":"regular","round":2,"name":"上田 大河","name_kana":"","position":"投手","team":"大阪商業大学","team_kana":"","isLotteryLoss":false},
+  {"year":2023,"category":"regular","round":3,"name":"杉山 遙希","name_kana":"","position":"投手","team":"横浜高","team_kana":"","isLotteryLoss":false},
+  {"year":2023,"category":"regular","round":4,"name":"成田 晴風","name_kana":"","position":"投手","team":"弘前工業高","team_kana":"","isLotteryLoss":false},
+  {"year":2023,"category":"regular","round":5,"name":"宮澤 太成","name_kana":"","position":"投手","team":"徳島インディゴソックス","team_kana":"","isLotteryLoss":false},
+  {"year":2023,"category":"regular","round":6,"name":"村田 怜音","name_kana":"","position":"内野手","team":"皇學館大学","team_kana":"","isLotteryLoss":false},
+  {"year":2023,"category":"regular","round":7,"name":"糸川 亮太","name_kana":"","position":"投手","team":"ENEOS","team_kana":"","isLotteryLoss":false},
+  {"year":2023,"category":"development","round":1,"name":"シンクレア ジョセフ 孝ノ助","name_kana":"","position":"投手","team":"徳島インディゴソックス","team_kana":"","isLotteryLoss":false},
+  {"year":2023,"category":"development","round":2,"name":"谷口 朝陽","name_kana":"","position":"内野手","team":"徳島インディゴソックス","team_kana":"","isLotteryLoss":false},
+  {"year":2023,"category":"development","round":3,"name":"川下 将勲","name_kana":"","position":"投手","team":"函館大学付属有斗高","team_kana":"","isLotteryLoss":false},
+  {"year":2023,"category":"development","round":4,"name":"金子 功児","name_kana":"","position":"内野手","team":"埼玉武蔵ヒートベアーズ","team_kana":"","isLotteryLoss":false},
+  {"year":2023,"category":"development","round":5,"name":"木瀬 翔太","name_kana":"","position":"投手","team":"北嵯峨高","team_kana":"","isLotteryLoss":false},
+  {"year":2023,"category":"development","round":6,"name":"奥村 光一","name_kana":"","position":"外野手","team":"群馬ダイヤモンドペガサス","team_kana":"","isLotteryLoss":false}
+]
