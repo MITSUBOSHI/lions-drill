@@ -134,15 +134,20 @@ export function toJsonlJson(records) {
 }
 
 // NPB の pc_v_kana を表示用ふりがなに整形する。
+// 読みはひらがなで統一するため、外国人選手のカタカナ読みもひらがなへ変換する。
 // 日本人: "うえだ・たいが" → "うえだ たいが"
-// 外国人: "アラン・ワイナンス　(ALLAN WINANS)" → "アラン ワイナンス"
+// 外国人: "アラン・ワイナンス　(ALLAN WINANS)" → "あらん わいなんす"
+const kataToHira = (s) =>
+  s.replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60));
 export function cleanKana(raw) {
   if (!raw) return "";
-  return raw
-    .replace(/[（(].*$/s, "") // 括弧以降の英字表記を除去
-    .replace(/・/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+  return kataToHira(
+    raw
+      .replace(/[（(].*$/s, "") // 括弧以降の英字表記を除去
+      .replace(/・/g, " ")
+      .replace(/\s+/g, " ")
+      .trim(),
+  );
 }
 
 export async function fetchPlayerKana(playerUrl) {
