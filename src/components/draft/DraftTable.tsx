@@ -4,6 +4,7 @@ import { useState } from "react";
 import Ruby from "@/components/common/Ruby";
 import { positionKanaMap } from "@/constants/draft";
 import { DraftPick, DraftYear } from "@/types/DraftPick";
+import { TEAM } from "@/config/team";
 
 type DraftTableProps = {
   picks: DraftPick[];
@@ -114,7 +115,7 @@ export default function DraftTable({
       <p className="text-xs text-[var(--text-secondary)] mt-2 text-right">
         データソース:{" "}
         <a
-          href={`https://draft.npb.jp/draft/${year}/draftlist_db.html`}
+          href={TEAM.npb.draftUrlTemplate.replace("{year}", String(year))}
           target="_blank"
           rel="noopener noreferrer"
           className="underline"
