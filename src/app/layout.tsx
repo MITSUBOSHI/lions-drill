@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Oswald } from "next/font/google";
+import { Oswald, Graduate } from "next/font/google";
 import Provider from "./provider";
 import AppBreadcrumb from "@/components/common/Breadcrumb";
 import { TEAM } from "@/config/team";
@@ -11,6 +11,14 @@ const oswald = Oswald({
   weight: "700",
   display: "swap",
   variable: "--font-oswald",
+});
+
+// ユニフォーム背番号用のカレッジ体（チームにより使用）
+const graduate = Graduate({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-graduate",
 });
 
 const basePath = process.env.CAPACITOR === "true" ? "" : TEAM.basePath;
@@ -54,7 +62,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={oswald.variable} suppressHydrationWarning>
+    <html
+      lang="ja"
+      className={`${oswald.variable} ${graduate.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <meta
           name="google-site-verification"

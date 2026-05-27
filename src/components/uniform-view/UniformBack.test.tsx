@@ -41,30 +41,30 @@ describe("UniformBack", () => {
     expect(nameText.style.fontSize).toBe("36px");
   });
 
-  it("uses default font size for short names (<= 6 chars)", () => {
+  it("caps the name font size at 40px for short names (sleeve)", () => {
     const { container } = render(
       <UniformBack uniformName="UEDA" numberDisp="2" />,
     );
 
     const nameText = container.querySelectorAll("text")[0];
-    expect(nameText.style.fontSize).toBe("44px");
+    expect(nameText.style.fontSize).toBe("40px");
   });
 
-  it("uses smaller font size for 3-digit numbers", () => {
+  it("uses larger sleeve font size for 3-digit numbers", () => {
     const { container } = render(
       <UniformBack uniformName="SHOJI" numberDisp="122" />,
     );
 
     const numberText = container.querySelectorAll("text")[1];
-    expect(numberText.style.fontSize).toBe("90px");
+    expect(numberText.style.fontSize).toBe("105px");
   });
 
-  it("uses default font size for 1-2 digit numbers", () => {
+  it("uses larger sleeve font size for 1-2 digit numbers", () => {
     const { container } = render(
       <UniformBack uniformName="TONOSAKI" numberDisp="2" />,
     );
 
     const numberText = container.querySelectorAll("text")[1];
-    expect(numberText.style.fontSize).toBe("130px");
+    expect(numberText.style.fontSize).toBe("150px");
   });
 });

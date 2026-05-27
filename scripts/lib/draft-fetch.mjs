@@ -29,9 +29,18 @@ function cleanPosition(s) {
   return normalize(s).replace(/\s/g, "");
 }
 
-function parseSection(table, year, category) {
+// 巡目が付かない特別枠の見出し → 表示ラベル
+function specialSlotNote(headingText) {
+  if (headingText.includes("自由獲得")) return "自由獲得枠";
+  if (headingText.includes("希望")) return "希望入団枠";
+  if (headingText.includes("逆指名")) return "逆指名";
+  return undefined;
+}
+
+function parseSection(table, year, category, headingText = "") {
   const picks = [];
   if (!table) return picks;
+  const note = specialSlotNote(headingText);
   for (const tr of table.querySelectorAll("tr")) {
     const th = tr.querySelector("th");
     if (!th) continue;
@@ -45,17 +54,20 @@ function parseSection(table, year, category) {
     const position = cleanPosition(tds[hasAgeColumn ? 2 : 1]?.text);
     const team = normalize(tds[hasAgeColumn ? 3 : 2]?.text);
     if (!name) continue;
-    picks.push({
+    const round = rankToRound(rank);
+    const pick = {
       year,
       category,
-      round: rankToRound(rank),
+      round,
       name,
       name_kana: "",
       position,
       team,
       team_kana: "",
       isLotteryLoss: false,
-    });
+    };
+    if (round === 0 && note) pick.note = note;
+    picks.push(pick);
   }
   return picks;
 }
@@ -81,7 +93,7 @@ export function parseDraftHtml(html, { year }) {
     const table = nextTable(h);
     if (!table) continue;
     const category = headingText.includes("育成") ? "development" : "regular";
-    const picks = parseSection(table, year, category);
+    const picks = parseSection(table, year, category, headingText);
     if (category === "development") development.push(...picks);
     else regular.push(...picks);
   }

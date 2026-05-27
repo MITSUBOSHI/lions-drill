@@ -1,5 +1,5 @@
 [
-  {"year":2003,"category":"regular","round":0,"name":"山崎 敏","name_kana":"やまざき さとし","position":"投手","team":"平成国際大","team_kana":"","isLotteryLoss":false},
+  {"year":2003,"category":"regular","round":0,"name":"山崎 敏","name_kana":"やまざき さとし","position":"投手","team":"平成国際大","team_kana":"","isLotteryLoss":false,"note":"自由獲得枠"},
   {"year":2003,"category":"regular","round":2,"name":"黒瀬 春樹","name_kana":"くろせ はるき","position":"内野手","team":"県岐阜商高","team_kana":"","isLotteryLoss":false},
   {"year":2003,"category":"regular","round":4,"name":"松川 誉弘","name_kana":"まつかわ たかひろ","position":"投手","team":"大阪府立港高","team_kana":"","isLotteryLoss":false},
   {"year":2003,"category":"regular","round":5,"name":"松坂 健太","name_kana":"まつさか けんた","position":"外野手","team":"東海大仰星高","team_kana":"","isLotteryLoss":false},

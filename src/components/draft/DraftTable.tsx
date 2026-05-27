@@ -76,7 +76,7 @@ export default function DraftTable({
                 </td>
                 <td className="px-3 py-2 whitespace-nowrap">
                   <span className="flex items-center gap-1">
-                    {pick.round}位
+                    {pick.round > 0 ? `${pick.round}位` : (pick.note ?? "ー")}
                     {pick.isLotteryLoss && (
                       <span className="relative">
                         <button

@@ -79,10 +79,10 @@
     "fallbackPlayerName": "ライオンズ",
     "fallbackPlayerKana": "らいおんず",
     "svg": {
-      "primaryColor": "#003B89",
-      "accentColor": "#C8102E",
-      "stripeStyle": "none",
-      "numberFontFamily": "var(--font-oswald), 'Oswald', 'Impact', sans-serif"
+      "primaryColor": "#0C2340",
+      "accentColor": "#6CACE4",
+      "stripeStyle": "sleeve",
+      "numberFontFamily": "var(--font-graduate), 'Graduate', 'Oswald', serif"
     }
   },
   "npb": {

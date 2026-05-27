@@ -1,6 +1,6 @@
 [
-  {"year":2002,"category":"regular","round":0,"name":"後藤 武敏","name_kana":"ごとう たけとし","position":"内野手","team":"法政大","team_kana":"","isLotteryLoss":false},
-  {"year":2002,"category":"regular","round":0,"name":"長田 秀一郎","name_kana":"おさだ しゅういちろう","position":"投手","team":"慶応義塾大","team_kana":"","isLotteryLoss":false},
+  {"year":2002,"category":"regular","round":0,"name":"後藤 武敏","name_kana":"ごとう たけとし","position":"内野手","team":"法政大","team_kana":"","isLotteryLoss":false,"note":"自由獲得枠"},
+  {"year":2002,"category":"regular","round":0,"name":"長田 秀一郎","name_kana":"おさだ しゅういちろう","position":"投手","team":"慶応義塾大","team_kana":"","isLotteryLoss":false,"note":"自由獲得枠"},
   {"year":2002,"category":"regular","round":4,"name":"小野寺 力","name_kana":"おのでら ちから","position":"投手","team":"常磐大","team_kana":"","isLotteryLoss":false},
   {"year":2002,"category":"regular","round":5,"name":"春日 伸介","name_kana":"かすが しんすけ","position":"内野手","team":"田辺高","team_kana":"","isLotteryLoss":false},
   {"year":2002,"category":"regular","round":6,"name":"上本 達之","name_kana":"うえもと たつゆき","position":"捕手","team":"協和発酵","team_kana":"","isLotteryLoss":false}

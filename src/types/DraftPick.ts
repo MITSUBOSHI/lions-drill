@@ -13,4 +13,6 @@ export type DraftPick = {
   team_kana: string;
   isLotteryLoss: boolean;
   lotteryTarget?: string;
+  // 巡目が付かない特別枠（自由獲得枠・希望入団枠など）。round=0 の表示に使う。
+  note?: string;
 };

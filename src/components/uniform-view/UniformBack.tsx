@@ -11,10 +11,11 @@ type UniformBackProps = {
 const PRIMARY = TEAM.uniform.svg.primaryColor;
 const ACCENT = TEAM.uniform.svg.accentColor;
 const NUMBER_FONT = TEAM.uniform.svg.numberFontFamily;
-const SHOW_STRIPES = TEAM.uniform.svg.stripeStyle !== "none";
+// "vertical": 中央縦ストライプ / "sleeve": 袖口2本線+アーチ名 / "none": 装飾なし
+const STYLE = TEAM.uniform.svg.stripeStyle;
 
 /*
- * viewBox 480x340
+ * viewBox 480x370
  * 袖を大きく確保し、実物のTシャツに近いシルエット
  * 袖:身頃:袖 ≈ 20%:60%:20%
  */
@@ -23,17 +24,15 @@ const UNIFORM_PATH =
 
 const CENTER_X = 240;
 
-/* ストライプ水平位置（中央を基準に対称配置） */
-const STRIPE_W = 22; /* 金2(外側のみ) + 青20 */
+/* 中央縦ストライプ（vertical用） */
+const STRIPE_W = 22;
 const STRIPE_GAP = 10;
-const LEFT_X = CENTER_X - STRIPE_GAP / 2 - STRIPE_W; /* 217 */
-const RIGHT_X = CENTER_X + STRIPE_GAP / 2; /* 249 */
-
-/* ストライプ垂直位置（名前・背番号を避けて上下に分断） */
+const LEFT_X = CENTER_X - STRIPE_GAP / 2 - STRIPE_W;
+const RIGHT_X = CENTER_X + STRIPE_GAP / 2;
 const STRIPE_UPPER_Y = 10;
-const STRIPE_UPPER_H = 48; /* y=10〜58 */
+const STRIPE_UPPER_H = 48;
 const STRIPE_LOWER_Y = 233;
-const STRIPE_LOWER_H = 130; /* y=233〜363, 1.2倍 */
+const STRIPE_LOWER_H = 130;
 
 function getNameFontSize(name: string): number {
   if (name.length > 10) return 24;
@@ -43,8 +42,9 @@ function getNameFontSize(name: string): number {
 }
 
 function getNumberFontSize(numberDisp: string): number {
-  if (numberDisp.length > 2) return 90;
-  return 130;
+  const big = STYLE === "sleeve";
+  if (numberDisp.length > 2) return big ? 105 : 90;
+  return big ? 150 : 130;
 }
 
 function Stripe({
@@ -79,6 +79,10 @@ export default function UniformBack({
   numberDisp,
   clipPathId = "uniformClip",
 }: UniformBackProps) {
+  const arcId = `${clipPathId}-arc`;
+  const isSleeve = STYLE === "sleeve";
+  const numberFontSize = getNumberFontSize(numberDisp);
+
   return (
     <div className="relative w-full max-w-[320px] mx-auto">
       <svg
@@ -88,13 +92,14 @@ export default function UniformBack({
         role="img"
         aria-label={`${uniformName} ${numberDisp}番のユニフォーム背面`}
       >
-        {SHOW_STRIPES && (
-          <defs>
-            <clipPath id={clipPathId}>
-              <path d={UNIFORM_PATH} />
-            </clipPath>
-          </defs>
-        )}
+        <defs>
+          <clipPath id={clipPathId}>
+            <path d={UNIFORM_PATH} />
+          </clipPath>
+          {isSleeve && (
+            <path id={arcId} d="M 98,120 Q 240,50 382,120" fill="none" />
+          )}
+        </defs>
 
         {/* ユニフォーム外形 */}
         <path
@@ -112,10 +117,9 @@ export default function UniformBack({
           strokeWidth="2.5"
         />
 
-        {/* クリッピングされたストライプ群 */}
-        {SHOW_STRIPES && (
+        {/* 中央縦ストライプ（vertical） */}
+        {STYLE === "vertical" && (
           <g clipPath={`url(#${clipPathId})`}>
-            {/* 上部ストライプ（襟下〜名前の手前） */}
             <Stripe
               x={LEFT_X}
               y={STRIPE_UPPER_Y}
@@ -128,8 +132,6 @@ export default function UniformBack({
               h={STRIPE_UPPER_H}
               goldSide="right"
             />
-
-            {/* 下部ストライプ（背番号の下〜裾） */}
             <Stripe
               x={LEFT_X}
               y={STRIPE_LOWER_Y}
@@ -145,34 +147,96 @@ export default function UniformBack({
           </g>
         )}
 
-        {/* uniform_name テキスト（背番号の上の余白） */}
-        <text
-          x={CENTER_X}
-          y="80"
-          textAnchor="middle"
-          dominantBaseline="central"
-          fill={PRIMARY}
-          style={{
-            fontFamily: NUMBER_FONT,
-            fontWeight: 700,
-            fontSize: getNameFontSize(uniformName),
-            letterSpacing: 8,
-          }}
-        >
-          {uniformName}
-        </text>
+        {/* 袖口の2本線（sleeve） */}
+        {isSleeve && (
+          <g clipPath={`url(#${clipPathId})`} fill="none" strokeLinecap="butt">
+            {/* 左袖：袖先端エッジ(0,40)-(40,128)に沿った2本 */}
+            <line
+              x1="6"
+              y1="44"
+              x2="46"
+              y2="132"
+              stroke={PRIMARY}
+              strokeWidth="7"
+            />
+            <line
+              x1="18"
+              y1="39"
+              x2="58"
+              y2="127"
+              stroke={ACCENT}
+              strokeWidth="5"
+            />
+            {/* 右袖：袖先端エッジ(440,128)-(480,40)に沿った2本（左右対称） */}
+            <line
+              x1="474"
+              y1="44"
+              x2="434"
+              y2="132"
+              stroke={PRIMARY}
+              strokeWidth="7"
+            />
+            <line
+              x1="462"
+              y1="39"
+              x2="422"
+              y2="127"
+              stroke={ACCENT}
+              strokeWidth="5"
+            />
+          </g>
+        )}
 
-        {/* 背番号テキスト（名前と下部ストライプの間の余白） */}
+        {/* 選手名 */}
+        {isSleeve ? (
+          <text
+            fill={PRIMARY}
+            stroke="#FFFFFF"
+            strokeWidth="0.8"
+            paintOrder="stroke"
+            style={{
+              fontFamily: NUMBER_FONT,
+              fontWeight: 700,
+              fontSize: Math.min(getNameFontSize(uniformName), 40),
+              letterSpacing: 3,
+            }}
+          >
+            <textPath href={`#${arcId}`} startOffset="50%" textAnchor="middle">
+              {uniformName}
+            </textPath>
+          </text>
+        ) : (
+          <text
+            x={CENTER_X}
+            y="80"
+            textAnchor="middle"
+            dominantBaseline="central"
+            fill={PRIMARY}
+            style={{
+              fontFamily: NUMBER_FONT,
+              fontWeight: 700,
+              fontSize: getNameFontSize(uniformName),
+              letterSpacing: 8,
+            }}
+          >
+            {uniformName}
+          </text>
+        )}
+
+        {/* 背番号 */}
         <text
           x={CENTER_X}
-          y="168"
+          y={isSleeve ? "215" : "168"}
           textAnchor="middle"
           dominantBaseline="central"
           fill={PRIMARY}
+          stroke={isSleeve ? "#FFFFFF" : undefined}
+          strokeWidth={isSleeve ? 2.5 : undefined}
+          paintOrder="stroke"
           style={{
             fontFamily: NUMBER_FONT,
-            fontWeight: 700,
-            fontSize: getNumberFontSize(numberDisp),
+            fontWeight: isSleeve ? 900 : 700,
+            fontSize: numberFontSize,
           }}
         >
           {numberDisp}
