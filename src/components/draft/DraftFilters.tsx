@@ -13,7 +13,7 @@ type DraftFiltersProps = {
   ) => React.ReactNode;
 };
 
-const roundOptions = [
+const baseRoundOptions = [
   { value: "1", label: "1位" },
   { value: "2", label: "2位" },
   { value: "3", label: "3位" },
@@ -22,6 +22,15 @@ const roundOptions = [
   { value: "6", label: "6位" },
   { value: "7", label: "7位以降" },
 ];
+
+// round=0（自由獲得枠・希望入団枠など巡目なしの特別枠）の絞り込み値
+const OTHER_ROUND = "other";
+
+function roundToFilterValue(round: number): string {
+  if (round <= 0) return OTHER_ROUND;
+  if (round <= 6) return String(round);
+  return "7";
+}
 
 const categoryOptions = [
   { value: "all", label: "全て" },
@@ -58,12 +67,19 @@ export default function DraftFilters({
     );
   }, []);
 
-  const filteredPicks = useMemo(() => {
-    const basePicks = showAllYears ? allPicks : singleYearPicks;
+  const basePicks = showAllYears ? allPicks : singleYearPicks;
 
+  const roundOptions = useMemo(() => {
+    const hasOther = basePicks.some((p) => p.round <= 0);
+    return hasOther
+      ? [...baseRoundOptions, { value: OTHER_ROUND, label: "その他" }]
+      : baseRoundOptions;
+  }, [basePicks]);
+
+  const filteredPicks = useMemo(() => {
     return basePicks.filter((pick) => {
       if (selectedRounds.length > 0) {
-        const roundStr = pick.round <= 6 ? String(pick.round) : "7";
+        const roundStr = roundToFilterValue(pick.round);
         if (!selectedRounds.includes(roundStr)) return false;
       }
 
@@ -80,14 +96,7 @@ export default function DraftFilters({
 
       return true;
     });
-  }, [
-    showAllYears,
-    allPicks,
-    singleYearPicks,
-    selectedRounds,
-    selectedCategory,
-    selectedPositions,
-  ]);
+  }, [basePicks, selectedRounds, selectedCategory, selectedPositions]);
 
   return (
     <div className="flex flex-col gap-4">
