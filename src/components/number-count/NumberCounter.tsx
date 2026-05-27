@@ -56,12 +56,12 @@ export default function NumberCounter({ players }: Props) {
 
     if (includeZero) {
       result.push({
-        displayNumber: "0",
-        player: playerByDisp.get("0") ?? null,
-      });
-      result.push({
         displayNumber: "00",
         player: playerByDisp.get("00") ?? null,
+      });
+      result.push({
+        displayNumber: "0",
+        player: playerByDisp.get("0") ?? null,
       });
     }
 

@@ -340,7 +340,7 @@ describe("NumberCounter", () => {
     expect(screen.getByText("1 / 10")).toBeInTheDocument();
   });
 
-  it("「0を含める」ONで背番号0から開始し、0→00の順に表示される", () => {
+  it("「0を含める」ONで背番号00から開始し、00→0の順に表示される", () => {
     render(<NumberCounter players={mockPlayersWithZero} />);
     // デフォルトは番号1から
     expect(screen.getByTestId("uniform-back")).toHaveTextContent(
@@ -354,12 +354,12 @@ describe("NumberCounter", () => {
       fireEvent.click(onButtons[0]);
     });
 
-    // 背番号0（デュプランティエ）から開始
-    expect(screen.getByText("J.デュプランティエ")).toBeInTheDocument();
-    expect(screen.getByTestId("uniform-back")).toHaveTextContent("NEVIN #0");
-    expect(screen.getByText("0 / 30")).toBeInTheDocument();
+    // 背番号00（蛭間）から開始
+    expect(screen.getByText("蛭間 拓哉")).toBeInTheDocument();
+    expect(screen.getByTestId("uniform-back")).toHaveTextContent("HIRUMA #00");
+    expect(screen.getByText("00 / 30")).toBeInTheDocument();
 
-    // 再生して1ステップ進む → 背番号00（林）
+    // 再生して1ステップ進む → 背番号0（デュプランティエ）
     act(() => {
       fireEvent.click(screen.getByLabelText("再生"));
     });
@@ -369,11 +369,11 @@ describe("NumberCounter", () => {
     act(() => {
       jest.advanceTimersByTime(150);
     });
-    expect(screen.getByText("蛭間 拓哉")).toBeInTheDocument();
-    expect(screen.getByTestId("uniform-back")).toHaveTextContent("HIRUMA #00");
+    expect(screen.getByText("J.デュプランティエ")).toBeInTheDocument();
+    expect(screen.getByTestId("uniform-back")).toHaveTextContent("NEVIN #0");
   });
 
-  it("「0を含める」ONでカウントダウン時に00→0まで到達する", () => {
+  it("「0を含める」ONでカウントダウン時に最終ステップが00になる", () => {
     render(<NumberCounter players={mockPlayersWithZero} />);
     openSettings();
     // 「0を含める」ON
@@ -385,7 +385,7 @@ describe("NumberCounter", () => {
     act(() => {
       fireEvent.click(screen.getByText("カウントダウン"));
     });
-    // countLimit(30) から開始、0まで（最終ステップは "0"）
-    expect(screen.getByText("30 / 0")).toBeInTheDocument();
+    // countLimit(30) から開始、最終ステップは "00"（00→0 の逆順）
+    expect(screen.getByText("30 / 00")).toBeInTheDocument();
   });
 });

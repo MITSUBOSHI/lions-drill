@@ -46,7 +46,12 @@ export default function UniformViewer({
     () =>
       players
         .filter((p) => !rosterOnly || p.role === Role.Roster)
-        .sort((a, b) => a.number_calc - b.number_calc),
+        // number_calc が同値(0と00)のときは桁数が多い 00 を先にする
+        .sort(
+          (a, b) =>
+            a.number_calc - b.number_calc ||
+            b.number_disp.length - a.number_disp.length,
+        ),
     [players, rosterOnly],
   );
 
