@@ -1,7 +1,7 @@
 [
-  {"year":2004,"category":"regular","round":1,"name":"涌井 秀章","name_kana":"","position":"投手","team":"横浜高","team_kana":"","isLotteryLoss":false},
-  {"year":2004,"category":"regular","round":3,"name":"片岡 易之","name_kana":"","position":"内野手","team":"東京ガス","team_kana":"","isLotteryLoss":false},
-  {"year":2004,"category":"regular","round":4,"name":"山岸 穣","name_kana":"","position":"投手","team":"青山学院大","team_kana":"","isLotteryLoss":false},
-  {"year":2004,"category":"regular","round":5,"name":"星 秀和","name_kana":"","position":"捕手","team":"前橋工高","team_kana":"","isLotteryLoss":false},
-  {"year":2004,"category":"regular","round":6,"name":"藤原 虹気","name_kana":"","position":"投手","team":"琴丘高","team_kana":"","isLotteryLoss":false}
+  {"year":2004,"category":"regular","round":1,"name":"涌井 秀章","name_kana":"わくい ひであき","position":"投手","team":"横浜高","team_kana":"","isLotteryLoss":false},
+  {"year":2004,"category":"regular","round":3,"name":"片岡 易之","name_kana":"かたおか やすゆき","position":"内野手","team":"東京ガス","team_kana":"","isLotteryLoss":false},
+  {"year":2004,"category":"regular","round":4,"name":"山岸 穣","name_kana":"やまぎし みのる","position":"投手","team":"青山学院大","team_kana":"","isLotteryLoss":false},
+  {"year":2004,"category":"regular","round":5,"name":"星 秀和","name_kana":"ほし ひでかず","position":"捕手","team":"前橋工高","team_kana":"","isLotteryLoss":false},
+  {"year":2004,"category":"regular","round":6,"name":"藤原 虹気","name_kana":"ふじわら こうき","position":"投手","team":"琴丘高","team_kana":"","isLotteryLoss":false}
 ]

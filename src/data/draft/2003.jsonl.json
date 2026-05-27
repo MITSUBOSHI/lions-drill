@@ -1,9 +1,9 @@
 [
-  {"year":2003,"category":"regular","round":0,"name":"山崎 敏","name_kana":"","position":"投手","team":"平成国際大","team_kana":"","isLotteryLoss":false},
-  {"year":2003,"category":"regular","round":2,"name":"黒瀬 春樹","name_kana":"","position":"内野手","team":"県岐阜商高","team_kana":"","isLotteryLoss":false},
-  {"year":2003,"category":"regular","round":4,"name":"松川 誉弘","name_kana":"","position":"投手","team":"大阪府立港高","team_kana":"","isLotteryLoss":false},
-  {"year":2003,"category":"regular","round":5,"name":"松坂 健太","name_kana":"","position":"外野手","team":"東海大仰星高","team_kana":"","isLotteryLoss":false},
-  {"year":2003,"category":"regular","round":6,"name":"岡本 篤志","name_kana":"","position":"投手","team":"明治大","team_kana":"","isLotteryLoss":false},
-  {"year":2003,"category":"regular","round":7,"name":"佐藤 隆彦","name_kana":"","position":"捕手","team":"法政大卒","team_kana":"","isLotteryLoss":false},
-  {"year":2003,"category":"regular","round":8,"name":"杉山 春樹","name_kana":"","position":"投手","team":"専修大","team_kana":"","isLotteryLoss":false}
+  {"year":2003,"category":"regular","round":0,"name":"山崎 敏","name_kana":"やまざき さとし","position":"投手","team":"平成国際大","team_kana":"","isLotteryLoss":false},
+  {"year":2003,"category":"regular","round":2,"name":"黒瀬 春樹","name_kana":"くろせ はるき","position":"内野手","team":"県岐阜商高","team_kana":"","isLotteryLoss":false},
+  {"year":2003,"category":"regular","round":4,"name":"松川 誉弘","name_kana":"まつかわ たかひろ","position":"投手","team":"大阪府立港高","team_kana":"","isLotteryLoss":false},
+  {"year":2003,"category":"regular","round":5,"name":"松坂 健太","name_kana":"まつさか けんた","position":"外野手","team":"東海大仰星高","team_kana":"","isLotteryLoss":false},
+  {"year":2003,"category":"regular","round":6,"name":"岡本 篤志","name_kana":"おかもと あつし","position":"投手","team":"明治大","team_kana":"","isLotteryLoss":false},
+  {"year":2003,"category":"regular","round":7,"name":"佐藤 隆彦","name_kana":"さとう たかひこ","position":"捕手","team":"法政大卒","team_kana":"","isLotteryLoss":false},
+  {"year":2003,"category":"regular","round":8,"name":"杉山 春樹","name_kana":"すぎやま はるき","position":"投手","team":"専修大","team_kana":"","isLotteryLoss":false}
 ]

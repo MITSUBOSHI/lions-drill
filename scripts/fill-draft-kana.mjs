@@ -16,6 +16,17 @@ for (const file of readdirSync(DATA_DIR)) {
   }
 }
 
+// 名鑑に存在しない過去のドラフト選手向けの手動オーバーライド（外部ソース調査）。
+// リポジトリにファイルが無ければ空扱い。
+let overrides = {};
+try {
+  overrides = JSON.parse(
+    readFileSync(join(__dirname, "draft-kana-overrides.json"), "utf8"),
+  );
+} catch {
+  // overrides ファイルが無ければスキップ
+}
+
 const draftDir = join(DATA_DIR, "draft");
 let filled = 0;
 let total = 0;
@@ -27,7 +38,7 @@ for (const file of readdirSync(draftDir)) {
   for (const d of picks) {
     total++;
     if (!d.name_kana) {
-      const k = kanaByName.get(d.name);
+      const k = kanaByName.get(d.name) ?? overrides[d.name];
       if (k) {
         d.name_kana = k;
         filled++;

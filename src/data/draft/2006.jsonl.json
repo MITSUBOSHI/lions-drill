@@ -1,9 +1,9 @@
 [
-  {"year":2006,"category":"regular","round":0,"name":"岸 孝之","name_kana":"","position":"投手","team":"東北学院大","team_kana":"","isLotteryLoss":false},
-  {"year":2006,"category":"regular","round":3,"name":"山本 淳","name_kana":"","position":"投手","team":"ＴＤＫ千曲川","team_kana":"","isLotteryLoss":false},
-  {"year":2006,"category":"regular","round":4,"name":"原 拓也","name_kana":"","position":"内野手","team":"関東学院大","team_kana":"","isLotteryLoss":false},
-  {"year":2006,"category":"regular","round":5,"name":"岩崎 哲也","name_kana":"","position":"投手","team":"三菱重工横浜硬式野球クラブ","team_kana":"","isLotteryLoss":false},
-  {"year":2006,"category":"regular","round":6,"name":"大崎 雄太朗","name_kana":"","position":"外野手","team":"青山学院大","team_kana":"","isLotteryLoss":false},
-  {"year":2006,"category":"regular","round":1,"name":"木村 文和","name_kana":"","position":"投手","team":"埼玉栄高","team_kana":"","isLotteryLoss":false},
-  {"year":2006,"category":"regular","round":3,"name":"朱 大ヱ","name_kana":"","position":"投手","team":"中部大第一高","team_kana":"","isLotteryLoss":false}
+  {"year":2006,"category":"regular","round":0,"name":"岸 孝之","name_kana":"きし たかゆき","position":"投手","team":"東北学院大","team_kana":"","isLotteryLoss":false},
+  {"year":2006,"category":"regular","round":3,"name":"山本 淳","name_kana":"やまもと じゅん","position":"投手","team":"ＴＤＫ千曲川","team_kana":"","isLotteryLoss":false},
+  {"year":2006,"category":"regular","round":4,"name":"原 拓也","name_kana":"はら たくや","position":"内野手","team":"関東学院大","team_kana":"","isLotteryLoss":false},
+  {"year":2006,"category":"regular","round":5,"name":"岩崎 哲也","name_kana":"いわさき てつや","position":"投手","team":"三菱重工横浜硬式野球クラブ","team_kana":"","isLotteryLoss":false},
+  {"year":2006,"category":"regular","round":6,"name":"大崎 雄太朗","name_kana":"おおさき ゆうたろう","position":"外野手","team":"青山学院大","team_kana":"","isLotteryLoss":false},
+  {"year":2006,"category":"regular","round":1,"name":"木村 文和","name_kana":"きむら ふみかず","position":"投手","team":"埼玉栄高","team_kana":"","isLotteryLoss":false},
+  {"year":2006,"category":"regular","round":3,"name":"朱 大ヱ","name_kana":"しゅ だいえい","position":"投手","team":"中部大第一高","team_kana":"","isLotteryLoss":false}
 ]

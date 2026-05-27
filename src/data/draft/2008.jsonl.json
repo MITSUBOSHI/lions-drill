@@ -1,8 +1,8 @@
 [
-  {"year":2008,"category":"regular","round":1,"name":"中崎 雄太","name_kana":"","position":"投手","team":"日南学園高","team_kana":"","isLotteryLoss":false},
-  {"year":2008,"category":"regular","round":2,"name":"野上 亮磨","name_kana":"","position":"投手","team":"日産自動車","team_kana":"","isLotteryLoss":false},
-  {"year":2008,"category":"regular","round":3,"name":"浅村 栄斗","name_kana":"","position":"内野手","team":"大阪桐蔭高","team_kana":"","isLotteryLoss":false},
-  {"year":2008,"category":"regular","round":4,"name":"坂田 遼","name_kana":"","position":"外野手","team":"函館大","team_kana":"","isLotteryLoss":false},
-  {"year":2008,"category":"regular","round":5,"name":"岳野 竜也","name_kana":"","position":"捕手","team":"福岡大","team_kana":"","isLotteryLoss":false},
-  {"year":2008,"category":"regular","round":6,"name":"宮田 和希","name_kana":"","position":"投手","team":"甲賀健康医療専門学校","team_kana":"","isLotteryLoss":false}
+  {"year":2008,"category":"regular","round":1,"name":"中崎 雄太","name_kana":"なかざき ゆうた","position":"投手","team":"日南学園高","team_kana":"","isLotteryLoss":false},
+  {"year":2008,"category":"regular","round":2,"name":"野上 亮磨","name_kana":"のがみ りょうま","position":"投手","team":"日産自動車","team_kana":"","isLotteryLoss":false},
+  {"year":2008,"category":"regular","round":3,"name":"浅村 栄斗","name_kana":"あさむら ひでと","position":"内野手","team":"大阪桐蔭高","team_kana":"","isLotteryLoss":false},
+  {"year":2008,"category":"regular","round":4,"name":"坂田 遼","name_kana":"さかた りょう","position":"外野手","team":"函館大","team_kana":"","isLotteryLoss":false},
+  {"year":2008,"category":"regular","round":5,"name":"岳野 竜也","name_kana":"たけの たつや","position":"捕手","team":"福岡大","team_kana":"","isLotteryLoss":false},
+  {"year":2008,"category":"regular","round":6,"name":"宮田 和希","name_kana":"みやた かずき","position":"投手","team":"甲賀健康医療専門学校","team_kana":"","isLotteryLoss":false}
 ]

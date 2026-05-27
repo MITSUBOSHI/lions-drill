@@ -1,8 +1,8 @@
 [
-  {"year":2014,"category":"regular","round":1,"name":"高橋 光成","name_kana":"","position":"投手","team":"前橋育英高","team_kana":"","isLotteryLoss":false},
+  {"year":2014,"category":"regular","round":1,"name":"高橋 光成","name_kana":"たかはし こうな","position":"投手","team":"前橋育英高","team_kana":"","isLotteryLoss":false},
   {"year":2014,"category":"regular","round":2,"name":"佐野 泰雄","name_kana":"さの やすお","position":"投手","team":"平成国際大","team_kana":"","isLotteryLoss":false},
   {"year":2014,"category":"regular","round":3,"name":"外崎 修汰","name_kana":"とのさき しゅうた","position":"内野手","team":"富士大","team_kana":"","isLotteryLoss":false},
-  {"year":2014,"category":"regular","round":4,"name":"玉村 祐典","name_kana":"","position":"投手","team":"敦賀気比高卒","team_kana":"","isLotteryLoss":false},
+  {"year":2014,"category":"regular","round":4,"name":"玉村 祐典","name_kana":"たまむら ゆうすけ","position":"投手","team":"敦賀気比高卒","team_kana":"","isLotteryLoss":false},
   {"year":2014,"category":"regular","round":5,"name":"山田 遥楓","name_kana":"やまだ はるか","position":"内野手","team":"佐賀工業高","team_kana":"","isLotteryLoss":false},
   {"year":2014,"category":"development","round":1,"name":"戸川 大輔","name_kana":"とがわ だいすけ","position":"外野手","team":"北海高","team_kana":"","isLotteryLoss":false}
 ]
