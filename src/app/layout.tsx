@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Oswald, Graduate } from "next/font/google";
+import { Oswald, Anton } from "next/font/google";
 import Provider from "./provider";
 import AppBreadcrumb from "@/components/common/Breadcrumb";
 import { TEAM } from "@/config/team";
@@ -13,12 +13,12 @@ const oswald = Oswald({
   variable: "--font-oswald",
 });
 
-// ユニフォーム背番号用のカレッジ体（チームにより使用）
-const graduate = Graduate({
+// 0 がドット無しの太いブロック体（背番号向け、チームにより使用）
+const anton = Anton({
   subsets: ["latin"],
   weight: "400",
   display: "swap",
-  variable: "--font-graduate",
+  variable: "--font-anton",
 });
 
 const basePath = process.env.CAPACITOR === "true" ? "" : TEAM.basePath;
@@ -64,7 +64,7 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${oswald.variable} ${graduate.variable}`}
+      className={`${oswald.variable} ${anton.variable}`}
       suppressHydrationWarning
     >
       <head>

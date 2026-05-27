@@ -82,7 +82,7 @@
       "primaryColor": "#0C2340",
       "accentColor": "#6CACE4",
       "stripeStyle": "sleeve",
-      "numberFontFamily": "var(--font-graduate), 'Graduate', 'Oswald', serif"
+      "numberFontFamily": "var(--font-anton), 'Anton', 'Oswald', sans-serif"
     }
   },
   "npb": {
