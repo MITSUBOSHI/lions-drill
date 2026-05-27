@@ -22,10 +22,13 @@ const saira = Saira({
 });
 
 const basePath = process.env.CAPACITOR === "true" ? "" : TEAM.basePath;
-const logoUrl = `${basePath}/${TEAM.logo.png}`;
+// metadataBase はオリジンのみにする。basePath は Next が自動付与するため、
+// siteUrl(basePath 込み)をそのまま渡すと OG 画像 URL で basePath が二重になる。
+const siteOrigin = new URL(TEAM.siteUrl).origin;
 
+// OG/Twitter 画像は app/opengraph-image.png のファイル規約に委譲する。
 export const metadata: Metadata = {
-  metadataBase: new URL(TEAM.siteUrl),
+  metadataBase: new URL(siteOrigin),
   title: {
     default: TEAM.name,
     template: `%s | ${TEAM.name}`,
@@ -39,20 +42,11 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     title: TEAM.name,
     description: TEAM.siteDescription,
-    images: [
-      {
-        url: logoUrl,
-        width: 512,
-        height: 512,
-        alt: TEAM.logo.alt,
-      },
-    ],
   },
   twitter: {
     card: "summary",
     title: TEAM.name,
     description: TEAM.siteDescription,
-    images: [logoUrl],
   },
 };
 
