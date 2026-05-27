@@ -56,7 +56,7 @@ describe("UniformBack", () => {
     );
 
     const numberText = container.querySelectorAll("text")[1];
-    expect(numberText.style.fontSize).toBe("105px");
+    expect(numberText.style.fontSize).toBe("95px");
   });
 
   it("uses larger sleeve font size for 1-2 digit numbers", () => {
@@ -65,6 +65,6 @@ describe("UniformBack", () => {
     );
 
     const numberText = container.querySelectorAll("text")[1];
-    expect(numberText.style.fontSize).toBe("150px");
+    expect(numberText.style.fontSize).toBe("132px");
   });
 });

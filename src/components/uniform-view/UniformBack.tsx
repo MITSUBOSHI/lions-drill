@@ -43,8 +43,8 @@ function getNameFontSize(name: string): number {
 
 function getNumberFontSize(numberDisp: string): number {
   const big = STYLE === "sleeve";
-  if (numberDisp.length > 2) return big ? 105 : 90;
-  return big ? 150 : 130;
+  if (numberDisp.length > 2) return big ? 95 : 90;
+  return big ? 132 : 130;
 }
 
 function Stripe({
@@ -231,11 +231,11 @@ export default function UniformBack({
           dominantBaseline="central"
           fill={PRIMARY}
           stroke={isSleeve ? "#FFFFFF" : undefined}
-          strokeWidth={isSleeve ? 2.5 : undefined}
+          strokeWidth={isSleeve ? 1.2 : undefined}
           paintOrder="stroke"
           style={{
             fontFamily: NUMBER_FONT,
-            fontWeight: isSleeve ? 900 : 700,
+            fontWeight: isSleeve ? 600 : 700,
             fontSize: numberFontSize,
           }}
         >

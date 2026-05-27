@@ -16,7 +16,7 @@ const oswald = Oswald({
 // 0 がドット無しのブロック体（背番号向け、チームにより使用）
 const saira = Saira({
   subsets: ["latin"],
-  weight: "700",
+  weight: "600",
   display: "swap",
   variable: "--font-saira",
 });
