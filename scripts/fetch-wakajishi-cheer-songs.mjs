@@ -32,6 +32,17 @@ try {
   // 名鑑が無くても続行
 }
 
+// 名鑑に居ない OB 選手や、wakajishi の括弧表記が姓のみのケース向けに
+// Wikipedia 等で調査したフルふりがなを手動オーバーライドとして保持する。
+let kanaOverrides = {};
+try {
+  kanaOverrides = JSON.parse(
+    readFileSync(join(__dirname, "cheer-songs-kana-overrides.json"), "utf8"),
+  );
+} catch {
+  // overrides 無ければスキップ
+}
+
 function stripTags(s) {
   return s
     .replace(/<[^>]+>/g, "")
@@ -41,7 +52,12 @@ function stripTags(s) {
 }
 
 function normalizeName(s) {
-  return s.replace(/[（(].*$/g, "").replace(/　/g, " ").replace(/\s+/g, " ").trim();
+  return s
+    .replace(/[​-‍﻿]/g, "") // ZWSP / ZWJ / ZWNJ / BOM を除去
+    .replace(/[（(].*$/g, "")
+    .replace(/　/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 // 共通テーマのタイトルに含まれる文字でカテゴリを推定する。
@@ -96,7 +112,8 @@ while ((m = h4Re.exec(html)) !== null) {
   const rosterKey = name.replace(/\s+/g, "");
   const roster = rosterByName.get(rosterKey);
   const playerNumber = roster?.number_disp;
-  const playerNameKana = roster?.name_kana || kana;
+  // 優先度: 手動 override > 名鑑由来（フルかな）> wakajishi の括弧（姓のみ）
+  const playerNameKana = kanaOverrides[name] || roster?.name_kana || kana;
   individual.push({
     id: `ind-batter-${individual.length + 1}`,
     title: name,

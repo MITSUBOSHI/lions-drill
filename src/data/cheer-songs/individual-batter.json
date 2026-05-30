@@ -19,7 +19,7 @@
     "year": 2026,
     "lyrics": [],
     "playerName": "岡田 雅利",
-    "playerNameKana": "おかだ",
+    "playerNameKana": "おかだ まさとし",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Okada_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": false
@@ -57,7 +57,7 @@
     "year": 2026,
     "lyrics": [],
     "playerName": "金子 侑司",
-    "playerNameKana": "かねこ",
+    "playerNameKana": "かねこ ゆうじ",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Kaneko_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": false
@@ -69,7 +69,7 @@
     "year": 2026,
     "lyrics": [],
     "playerName": "渡部 健人",
-    "playerNameKana": "わたなべ",
+    "playerNameKana": "わたなべ けんと",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2024/03/watanabekento.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": false
@@ -94,7 +94,7 @@
     "year": 2026,
     "lyrics": [],
     "playerName": "佐藤 龍世",
-    "playerNameKana": "りゅうせい",
+    "playerNameKana": "さとう りゅうせい",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2024/03/SatohRyusei.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": false
@@ -106,19 +106,19 @@
     "year": 2026,
     "lyrics": [],
     "playerName": "古賀 悠⽃",
-    "playerNameKana": "こがゆうと・ゆうと",
+    "playerNameKana": "こが ゆうと",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Koga_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": false
   },
   {
     "id": "ind-batter-10",
-    "title": "​炭谷 銀仁朗",
+    "title": "炭谷 銀仁朗",
     "category": "individual_batter",
     "year": 2026,
     "lyrics": [],
-    "playerName": "​炭谷 銀仁朗",
-    "playerNameKana": "ぎんじろう",
+    "playerName": "炭谷 銀仁朗",
+    "playerNameKana": "すみたに ぎんじろう",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2024/03/GInjiro.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": false
@@ -130,19 +130,19 @@
     "year": 2026,
     "lyrics": [],
     "playerName": "平沼 翔太",
-    "playerNameKana": "ひらぬま",
+    "playerNameKana": "ひらぬま しょうた",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2024/03/Hiranumashota.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": false
   },
   {
     "id": "ind-batter-12",
-    "title": "​若林 楽人",
+    "title": "若林 楽人",
     "category": "individual_batter",
     "year": 2026,
     "lyrics": [],
-    "playerName": "​若林 楽人",
-    "playerNameKana": "がくと",
+    "playerName": "若林 楽人",
+    "playerNameKana": "わかばやし がくと",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Wakabayashi_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": false
@@ -167,7 +167,7 @@
     "year": 2026,
     "lyrics": [],
     "playerName": "鈴木 将平",
-    "playerNameKana": "しょうへい",
+    "playerNameKana": "すずき しょうへい",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/ShoHey_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": false
@@ -192,7 +192,7 @@
     "year": 2026,
     "lyrics": [],
     "playerName": "陽川 尚将",
-    "playerNameKana": "ようかわ",
+    "playerNameKana": "ようかわ なおまさ",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Yohkawa_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": false
