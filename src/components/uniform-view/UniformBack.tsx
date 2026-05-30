@@ -147,21 +147,23 @@ export default function UniformBack({
           </g>
         )}
 
-        {/* 袖口の2本線（sleeve） */}
+        {/* 袖口の2本線（sleeve）
+            線分の上端はユニフォーム外まで伸ばし、肩のエッジで clipPath によって
+            自然に切り落とすことで、袖の上部までラインが届くようにする。 */}
         {isSleeve && (
           <g clipPath={`url(#${clipPathId})`} fill="none" strokeLinecap="butt">
             {/* 左袖：袖先端エッジ(0,40)-(40,128)に沿った2本 */}
             <line
-              x1="6"
-              y1="44"
+              x1="-14"
+              y1="0"
               x2="46"
               y2="132"
               stroke={PRIMARY}
               strokeWidth="7"
             />
             <line
-              x1="18"
-              y1="39"
+              x1="-2"
+              y1="-5"
               x2="58"
               y2="127"
               stroke={ACCENT}
@@ -169,16 +171,16 @@ export default function UniformBack({
             />
             {/* 右袖：袖先端エッジ(440,128)-(480,40)に沿った2本（左右対称） */}
             <line
-              x1="474"
-              y1="44"
+              x1="494"
+              y1="0"
               x2="434"
               y2="132"
               stroke={PRIMARY}
               strokeWidth="7"
             />
             <line
-              x1="462"
-              y1="39"
+              x1="482"
+              y1="-5"
               x2="422"
               y2="127"
               stroke={ACCENT}
