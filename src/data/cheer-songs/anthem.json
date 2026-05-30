@@ -1,1 +1,102 @@
-[]
+[
+  {
+    "id": "common-1",
+    "title": "汎用テーマ（A) ※個人応援歌のない選手",
+    "category": "anthem",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/HanyouA_s.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  },
+  {
+    "id": "common-2",
+    "title": "汎用テーマ (B) ※個人応援歌のない選手",
+    "category": "anthem",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/HanyouB_s.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  },
+  {
+    "id": "common-3",
+    "title": "外国人選手汎用テーマ ※個人応援歌のない外国人選手(野手)",
+    "category": "anthem",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/G-Hanyou_s.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  },
+  {
+    "id": "common-11",
+    "title": "フラッグ トゥ ビクトリー",
+    "category": "anthem",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/Flag-To-Victory.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  },
+  {
+    "id": "common-12",
+    "title": "かっ飛ばせ若獅子",
+    "category": "anthem",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/かっ飛ばせ若獅子.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  },
+  {
+    "id": "common-15",
+    "title": "サンバソーリャセ",
+    "category": "anthem",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/ソーリャセ.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  },
+  {
+    "id": "common-16",
+    "title": "吠えろライオンズ",
+    "category": "anthem",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/吠えろ.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  },
+  {
+    "id": "common-17",
+    "title": "若き獅子たち",
+    "category": "anthem",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/若き獅子たち.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  },
+  {
+    "id": "common-18",
+    "title": "新Vのシナリオ",
+    "category": "anthem",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/新Vのシナリオ.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  },
+  {
+    "id": "common-19",
+    "title": "【球団歌】 地平を駈ける獅子を見た",
+    "category": "anthem",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/地平を駈ける獅子を見た.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  }
+]

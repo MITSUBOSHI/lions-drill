@@ -75,9 +75,24 @@ while ((m = h4Re.exec(html)) !== null) {
   const kana = kanaMatch ? kanaMatch[1].trim() : "";
   const mp3 = body.match(/(https?:\/\/[^"'\s<>]+?\.mp3)/);
   if (!mp3) continue;
-  // 歌詞テキストはサイトの注意事�に抵触するため取得しない。
-  // 表示用タイトルは選手名のみとする。
-  // 選手名鑑から背番号とフルふりがな（姓 名）を補完。
+  // 見出しの括弧内にひらがな（姓のかな）がある時だけ個人応援歌とみなす。
+  // 「汎用テーマ（A）」「チャンステーマ1」などは個人と紛らわしいので除外。
+  const isIndividual = /[（(][ぁ-ん][ぁ-んー・\s]*[）)]/.test(heading);
+  if (!isIndividual) {
+    common.push({
+      id: `common-${common.length + 1}`,
+      title: heading,
+      category: categoryFor(heading),
+      year: YEAR,
+      lyrics: [],
+      audioUrl: mp3[1],
+      sourceUrl: SOURCE_URL,
+      isCommon: true,
+    });
+    continue;
+  }
+  // 歌詞テキストはサイトの注意事項に抵触するため取得しない。
+  // 表示用タイトルは選手名のみとする。選手名鑑から背番号とフルふりがな（姓 名）を補完。
   const rosterKey = name.replace(/\s+/g, "");
   const roster = rosterByName.get(rosterKey);
   const playerNumber = roster?.number_disp;

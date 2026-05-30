@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "id": "common-5",
+    "title": "外国人のチャンステーマ①",
+    "category": "chance",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/外国人チャンス①.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  },
+  {
+    "id": "common-6",
+    "title": "外国人のチャンステーマ②",
+    "category": "chance",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/外国人チャンス2.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  },
+  {
+    "id": "common-7",
+    "title": "チャンステーマ1",
+    "category": "chance",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/チャンテ1.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  },
+  {
+    "id": "common-8",
+    "title": "チャンステーマ2",
+    "category": "chance",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/チャンテ2.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  },
+  {
+    "id": "common-9",
+    "title": "チャンステーマ3",
+    "category": "chance",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/チャンテ3.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  },
+  {
+    "id": "common-10",
+    "title": "チャンステーマ4",
+    "category": "chance",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/チャンス4のテーマ.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  },
+  {
+    "id": "common-13",
+    "title": "チャンステーマ(セブン)",
+    "category": "chance",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/チャンスセブン.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  },
+  {
+    "id": "common-14",
+    "title": "チャンステーマ(ジェットミサイル)",
+    "category": "chance",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/ジェットミサイル.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  }
+]

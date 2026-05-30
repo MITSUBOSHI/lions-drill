@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "id": "common-4",
+    "title": "投手のテーマ ※個人応援歌のない選手",
+    "category": "right_pitcher",
+    "year": 2026,
+    "lyrics": [],
+    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/05/pitcher2.mp3",
+    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
+    "isCommon": true
+  }
+]
