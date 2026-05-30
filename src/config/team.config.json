@@ -99,7 +99,7 @@
     "draftUrlTemplate": "https://draft.npb.jp/draft/{year}/draftlist_l.html"
   },
   "features": {
-    "cheerSongs": false
+    "cheerSongs": true
   },
   "analytics": {
     "gaId": "G-99CW9NGC3X",

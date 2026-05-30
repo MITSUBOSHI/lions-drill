@@ -169,6 +169,35 @@ export default function CheerSongCard({
               <LyricLine key={i} line={line} showRuby={showRuby} />
             ))}
           </div>
+          {song.audioUrl && (
+            <audio
+              controls
+              preload="none"
+              src={song.audioUrl}
+              className="mt-3 w-full"
+              onPlay={() =>
+                sendGAEvent("event", "cheer_song_audio_play", {
+                  song_title: song.title,
+                  player_number: song.playerNumber ?? "",
+                })
+              }
+            >
+              お使いのブラウザは音声再生に対応していません
+            </audio>
+          )}
+          {song.sourceUrl && (
+            <p className="mt-3 text-xs text-[var(--text-secondary)]">
+              出典:{" "}
+              <a
+                href={song.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                応援団サイトで詳細を見る
+              </a>
+            </p>
+          )}
           {year && song.playerNumber && (
             <div className="flex mt-3 gap-1">
               <Link
