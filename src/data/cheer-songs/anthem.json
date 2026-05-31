@@ -3,7 +3,6 @@
     "id": "common-1",
     "title": "汎用テーマ（A) ※個人応援歌のない選手",
     "category": "anthem",
-    "year": 2026,
     "lyrics": [
       "{夢|ゆめ}を{見|み}た",
       "この{世界|せかい}で",
@@ -20,7 +19,6 @@
     "id": "common-2",
     "title": "汎用テーマ (B) ※個人応援歌のない選手",
     "category": "anthem",
-    "year": 2026,
     "lyrics": [
       "{流|なが}した{汗|あせ}はすべて",
       "{努力|どりょく}の{結晶|けっしょう}だ",
@@ -37,7 +35,6 @@
     "id": "common-3",
     "title": "外国人選手汎用テーマ ※個人応援歌のない外国人選手(野手)",
     "category": "anthem",
-    "year": 2026,
     "lyrics": [
       "{感情|かんじょう}を{昂|たかぶ}らせ",
       "{見|み}せろフルスイング",
@@ -53,7 +50,6 @@
     "id": "common-11",
     "title": "フラッグ トゥ ビクトリー",
     "category": "anthem",
-    "year": 2026,
     "lyrics": [
       "{打|う}てー! {{name}}{打|う}てー! {{name}}{打|う}てー! {{name}}{打|う}てー! {{name}}!",
       "ララララー ラララーラーララーラーラー",
@@ -69,7 +65,6 @@
     "id": "common-12",
     "title": "かっ飛ばせ若獅子",
     "category": "anthem",
-    "year": 2026,
     "lyrics": [
       "{若獅子|わかじし}{打線|だせん}だソーリャセ",
       "{右|みぎ}に{左|ひだり}に{乱|みだ}れ{打|う}ち",
@@ -83,7 +78,6 @@
     "id": "common-15",
     "title": "サンバソーリャセ",
     "category": "anthem",
-    "year": 2026,
     "lyrics": [
       "ソーリャセ ソーリャセ",
       "ソーリャセソーリャセ",
@@ -99,7 +93,6 @@
     "id": "common-16",
     "title": "吠えろライオンズ",
     "category": "anthem",
-    "year": 2026,
     "lyrics": [],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/吠えろ.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
@@ -109,7 +102,6 @@
     "id": "common-17",
     "title": "若き獅子たち",
     "category": "anthem",
-    "year": 2026,
     "lyrics": [],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/若き獅子たち.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
@@ -119,7 +111,6 @@
     "id": "common-18",
     "title": "新Vのシナリオ",
     "category": "anthem",
-    "year": 2026,
     "lyrics": [
       "Oh レオがゆくよ {常勝|じょうしょう}{軍団|ぐんだん}",
       "{埼玉|さいたま}{西武|せいぶ}{皆|みな}の{希望|きぼう}と{夢|ゆめ}のチーム",
@@ -135,7 +126,6 @@
     "id": "common-19",
     "title": "【球団歌】 地平を駈ける獅子を見た",
     "category": "anthem",
-    "year": 2026,
     "lyrics": [
       "アアア ライオンズライオンズライオンズ",
       "ミラクル{元年|がんねん}{奇跡|きせき}を{呼|よ}んで",
@@ -150,7 +140,6 @@
     "id": "common-20",
     "title": "大宮限定",
     "category": "anthem",
-    "year": 2026,
     "lyrics": [
       "{大宮|おおみや} オーオー {{name}}",
       "オオオオー{蒼|あお}く{染|そ}められた",
@@ -164,7 +153,6 @@
     "id": "common-21",
     "title": "東北限定",
     "category": "anthem",
-    "year": 2026,
     "lyrics": [
       "{行|い}くぞ{東北|とうほく}で",
       "{勝利|しょうり}を{掴|つか}みとれ",
