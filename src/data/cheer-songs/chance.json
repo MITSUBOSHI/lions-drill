@@ -4,27 +4,43 @@
     "title": "外国人のチャンステーマ①",
     "category": "chance",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "お{祭|まつ}り{気分|きぶん}の{空|そら}がある",
+      "お{祭|まつ}り{気分|きぶん}の{風|かぜ}が{吹|ふ}く",
+      "お{祭|まつ}り{気分|きぶん}でそーれワッショイ",
+      "ホームラン{{name}}"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/外国人チャンス①.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": true
+    "isCommon": true,
+    "namePlaceholder": "{{name}}"
   },
   {
     "id": "common-6",
     "title": "外国人のチャンステーマ②",
     "category": "chance",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "ユーロビートに{合|あ}わせて",
+      "{進|すす}めこの{道|みち}を{{name}}",
+      "{光|ひかり}を{浴|あ}びてWowWowWow",
+      "{漲|みなぎ}るエナジー"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/外国人チャンス2.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": true
+    "isCommon": true,
+    "namePlaceholder": "{{name}}"
   },
   {
     "id": "common-7",
     "title": "チャンステーマ1",
     "category": "chance",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "いざ{行|い}け チャンスだ",
+      "{勝利|しょうり}の{雄叫|おたけ}び{我|われ}らが{王者|おうじゃ}だ",
+      "{白|しろ}い{獅子|しし}レオ"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/チャンテ1.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true
@@ -34,47 +50,78 @@
     "title": "チャンステーマ2",
     "category": "chance",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "{光|ひか}り{輝|かがや}く",
+      "{日|ひ}はまた{昇|のぼ}る{燃|も}える{男|おとこ}だ",
+      "チャンスに{強|つよ}いぞ{{name}}"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/チャンテ2.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": true
+    "isCommon": true,
+    "namePlaceholder": "{{name}}"
   },
   {
     "id": "common-9",
     "title": "チャンステーマ3",
     "category": "chance",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "【{前奏|ぜんそう}：{打|う}ち{込|こ}め {今|いま}がチャンスだ オオオオー】",
+      "オーオーオーオーレッツゴー チャンスだ {{name}}",
+      "オーオーオーオーレッツゴー {打|う}ち{抜|ぬ}け {{name}}"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/チャンテ3.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": true
+    "isCommon": true,
+    "namePlaceholder": "{{name}}"
   },
   {
     "id": "common-10",
     "title": "チャンステーマ4",
     "category": "chance",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "オーオオーオオー… {{name}}!",
+      "オーオオーオオー… {{name}}!",
+      "オーオオーオオー…",
+      "【{男声|だんせい}】{歓声|かんせい}{浴|あ}びて いざゆけ {魅|み}せろ",
+      "{熱|あつ}い{獅子|しし}の{魂|たましい}ラーララーラーラ {頼|たの}むぞ{今|いま}だ{{name}}",
+      "【{女声|じょせい}】{歓声|かんせい}{浴|あ}びて {今|いま}だ {青|あお}く{染|そ}まるスタンド",
+      "{狙|ねら}えラーララーラーラ {決|き}めろ{{name}}",
+      "【{全員|ぜんいん}】ラーララーラーラ……",
+      "オイ! オイ! オイオイオイオイ!"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/チャンス4のテーマ.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": true
+    "isCommon": true,
+    "namePlaceholder": "{{name}}"
   },
   {
     "id": "common-13",
     "title": "チャンステーマ(セブン)",
     "category": "chance",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "セブン セブン セブン セブン {{name}}",
+      "それ{行|い}け{{name}} ホームラン",
+      "{行|い}くぞ{銀河|ぎんが}の{果|は}てまでも {{name}}"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/チャンスセブン.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": true
+    "isCommon": true,
+    "namePlaceholder": "{{name}}"
   },
   {
     "id": "common-14",
     "title": "チャンステーマ(ジェットミサイル)",
     "category": "chance",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "ジェットミサイルが{飛|と}ぶよ",
+      "スタンド{越|こ}えて",
+      "{鉄人|てつじん}リストで{狙|ねら}え",
+      "ぶちかませ{空|そら}へ"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/ジェットミサイル.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true

@@ -4,7 +4,12 @@
     "title": "投手のテーマ ※個人応援歌のない選手",
     "category": "right_pitcher",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "{気持|きも}ちと{技|わざ}で",
+      "{真|ま}っ{向|こう}{勝負|しょうぶ}",
+      "{敵|てき}を{倒|たお}し{我|われ}らを",
+      "{勝利|しょうり}へ{導|みちび}け"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/05/pitcher2.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true,

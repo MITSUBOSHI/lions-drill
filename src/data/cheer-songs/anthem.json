@@ -4,7 +4,13 @@
     "title": "汎用テーマ（A) ※個人応援歌のない選手",
     "category": "anthem",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "{夢|ゆめ}を{見|み}た",
+      "この{世界|せかい}で",
+      "{勝利|しょうり}の{雄叫|おたけ}び{上|あ}げろ",
+      "{若獅子|わかじし}の{力|ちから}を",
+      "{見|み}せてくれ"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/HanyouA_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true,
@@ -15,18 +21,29 @@
     "title": "汎用テーマ (B) ※個人応援歌のない選手",
     "category": "anthem",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "{流|なが}した{汗|あせ}はすべて",
+      "{努力|どりょく}の{結晶|けっしょう}だ",
+      "がむしゃらに{掴|つか}めチャンス",
+      "いけ! {{name}}!"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/HanyouB_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true,
-    "url": "https://www.youtube.com/watch?v=dblqxLilk6A"
+    "url": "https://www.youtube.com/watch?v=dblqxLilk6A",
+    "namePlaceholder": "{{name}}"
   },
   {
     "id": "common-3",
     "title": "外国人選手汎用テーマ ※個人応援歌のない外国人選手(野手)",
     "category": "anthem",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "{感情|かんじょう}を{昂|たかぶ}らせ",
+      "{見|み}せろフルスイング",
+      "{決|き}め{球|だま}{砕|くだ}いて",
+      "{虹|にじ}を{描|えが}く"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/G-Hanyou_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true,
@@ -37,17 +54,27 @@
     "title": "フラッグ トゥ ビクトリー",
     "category": "anthem",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "{打|う}てー! {{name}}{打|う}てー! {{name}}{打|う}てー! {{name}}{打|う}てー! {{name}}!",
+      "ララララー ラララーラーララーラーラー",
+      "ララララーララーオーオーオオオー",
+      "オーオオーオーオーオーオ オー"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/Flag-To-Victory.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": true
+    "isCommon": true,
+    "namePlaceholder": "{{name}}"
   },
   {
     "id": "common-12",
     "title": "かっ飛ばせ若獅子",
     "category": "anthem",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "{若獅子|わかじし}{打線|だせん}だソーリャセ",
+      "{右|みぎ}に{左|ひだり}に{乱|みだ}れ{打|う}ち",
+      "カッセ! カッセ! カッセカッセカッセ!"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/かっ飛ばせ若獅子.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true
@@ -57,10 +84,16 @@
     "title": "サンバソーリャセ",
     "category": "anthem",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "ソーリャセ ソーリャセ",
+      "ソーリャセソーリャセ",
+      "ソーリャセソリャセ{{name}}",
+      "ソリャセ{{name}} ソリャセ{{name}} ソリャセ{{name}}"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/ソーリャセ.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": true
+    "isCommon": true,
+    "namePlaceholder": "{{name}}"
   },
   {
     "id": "common-16",
@@ -87,7 +120,13 @@
     "title": "新Vのシナリオ",
     "category": "anthem",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "Oh レオがゆくよ {常勝|じょうしょう}{軍団|ぐんだん}",
+      "{埼玉|さいたま}{西武|せいぶ}{皆|みな}の{希望|きぼう}と{夢|ゆめ}のチーム",
+      "Wow Wow ライオンズ",
+      "{永久|とわ}の{道|みち}を{今|いま}{光|ひかり}を{飛|と}び{越|こ}えて",
+      "Oh レオがゆくよ"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/新Vのシナリオ.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true
@@ -97,9 +136,43 @@
     "title": "【球団歌】 地平を駈ける獅子を見た",
     "category": "anthem",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "アアア ライオンズライオンズライオンズ",
+      "ミラクル{元年|がんねん}{奇跡|きせき}を{呼|よ}んで",
+      "{獅子|しし}よ{吠|ほ}えろよ{限|かぎ}りなくライオンズ",
+      "WowWowWow ライオンズ WowWowWow ライオンズ ライオンズ"
+    ],
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/地平を駈ける獅子を見た.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true
+  },
+  {
+    "id": "common-20",
+    "title": "大宮限定",
+    "category": "anthem",
+    "year": 2026,
+    "lyrics": [
+      "{大宮|おおみや} オーオー {{name}}",
+      "オオオオー{蒼|あお}く{染|そ}められた",
+      "{輝|かがや}け{大宮|おおみや}で"
+    ],
+    "sourceUrl": "https://www.yakyu-ouen.net/l-ohmiya/",
+    "isCommon": true,
+    "namePlaceholder": "{{name}}"
+  },
+  {
+    "id": "common-21",
+    "title": "東北限定",
+    "category": "anthem",
+    "year": 2026,
+    "lyrics": [
+      "{行|い}くぞ{東北|とうほく}で",
+      "{勝利|しょうり}を{掴|つか}みとれ",
+      "オオオ オーオオオーオオ オオオ オーオオオーオーオー",
+      "{埼玉|さいたま} {西武|せいぶ} レッツゴー レッツゴー {{name}}"
+    ],
+    "sourceUrl": "https://www.yakyu-ouen.net/l-tohoku/",
+    "isCommon": true,
+    "namePlaceholder": "{{name}}"
   }
 ]

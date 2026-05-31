@@ -201,7 +201,13 @@
     "title": "柘植 世那",
     "category": "individual_batter",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "{鍛|きた}えた{努力|どりょく}を{胸|むね}に",
+      "{闘志|とうし}を{燃|も}やして",
+      "{打|う}ちまくれ{守|まも}り{抜|ぬ}け",
+      "{獅子|しし}の{男|おとこ}",
+      "{柘植|つげ}{世那|せな}"
+    ],
     "playerName": "柘植 世那",
     "playerNameKana": "つげ せな",
     "playerNumber": "37",
@@ -420,5 +426,39 @@
     "sourceUrl": "https://www.yakyu-ouen.net/lin-an-ko/",
     "isCommon": false,
     "url": "https://www.youtube.com/watch?v=e9cRoNYDba4"
+  },
+  {
+    "id": "ind-batter-26",
+    "title": "タイラー・ネビン",
+    "category": "individual_batter",
+    "year": 2026,
+    "lyrics": [
+      "タイラーネビン Let's Go",
+      "オーオーオオーオオーオー",
+      "ラーラーララーララーラー",
+      "Come on Homerun"
+    ],
+    "playerName": "タイラー・ネビン",
+    "playerNameKana": "たいらー・ねびん",
+    "playerNumber": "26",
+    "sourceUrl": "https://www.yakyu-ouen.net/lions/",
+    "isCommon": false
+  },
+  {
+    "id": "ind-batter-27",
+    "title": "野村 大樹",
+    "category": "individual_batter",
+    "year": 2026,
+    "lyrics": [
+      "{勝利|しょうり}を{呼|よ}ぶその{背中|せなか}で",
+      "{魅|み}せろ{獅子|しし}の{意地|いじ}を",
+      "{野村|のむら}{大樹|ひろき}",
+      "いざ{解|と}き{放|はな}て"
+    ],
+    "playerName": "野村 大樹",
+    "playerNameKana": "のむら ひろき",
+    "playerNumber": "120",
+    "sourceUrl": "https://www.yakyu-ouen.net/lions/",
+    "isCommon": false
   }
 ]
