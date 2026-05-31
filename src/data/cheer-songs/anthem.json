@@ -10,8 +10,6 @@
       "{若獅子|わかじし}の{力|ちから}を",
       "{見|み}せてくれ"
     ],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/HanyouA_s.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true,
     "url": "https://www.youtube.com/watch?v=hmElk2vl6_Y"
   },
@@ -25,8 +23,6 @@
       "がむしゃらに{掴|つか}めチャンス",
       "いけ! {{name}}!"
     ],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/HanyouB_s.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true,
     "url": "https://www.youtube.com/watch?v=dblqxLilk6A",
     "namePlaceholder": "{{name}}"
@@ -41,8 +37,6 @@
       "{決|き}め{球|だま}{砕|くだ}いて",
       "{虹|にじ}を{描|えが}く"
     ],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/G-Hanyou_s.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true,
     "url": "https://www.youtube.com/watch?v=07qIExX9Bjg"
   },
@@ -56,10 +50,9 @@
       "ララララーララーオーオーオオオー",
       "オーオオーオーオーオーオ オー"
     ],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/Flag-To-Victory.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true,
-    "namePlaceholder": "{{name}}"
+    "namePlaceholder": "{{name}}",
+    "url": "https://www.youtube.com/watch?v=nV4_9FUlGYE"
   },
   {
     "id": "common-12",
@@ -70,9 +63,8 @@
       "{右|みぎ}に{左|ひだり}に{乱|みだ}れ{打|う}ち",
       "カッセ! カッセ! カッセカッセカッセ!"
     ],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/かっ飛ばせ若獅子.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": true
+    "isCommon": true,
+    "url": "https://www.youtube.com/watch?v=w108s81hLFc"
   },
   {
     "id": "common-15",
@@ -84,28 +76,25 @@
       "ソーリャセソリャセ{{name}}",
       "ソリャセ{{name}} ソリャセ{{name}} ソリャセ{{name}}"
     ],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/ソーリャセ.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true,
-    "namePlaceholder": "{{name}}"
+    "namePlaceholder": "{{name}}",
+    "url": "https://www.youtube.com/watch?v=OlT42x10sMQ"
   },
   {
     "id": "common-16",
     "title": "吠えろライオンズ",
     "category": "anthem",
     "lyrics": [],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/吠えろ.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": true
+    "isCommon": true,
+    "url": "https://www.youtube.com/watch?v=gaFtb-_Vp7Y"
   },
   {
     "id": "common-17",
     "title": "若き獅子たち",
     "category": "anthem",
     "lyrics": [],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/若き獅子たち.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": true
+    "isCommon": true,
+    "url": "https://www.youtube.com/watch?v=Bimp3mm16Gg"
   },
   {
     "id": "common-18",
@@ -118,9 +107,8 @@
       "{永久|とわ}の{道|みち}を{今|いま}{光|ひかり}を{飛|と}び{越|こ}えて",
       "Oh レオがゆくよ"
     ],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/新Vのシナリオ.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": true
+    "isCommon": true,
+    "url": "https://www.youtube.com/watch?v=SBRZz3MbxEQ"
   },
   {
     "id": "common-19",
@@ -132,9 +120,8 @@
       "{獅子|しし}よ{吠|ほ}えろよ{限|かぎ}りなくライオンズ",
       "WowWowWow ライオンズ WowWowWow ライオンズ ライオンズ"
     ],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/地平を駈ける獅子を見た.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": true
+    "isCommon": true,
+    "url": "https://www.youtube.com/watch?v=EZXntHLSDVc"
   },
   {
     "id": "common-20",
@@ -145,9 +132,9 @@
       "オオオオー{蒼|あお}く{染|そ}められた",
       "{輝|かがや}け{大宮|おおみや}で"
     ],
-    "sourceUrl": "https://www.yakyu-ouen.net/l-ohmiya/",
     "isCommon": true,
-    "namePlaceholder": "{{name}}"
+    "namePlaceholder": "{{name}}",
+    "url": "https://www.youtube.com/watch?v=YAeqmHliH7Y"
   },
   {
     "id": "common-21",
@@ -159,8 +146,8 @@
       "オオオ オーオオオーオオ オオオ オーオオオーオーオー",
       "{埼玉|さいたま} {西武|せいぶ} レッツゴー レッツゴー {{name}}"
     ],
-    "sourceUrl": "https://www.yakyu-ouen.net/l-tohoku/",
     "isCommon": true,
-    "namePlaceholder": "{{name}}"
+    "namePlaceholder": "{{name}}",
+    "url": "https://www.youtube.com/watch?v=ix0hzzcop_U"
   }
 ]

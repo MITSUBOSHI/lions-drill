@@ -9,10 +9,9 @@
       "お{祭|まつ}り{気分|きぶん}でそーれワッショイ",
       "ホームラン{{name}}"
     ],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/外国人チャンス①.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true,
-    "namePlaceholder": "{{name}}"
+    "namePlaceholder": "{{name}}",
+    "url": "https://www.youtube.com/watch?v=lKJaUCAmyH0"
   },
   {
     "id": "common-6",
@@ -24,10 +23,9 @@
       "{光|ひかり}を{浴|あ}びてWowWowWow",
       "{漲|みなぎ}るエナジー"
     ],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/外国人チャンス2.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true,
-    "namePlaceholder": "{{name}}"
+    "namePlaceholder": "{{name}}",
+    "url": "https://www.youtube.com/watch?v=awJc65uVTic"
   },
   {
     "id": "common-7",
@@ -38,9 +36,8 @@
       "{勝利|しょうり}の{雄叫|おたけ}び{我|われ}らが{王者|おうじゃ}だ",
       "{白|しろ}い{獅子|しし}レオ"
     ],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/チャンテ1.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": true
+    "isCommon": true,
+    "url": "https://www.youtube.com/watch?v=ehpCB1JtY-0"
   },
   {
     "id": "common-8",
@@ -51,10 +48,9 @@
       "{日|ひ}はまた{昇|のぼ}る{燃|も}える{男|おとこ}だ",
       "チャンスに{強|つよ}いぞ{{name}}"
     ],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/チャンテ2.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true,
-    "namePlaceholder": "{{name}}"
+    "namePlaceholder": "{{name}}",
+    "url": "https://www.youtube.com/watch?v=hpLaYo1jR1g"
   },
   {
     "id": "common-9",
@@ -65,10 +61,9 @@
       "オーオーオーオーレッツゴー チャンスだ {{name}}",
       "オーオーオーオーレッツゴー {打|う}ち{抜|ぬ}け {{name}}"
     ],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/チャンテ3.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true,
-    "namePlaceholder": "{{name}}"
+    "namePlaceholder": "{{name}}",
+    "url": "https://www.youtube.com/watch?v=8zeN1uC3oCw"
   },
   {
     "id": "common-10",
@@ -85,10 +80,9 @@
       "【{全員|ぜんいん}】ラーララーラーラ……",
       "オイ! オイ! オイオイオイオイ!"
     ],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/チャンス4のテーマ.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true,
-    "namePlaceholder": "{{name}}"
+    "namePlaceholder": "{{name}}",
+    "url": "https://www.youtube.com/watch?v=Ek9EGkxS6rw"
   },
   {
     "id": "common-13",
@@ -99,10 +93,9 @@
       "それ{行|い}け{{name}} ホームラン",
       "{行|い}くぞ{銀河|ぎんが}の{果|は}てまでも {{name}}"
     ],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/チャンスセブン.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
     "isCommon": true,
-    "namePlaceholder": "{{name}}"
+    "namePlaceholder": "{{name}}",
+    "url": "https://www.youtube.com/watch?v=mPiyalPP4TM"
   },
   {
     "id": "common-14",
@@ -114,8 +107,7 @@
       "{鉄人|てつじん}リストで{狙|ねら}え",
       "ぶちかませ{空|そら}へ"
     ],
-    "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2020/07/ジェットミサイル.mp3",
-    "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": true
+    "isCommon": true,
+    "url": "https://www.youtube.com/watch?v=6G3Wr76Ww4M"
   }
 ]
