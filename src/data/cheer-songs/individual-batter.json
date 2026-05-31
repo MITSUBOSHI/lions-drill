@@ -4,13 +4,19 @@
     "title": "栗山 巧",
     "category": "individual_batter",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "{勝利|しょうり}に{向|む}かって",
+      "{進|すす}め{今|いま}こそ",
+      "{生|う}み{出|だ}せチャンスを",
+      "いざ{栗山|くりやま}"
+    ],
     "playerName": "栗山 巧",
     "playerNameKana": "くりやま たくみ",
     "playerNumber": "1",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Kuriyama_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=UKtfXiihmAM"
   },
   {
     "id": "ind-batter-2",
@@ -22,33 +28,51 @@
     "playerNameKana": "おかだ まさとし",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Okada_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=Y3UEa9AN-Ms"
   },
   {
     "id": "ind-batter-3",
     "title": "外崎 修汰",
     "category": "individual_batter",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "{駆|か}け{上|あ}がれ",
+      "{夢|ゆめ}の{舞台|ぶたい}へ",
+      "{無我夢中|むがむちゅう}に",
+      "{走|はし}れ{早|はや}く",
+      "みてみたいな",
+      "{夢中|むちゅう}になれる{君|きみ}",
+      "いくぞ{前進|ぜんしん}",
+      "その{先|さき}へと"
+    ],
     "playerName": "外崎 修汰",
     "playerNameKana": "とのさき しゅうた",
     "playerNumber": "5",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Tonosaki_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=wuWfRB3CvP4"
   },
   {
     "id": "ind-batter-4",
     "title": "源田 壮亮",
     "category": "individual_batter",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "【{前奏|ぜんそう}：この{場所|ばしょ}で {輝|かがや}け {魅|み}せろ{壮亮|そうすけ}】",
+      "{泥|どろ}にまみれて",
+      "{培|つちか}った",
+      "{今|いま}ここで{魅|み}せろ",
+      "{源田|げんだ}の{力|ちから}"
+    ],
     "playerName": "源田 壮亮",
     "playerNameKana": "げんだ そうすけ",
     "playerNumber": "6",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Genda_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=grbOGpXpyrg"
   },
   {
     "id": "ind-batter-5",
@@ -60,7 +84,8 @@
     "playerNameKana": "かねこ ゆうじ",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Kaneko_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=2v_PwC3BE2Q"
   },
   {
     "id": "ind-batter-6",
@@ -72,20 +97,27 @@
     "playerNameKana": "わたなべ けんと",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2024/03/watanabekento.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=xCLGA4tpmw8"
   },
   {
     "id": "ind-batter-7",
     "title": "蛭間 拓哉",
     "category": "individual_batter",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "{狙|ねら}い{澄|す}ました{技|わざ}で",
+      "{全|すべ}てを{懸|か}けて",
+      "{描|えが}いた{道|みち}を{拓|ひら}け",
+      "{蛭間|ひるま}{獅子|しし}となれ"
+    ],
     "playerName": "蛭間 拓哉",
     "playerNameKana": "ひるま たくや",
     "playerNumber": "9",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Hiruma_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=yEacJ9hS-Vg"
   },
   {
     "id": "ind-batter-8",
@@ -97,31 +129,46 @@
     "playerNameKana": "さとう りゅうせい",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2024/03/SatohRyusei.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=yc-mfhVHP4c"
   },
   {
     "id": "ind-batter-9",
     "title": "古賀 悠⽃",
     "category": "individual_batter",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "{頂|いただき}への{道|みち}を",
+      "その{手|て}で{掴|つか}め",
+      "{強肩強打|きょうけんきょうだ}の{勇姿|ゆうし}で",
+      "{導|みちび}いてくれ"
+    ],
     "playerName": "古賀 悠⽃",
     "playerNameKana": "こが ゆうと",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Koga_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "playerNumber": "22",
+    "url": "https://www.youtube.com/watch?v=XUQ_ZBZjT2U"
   },
   {
     "id": "ind-batter-10",
     "title": "炭谷 銀仁朗",
     "category": "individual_batter",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "{打|う}ち{続|つづ}け",
+      "ジャングルを{追|お}い{詰|つ}めろ",
+      "{獅子|しし}の{誇|ほこ}りと",
+      "{力|ちから}で{挑|いど}め"
+    ],
     "playerName": "炭谷 銀仁朗",
     "playerNameKana": "すみたに ぎんじろう",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2024/03/GInjiro.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=S-_gRm6iYoU",
+    "playerNumber": "27"
   },
   {
     "id": "ind-batter-11",
@@ -133,7 +180,8 @@
     "playerNameKana": "ひらぬま しょうた",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2024/03/Hiranumashota.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=nETBXeETMV4"
   },
   {
     "id": "ind-batter-12",
@@ -145,7 +193,8 @@
     "playerNameKana": "わかばやし がくと",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Wakabayashi_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=DMHavtdltfU"
   },
   {
     "id": "ind-batter-13",
@@ -158,7 +207,8 @@
     "playerNumber": "37",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Tsuge_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=PBDECpSsaB0"
   },
   {
     "id": "ind-batter-14",
@@ -170,20 +220,27 @@
     "playerNameKana": "すずき しょうへい",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/ShoHey_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=M6u1dwX3UmU"
   },
   {
     "id": "ind-batter-15",
     "title": "西川 愛也",
     "category": "individual_batter",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "{愛也|まなや}{今|いま}だ{決|き}めろ",
+      "{狙|ねら}いを{定|さだ}め",
+      "{振|ふ}り{抜|ぬ}いたその{先|さき}には",
+      "{勝利|しょうり}のアーチ"
+    ],
     "playerName": "西川 愛也",
     "playerNameKana": "にしかわ まなや",
     "playerNumber": "51",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2024/03/nishikawamanaya.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=HEwfzZiuQg4"
   },
   {
     "id": "ind-batter-16",
@@ -195,45 +252,173 @@
     "playerNameKana": "ようかわ なおまさ",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Yohkawa_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=qIlfclUT7DU"
   },
   {
     "id": "ind-batter-17",
     "title": "中村 剛也",
     "category": "individual_batter",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "その{胸|むね}を{焦|こ}がす",
+      "{炎|ほのお}のままに",
+      "{気迫|きはく}で{打|う}ち{抜|ぬ}くんだ",
+      "バックスクリーン"
+    ],
     "playerName": "中村 剛也",
     "playerNameKana": "なかむら たけや",
     "playerNumber": "60",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Nakamura_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=0hEoVOefjyI"
   },
   {
     "id": "ind-batter-18",
     "title": "長谷川 信哉",
     "category": "individual_batter",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "{爽|さわ}やかに{風|かぜ}{切|き}る",
+      "{青|あお}{炎|ほのお}を{力|ちから}に{変|か}える",
+      "{終|お}わりのない{冒険|ぼうけん}へ{挑|いど}め",
+      "{吠|ほ}えろ! {長谷川|はせがわ}"
+    ],
     "playerName": "長谷川 信哉",
     "playerNameKana": "はせがわ しんや",
     "playerNumber": "63",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2024/03/hasegawashinya.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=yu2N4QIZ82A"
   },
   {
     "id": "ind-batter-19",
     "title": "岸 潤一郎",
     "category": "individual_batter",
     "year": 2026,
-    "lyrics": [],
+    "lyrics": [
+      "{飛|と}ばせ{彼方|かなた}へ",
+      "{駆|か}けろ{夢|ゆめ}のその{先|さき}へ",
+      "まことの{道|みち}を",
+      "{拓|ひら}き{進|すす}め{岸|きし}{潤一郎|じゅんいちろう}"
+    ],
     "playerName": "岸 潤一郎",
     "playerNameKana": "きし じゅんいちろう",
     "playerNumber": "68",
     "audioUrl": "https://wakajishi-seibulions.com/wp/wp-content/uploads/2023/03/Kishi_s.mp3",
     "sourceUrl": "https://wakajishi-seibulions.com/ouenka2024",
-    "isCommon": false
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=BpaUUPQ5H70"
+  },
+  {
+    "id": "ind-batter-20",
+    "title": "石井 一成",
+    "category": "individual_batter",
+    "year": 2026,
+    "lyrics": [
+      "{覚悟|かくご}{決|き}めた{勝負|しょうぶ}の{地|ち}で",
+      "{光|ひかり}{満|み}ちる{技巧|ぎこう}",
+      "この{地|ち}がわく{景色|けしき}を",
+      "{心|こころ}に{刻|きざ}み{込|こ}め"
+    ],
+    "playerName": "石井 一成",
+    "playerNameKana": "いしい かずなり",
+    "playerNumber": "4",
+    "sourceUrl": "https://www.yakyu-ouen.net/ishii-kazunari/",
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=3MCpdBAVKCw"
+  },
+  {
+    "id": "ind-batter-21",
+    "title": "桑原 将志",
+    "category": "individual_batter",
+    "year": 2026,
+    "lyrics": [
+      "{獅子|しし}を{纏|まと}い{将|ひき}いる",
+      "{漲|みなぎ}るガッツマン",
+      "{牙|きば}{立|た}てる{闘志|とうし}むき{出|だ}して",
+      "{突|つ}き{進|すす}め{桑原|くわはら}"
+    ],
+    "playerName": "桑原 将志",
+    "playerNameKana": "くわはら まさゆき",
+    "playerNumber": "7",
+    "sourceUrl": "https://www.yakyu-ouen.net/kuwahara-masayuki/",
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=2UZq4MyU7Rg"
+  },
+  {
+    "id": "ind-batter-22",
+    "title": "渡部 聖弥",
+    "category": "individual_batter",
+    "year": 2026,
+    "lyrics": [
+      "【{前奏|ぜんそう}：{運命|うんめい}の{一撃|いちげき} {歓喜|かんき}の{一打|いちだ}】",
+      "さあ{立|た}ち{上|あ}がれ{今|いま}",
+      "スタンド{舞|ま}い{上|あ}がる",
+      "{弾丸|だんがん}で{切|き}り{裂|さ}く",
+      "{歓喜|かんき}の{一打|いちだ}"
+    ],
+    "playerName": "渡部 聖弥",
+    "playerNameKana": "わたなべ せいや",
+    "playerNumber": "8",
+    "sourceUrl": "https://www.yakyu-ouen.net/watanabe-seiya/",
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=E3q3uDVcfUo"
+  },
+  {
+    "id": "ind-batter-23",
+    "title": "山村 崇嘉",
+    "category": "individual_batter",
+    "year": 2026,
+    "lyrics": [
+      "{栄光|えいこう}へ{続|つづ}く",
+      "{架|か}け{橋|はし}を{繋|つな}げ",
+      "{敵|てき}を{切|き}り{裂|さ}くスイング",
+      "さあ{叩|たた}き{込|こ}め"
+    ],
+    "playerName": "山村 崇嘉",
+    "playerNameKana": "やまむら たかよし",
+    "playerNumber": "32",
+    "sourceUrl": "https://www.yakyu-ouen.net/yamamura-takayoshi/",
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=teMRFtdqBRg"
+  },
+  {
+    "id": "ind-batter-24",
+    "title": "滝澤 夏央",
+    "category": "individual_batter",
+    "year": 2026,
+    "lyrics": [
+      "{夏央|なつお}{掻|か}き{回|まわ}せ",
+      "{掴|つか}んだチャンス{物|もの}にしろ",
+      "{越後|えちご}の{星|ほし}よ",
+      "{煌|きら}めけいつまでも"
+    ],
+    "playerName": "滝澤 夏央",
+    "playerNameKana": "たきざわ なつお",
+    "playerNumber": "62",
+    "sourceUrl": "https://www.yakyu-ouen.net/takizawa-natsuo/",
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=yQ7N2VlmoRc"
+  },
+  {
+    "id": "ind-batter-25",
+    "title": "林 安可",
+    "category": "individual_batter",
+    "year": 2026,
+    "lyrics": [
+      "{我|われ}らの{願|ねが}いを{背|せ}に",
+      "{安|あん}! {打|だ}! {林安可|りんあんか}!",
+      "{渋|しぶ}く{熱|あつ}く{魅|み}せてくれ",
+      "さあ{今|いま}だ{決|き}めてやれ"
+    ],
+    "playerName": "林 安可",
+    "playerNameKana": "りん あんか",
+    "playerNumber": "73",
+    "sourceUrl": "https://www.yakyu-ouen.net/lin-an-ko/",
+    "isCommon": false,
+    "url": "https://www.youtube.com/watch?v=e9cRoNYDba4"
   }
 ]
