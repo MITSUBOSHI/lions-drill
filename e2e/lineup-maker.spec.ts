@@ -43,10 +43,29 @@ test.describe("スタメン作成", () => {
     await page.getByRole("option").first().click();
     await page.getByRole("button", { name: "打順に追加" }).click();
 
-    // リセット
+    // 確認ダイアログを承認してリセット
+    page.on("dialog", (dialog) => dialog.accept());
     await page.getByRole("button", { name: "リセット" }).click();
 
     await expect(page.getByText("打順が設定されていません")).toBeVisible();
+  });
+
+  test("リセット確認をキャンセルするとラインナップが維持される", async ({
+    page,
+  }) => {
+    await page.goto("/lineup-maker/2026");
+
+    // 捕手に選手を割り当て
+    await page.getByRole("button", { name: "捕手の選手を選択" }).click();
+    await page.getByRole("option").first().click();
+    await page.getByRole("button", { name: "打順に追加" }).click();
+
+    // 確認ダイアログをキャンセル
+    page.on("dialog", (dialog) => dialog.dismiss());
+    await page.getByRole("button", { name: "リセット" }).click();
+
+    // ラインナップが維持されている
+    await expect(page.getByText("打順が設定されていません")).not.toBeAttached();
   });
 
   test("設定パネルの DH 切替", async ({ page }) => {

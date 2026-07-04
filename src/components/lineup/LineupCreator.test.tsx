@@ -418,4 +418,57 @@ describe("LineupCreator", () => {
     // 選択されたことを確認
     expect(kanaRadioButton).toHaveProperty("checked", true);
   });
+
+  test("DHありのままリセットしてもDH枠が維持される（リセット時のDH破壊バグの回帰テスト）", () => {
+    const confirmSpy = jest.spyOn(window, "confirm").mockReturnValue(true);
+    render(<LineupCreator players={mockPlayers} />);
+
+    // 設定を開いてDHをオンにする
+    fireEvent.click(screen.getByText("設定"));
+    fireEvent.click(screen.getAllByRole("checkbox")[0]);
+    expect(screen.getByTestId("player-selector-DH")).toBeInTheDocument();
+
+    // リセットする
+    fireEvent.click(screen.getByText("リセット"));
+
+    expect(confirmSpy).toHaveBeenCalled();
+    // DH枠が維持され、投手枠が打順側に復活していないこと
+    expect(screen.getByTestId("player-selector-DH")).toBeInTheDocument();
+    // 投手セレクターは「投手選択」セクションの1つのみ
+    expect(screen.getAllByTestId("player-selector-投手")).toHaveLength(1);
+
+    confirmSpy.mockRestore();
+  });
+
+  test("リセット確認でキャンセルすると選択が維持される", () => {
+    const confirmSpy = jest.spyOn(window, "confirm").mockReturnValue(false);
+    render(<LineupCreator players={mockPlayers} />);
+
+    // 捕手に選手を選択
+    fireEvent.click(screen.getByTestId("select-player-btn-捕手"));
+    expect(screen.getByTestId("selected-player-捕手")).toBeInTheDocument();
+
+    // リセットをキャンセル
+    fireEvent.click(screen.getByText("リセット"));
+
+    expect(screen.getByTestId("selected-player-捕手")).toBeInTheDocument();
+
+    confirmSpy.mockRestore();
+  });
+
+  test("選択済みの選手は他ポジションの候補から除外される（重複選択防止の回帰テスト）", () => {
+    render(<LineupCreator players={mockPlayers} />);
+
+    // 捕手に最初の候補を選択
+    fireEvent.click(screen.getByTestId("select-player-btn-捕手"));
+    expect(screen.getByTestId("selected-player-捕手")).toHaveTextContent(
+      mockPlayers[0].name,
+    );
+
+    // 一塁手の先頭候補は選択済みの選手ではなく次の選手になる
+    fireEvent.click(screen.getByTestId("select-player-btn-一塁手"));
+    expect(screen.getByTestId("selected-player-一塁手")).toHaveTextContent(
+      mockPlayers[1].name,
+    );
+  });
 });

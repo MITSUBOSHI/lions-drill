@@ -218,4 +218,65 @@ describe("PlayerTable", () => {
       expect(link).toHaveAttribute("href", player.url);
     });
   });
+
+  describe("検索フィルター", () => {
+    it("名前で選手を絞り込める", () => {
+      render(<PlayerTable players={mockPlayers} year={2026} />);
+
+      fireEvent.change(screen.getByLabelText("選手を検索"), {
+        target: { value: mockPlayers[0].name },
+      });
+
+      expect(
+        screen.getByText((content) => content.includes(mockPlayers[0].name)),
+      ).toBeInTheDocument();
+      expect(
+        screen.queryByText((content) => content.includes(mockPlayers[1].name)),
+      ).not.toBeInTheDocument();
+    });
+
+    it("ひらがなで選手を絞り込める", () => {
+      render(<PlayerTable players={mockPlayers} year={2026} />);
+
+      fireEvent.change(screen.getByLabelText("選手を検索"), {
+        target: { value: mockPlayers[1].name_kana },
+      });
+
+      expect(
+        screen.getByText((content) => content.includes(mockPlayers[1].name)),
+      ).toBeInTheDocument();
+      expect(
+        screen.queryByText((content) => content.includes(mockPlayers[0].name)),
+      ).not.toBeInTheDocument();
+    });
+
+    it("背番号で選手を絞り込める", () => {
+      render(<PlayerTable players={mockPlayers} year={2026} />);
+
+      fireEvent.change(screen.getByLabelText("選手を検索"), {
+        target: { value: mockPlayers[2].number_disp },
+      });
+
+      expect(
+        screen.getByText((content) => content.includes(mockPlayers[2].name)),
+      ).toBeInTheDocument();
+      expect(
+        screen.queryByText((content) => content.includes(mockPlayers[1].name)),
+      ).not.toBeInTheDocument();
+    });
+
+    it("検索をクリアすると全選手が表示される", () => {
+      render(<PlayerTable players={mockPlayers} year={2026} />);
+
+      const input = screen.getByLabelText("選手を検索");
+      fireEvent.change(input, { target: { value: mockPlayers[0].name } });
+      fireEvent.change(input, { target: { value: "" } });
+
+      mockPlayers.forEach((player) => {
+        expect(
+          screen.getByText((content) => content.includes(player.name)),
+        ).toBeInTheDocument();
+      });
+    });
+  });
 });

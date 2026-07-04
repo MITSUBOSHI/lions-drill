@@ -147,6 +147,43 @@ function calculateResult(
   }
 }
 
+const OPERATOR_PRECEDENCE: Record<Operator, number> = {
+  "*": 2,
+  "/": 2,
+  "+": 1,
+  "-": 1,
+};
+
+// 四則演算の優先順位（×÷が先）で式を評価する。割り切れない除算を含む場合はnull。
+// 表示される式と答えが数学的に一致するよう、左からの逐次計算ではなく優先順位で評価する。
+export function evaluateExpression(
+  numbers: number[],
+  operators: Operator[],
+): number | null {
+  const nums = [...numbers];
+  const ops = [...operators];
+
+  let i = 0;
+  while (i < ops.length) {
+    if (OPERATOR_PRECEDENCE[ops[i]] === 2) {
+      const result = calculateResult(nums[i], nums[i + 1], ops[i]);
+      if (result === null) return null;
+      nums.splice(i, 2, result);
+      ops.splice(i, 1);
+    } else {
+      i++;
+    }
+  }
+
+  let result = nums[0];
+  for (let j = 0; j < ops.length; j++) {
+    const next = calculateResult(result, nums[j + 1], ops[j]);
+    if (next === null) return null;
+    result = next;
+  }
+  return result;
+}
+
 function calculateExpression(
   players: PlayerType[],
   operators: Operator[],
@@ -165,23 +202,26 @@ function calculateExpression(
     };
   }
 
-  // 左から右へ順番に計算
-  let result = players[0].number_calc;
+  const numbers = players.map((p) => p.number_calc);
+
+  // 優先順位で評価できない場合（割り切れない除算など）は、
+  // 表示と答えの整合性を保つため式全体を加算にフォールバックする
+  let effectiveOperators = operators;
+  let result = evaluateExpression(numbers, operators);
+  if (result === null) {
+    effectiveOperators = Array<Operator>(operators.length).fill("+");
+    result = numbers.reduce((a, b) => a + b, 0);
+  }
+
   let expression = players[0].name;
   let explanationExpression = `${players[0].number_disp}（${players[0].name}）`;
   const effectiveOperatorSymbols: string[] = [];
 
-  for (let i = 0; i < operators.length; i++) {
-    const nextNumber = players[i + 1].number_calc;
-    const calculatedResult = calculateResult(result, nextNumber, operators[i]);
-
-    // 割り切れない場合は加算にフォールバックし、表示も加算にする
-    const effectiveOperator = calculatedResult !== null ? operators[i] : "+";
-    result = calculatedResult !== null ? calculatedResult : result + nextNumber;
-    effectiveOperatorSymbols.push(OPERATORS[effectiveOperator]);
-
-    expression += ` ${OPERATORS[effectiveOperator]} ${players[i + 1].name}`;
-    explanationExpression += ` ${OPERATORS[effectiveOperator]} ${players[i + 1].number_disp}（${players[i + 1].name}）`;
+  for (let i = 0; i < effectiveOperators.length; i++) {
+    const operatorSymbol = OPERATORS[effectiveOperators[i]];
+    effectiveOperatorSymbols.push(operatorSymbol);
+    expression += ` ${operatorSymbol} ${players[i + 1].name}`;
+    explanationExpression += ` ${operatorSymbol} ${players[i + 1].number_disp}（${players[i + 1].name}）`;
   }
 
   return {
@@ -223,32 +263,27 @@ export function generateQuestionWithOperators(
   }
 
   // 新しい演算子シーケンスを生成
-  const shuffledOperators = [...operators].sort(() => Math.random() - 0.5);
-  const operatorSequence: Operator[] = [];
+  // 優先順位で評価した答えが0以上の整数になる組み合わせを探す。
+  // 見つからない場合はすべて加算にフォールバックする。
+  const sequenceLength = Math.max(players.length - 1, 0);
+  const numbers = players.map((p) => p.number_calc);
+  const maxSequenceAttempts = 100;
+  let operatorSequence: Operator[] | null = null;
 
-  let currentResult = players[0].number_calc;
-  for (let i = 1; i < players.length; i++) {
-    const nextNumber = players[i].number_calc;
-    let validOperatorFound = false;
-
-    for (const op of shuffledOperators) {
-      const tempResult = calculateResult(currentResult, nextNumber, op);
-      if (
-        tempResult !== null &&
-        tempResult >= 0 &&
-        Number.isInteger(tempResult)
-      ) {
-        currentResult = tempResult;
-        operatorSequence.push(op);
-        validOperatorFound = true;
-        break;
-      }
+  for (let attempt = 0; attempt < maxSequenceAttempts; attempt++) {
+    const candidate = Array.from(
+      { length: sequenceLength },
+      () => operators[Math.floor(Math.random() * operators.length)],
+    );
+    const result = evaluateExpression(numbers, candidate);
+    if (result !== null && result >= 0 && Number.isInteger(result)) {
+      operatorSequence = candidate;
+      break;
     }
+  }
 
-    if (!validOperatorFound) {
-      currentResult += nextNumber;
-      operatorSequence.push("+");
-    }
+  if (operatorSequence === null) {
+    operatorSequence = Array<Operator>(sequenceLength).fill("+");
   }
 
   const {

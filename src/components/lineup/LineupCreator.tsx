@@ -220,9 +220,21 @@ export default function LineupCreator({ players }: Props) {
     setLineup(updatedLineup);
   };
 
-  // ラインナップをリセットする
+  // ラインナップをリセットする（DHあり設定を保ったままリセット）
   const resetLineup = () => {
-    setLineup(DEFAULT_LINEUP);
+    if (
+      typeof window !== "undefined" &&
+      !window.confirm("ラインナップをリセットしますか？")
+    ) {
+      return;
+    }
+    const baseLineup = hasDH
+      ? [
+          ...DEFAULT_LINEUP.filter((spot) => spot.position !== "投手"),
+          { order: null, player: null, position: "DH" as Position },
+        ]
+      : DEFAULT_LINEUP;
+    setLineup(baseLineup);
     setStartingPitcher(null);
   };
 
@@ -285,6 +297,20 @@ export default function LineupCreator({ players }: Props) {
     },
     [isFarmMode],
   );
+
+  // 既にどこかで選択済みの選手は他のポジションの候補から外す
+  const selectablePlayers = useMemo(() => {
+    const playerKey = (player: PlayerType) =>
+      `${player.number_disp}-${player.name}`;
+    const usedKeys = new Set<string>();
+    lineup.forEach((spot) => {
+      if (spot.player) usedKeys.add(playerKey(spot.player));
+    });
+    if (startingPitcher) usedKeys.add(playerKey(startingPitcher));
+    return filterPlayersByMode(players).filter(
+      (p) => !usedKeys.has(playerKey(p)),
+    );
+  }, [filterPlayersByMode, players, lineup, startingPitcher]);
 
   const saveAsImage = useCallback(async () => {
     if (!lineupTableRef.current) return;
@@ -547,7 +573,7 @@ export default function LineupCreator({ players }: Props) {
           {/* 先発投手選択は常に表示 */}
           <h3 className="text-lg font-semibold">投手選択</h3>
           <PlayerSelector
-            players={filterPlayersByMode(players)}
+            players={selectablePlayers}
             onSelectPlayer={handleSelectPitcher}
             selectedPlayer={startingPitcher}
             position="投手"
@@ -591,7 +617,7 @@ export default function LineupCreator({ players }: Props) {
                 )}
               </div>
               <PlayerSelector
-                players={filterPlayersByMode(players)}
+                players={selectablePlayers}
                 onSelectPlayer={(player: PlayerType | null) =>
                   handleSelectPlayer(spot.position, player)
                 }
