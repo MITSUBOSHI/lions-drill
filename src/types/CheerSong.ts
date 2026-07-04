@@ -2,6 +2,7 @@ export type SongCategory =
   | "right_pitcher"
   | "left_pitcher"
   | "foreign_pitcher"
+  | "individual_pitcher"
   | "individual_batter"
   | "pinch_hitter"
   | "catcher"
@@ -34,5 +35,9 @@ export type CheerSongType = {
   namePlaceholder?: string;
   applicablePlayers?: ApplicablePlayer[];
   url?: YouTubeUrl;
+  // 応援団サイトでホストされている音源 URL（mp3 など）。<audio> で再生する。
+  audioUrl?: string;
+  // 応援団サイトの出典ページ URL（参照元への外部リンク）。
+  sourceUrl?: string;
   isCommon: boolean;
 };

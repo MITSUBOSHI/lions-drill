@@ -6,17 +6,15 @@ import DraftTable from "@/components/draft/DraftTable";
 
 type DraftPageClientProps = {
   singleYearPicks: DraftPick[];
-  allPicks: DraftPick[];
   year: DraftYear;
 };
 
 export default function DraftPageClient({
   singleYearPicks,
-  allPicks,
   year,
 }: DraftPageClientProps) {
   return (
-    <DraftFilters singleYearPicks={singleYearPicks} allPicks={allPicks}>
+    <DraftFilters singleYearPicks={singleYearPicks}>
       {(filteredPicks, showAllYears) => (
         <DraftTable
           picks={filteredPicks}

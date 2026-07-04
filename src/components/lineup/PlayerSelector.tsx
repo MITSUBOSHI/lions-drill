@@ -140,7 +140,7 @@ export default function PlayerSelector({
             <span>{getDisplayName(selectedPlayer)}</span>
           </div>
           <button
-            className="text-xs px-2 py-1 text-red-600 hover:bg-red-50 rounded border border-red-300"
+            className="text-sm px-3 min-h-11 text-red-600 hover:bg-red-50 rounded border border-red-300 cursor-pointer"
             onClick={handleClearSelection}
           >
             クリア
@@ -149,7 +149,7 @@ export default function PlayerSelector({
       ) : (
         // 未選択の場合はドロップダウンボタンを表示
         <button
-          className="w-full flex items-center justify-between px-4 py-2 border rounded-md bg-[var(--surface-card-subtle)] cursor-pointer"
+          className="w-full flex items-center justify-between min-h-11 px-4 py-2 border rounded-md bg-[var(--surface-card-subtle)] cursor-pointer"
           style={{
             borderColor: "var(--border-card)",
             color: "var(--text-primary)",
@@ -166,6 +166,7 @@ export default function PlayerSelector({
             style={{
               transform: isOpen ? "rotate(180deg)" : "none",
             }}
+            aria-hidden="true"
           >
             ▼
           </span>
@@ -197,14 +198,24 @@ export default function PlayerSelector({
               aria-label="選手を検索"
             />
 
-            <div role="listbox" ref={listRef} aria-label={`${position}の選手`}>
+            <div
+              role="listbox"
+              ref={listRef}
+              aria-label={`${position}の選手`}
+              aria-activedescendant={
+                highlightedIndex >= 0
+                  ? `player-option-${position}-${highlightedIndex}`
+                  : undefined
+              }
+            >
               {filteredPlayers.length > 0 ? (
                 filteredPlayers.map((player, index) => (
                   <div
                     key={`${player.year}-${player.number_disp}`}
+                    id={`player-option-${position}-${index}`}
                     role="option"
                     aria-selected={index === highlightedIndex}
-                    className="p-2 cursor-pointer rounded"
+                    className="p-2 min-h-11 flex items-center cursor-pointer rounded"
                     style={{
                       backgroundColor:
                         index === highlightedIndex

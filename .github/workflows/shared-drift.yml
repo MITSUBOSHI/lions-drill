@@ -1,0 +1,26 @@
+name: Shared code drift check
+
+# 共有コード(scripts/sync/shared-paths.txt に定義)が
+# upstream(baystars-drill)と乖離していないかを毎日検査する。
+# upstream 自身ではスキップされる。
+
+on:
+  schedule:
+    - cron: "0 21 * * *" # JST 6:00
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    if: github.repository != 'MITSUBOSHI/baystars-drill'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: MITSUBOSHI/baystars-drill
+          path: .upstream
+      - name: Check drift against upstream
+        run: bash scripts/sync/check-drift.sh .upstream

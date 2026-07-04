@@ -1,6 +1,8 @@
 "use client";
 
 import { PlayerType } from "@/types/Player";
+import { POSITION_READINGS } from "@/types/common";
+import Ruby from "@/components/common/Ruby";
 import { LineupSpot } from "./LineupCreator";
 
 type Props = {
@@ -22,6 +24,10 @@ export default function LineupTable({
   const unassignedCount = lineup.filter((spot) => spot.order === null).length;
   const textColor = isForImage ? "black" : "var(--text-primary)";
 
+  // html2canvas で画像化する際はルビを含めない
+  const withRuby = (text: string, reading: string) =>
+    isForImage ? text : <Ruby reading={reading}>{text}</Ruby>;
+
   return (
     <div
       className="border rounded-lg overflow-hidden p-4"
@@ -33,13 +39,15 @@ export default function LineupTable({
         </span>
         <div>
           <span className="text-sm" style={{ color: textColor }}>
-            先発投手:
+            {withRuby("先発投手", "せんぱつとうしゅ")}:
           </span>
           <span
             className={`inline-block text-base px-2 rounded ${isForImage ? "pb-2" : ""}`}
             style={{ backgroundColor: "#e5e7eb", color: textColor }}
           >
-            {startingPitcher ? getDisplayName(startingPitcher) : "未選択"}
+            {startingPitcher
+              ? getDisplayName(startingPitcher)
+              : withRuby("未選択", "みせんたく")}
           </span>
         </div>
       </div>
@@ -49,10 +57,18 @@ export default function LineupTable({
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="border-b border-[var(--border-card)]">
-                <th className="text-left px-3 py-2 w-16">打順</th>
-                <th className="text-left px-3 py-2 w-16">位置</th>
-                <th className="text-left px-3 py-2">選手名</th>
-                <th className="text-left px-3 py-2 w-20">背番号</th>
+                <th className="text-left px-3 py-2 w-16">
+                  {withRuby("打順", "だじゅん")}
+                </th>
+                <th className="text-left px-3 py-2 w-16">
+                  {withRuby("位置", "いち")}
+                </th>
+                <th className="text-left px-3 py-2">
+                  {withRuby("選手名", "せんしゅめい")}
+                </th>
+                <th className="text-left px-3 py-2 w-20">
+                  {withRuby("背番号", "せばんごう")}
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -72,9 +88,16 @@ export default function LineupTable({
                   className="border-b border-[var(--border-card)]"
                 >
                   <td className="px-3 py-2">{spot.order}</td>
-                  <td className="px-3 py-2">{spot.position[0]}</td>
                   <td className="px-3 py-2">
-                    {spot.player ? getDisplayName(spot.player) : "未選択"}
+                    {withRuby(
+                      spot.position[0],
+                      POSITION_READINGS[spot.position],
+                    )}
+                  </td>
+                  <td className="px-3 py-2">
+                    {spot.player
+                      ? getDisplayName(spot.player)
+                      : withRuby("未選択", "みせんたく")}
                   </td>
                   <td className="px-3 py-2">
                     {spot.player ? spot.player.number_disp : "-"}
@@ -87,7 +110,8 @@ export default function LineupTable({
       ) : (
         <div className="text-center p-4">
           <p style={{ color: "var(--text-secondary)" }}>
-            打順が設定されていません
+            {withRuby("打順", "だじゅん")}が{withRuby("設定", "せってい")}
+            されていません
           </p>
         </div>
       )}
@@ -98,7 +122,9 @@ export default function LineupTable({
           style={{ backgroundColor: "var(--surface-card)" }}
         >
           <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-            残り{unassignedCount}ポジションが打順未設定です
+            <Ruby reading="のこ">残</Ruby>り{unassignedCount}ポジションが
+            <Ruby reading="だじゅん">打順</Ruby>
+            <Ruby reading="みせってい">未設定</Ruby>です
           </p>
         </div>
       )}
@@ -112,7 +138,9 @@ export default function LineupTable({
             className="text-sm font-bold"
             style={{ color: "var(--text-success)" }}
           >
-            打順設定完了 ⚾
+            <Ruby reading="だじゅん">打順</Ruby>
+            <Ruby reading="せってい">設定</Ruby>
+            <Ruby reading="かんりょう">完了</Ruby> ⚾
           </p>
         </div>
       )}

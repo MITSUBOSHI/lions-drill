@@ -3,24 +3,39 @@
 import { useState, useMemo, useCallback } from "react";
 import { DraftPick } from "@/types/DraftPick";
 import OptionGroup from "@/components/common/OptionGroup";
+import Ruby from "@/components/common/Ruby";
 
 type DraftFiltersProps = {
   singleYearPicks: DraftPick[];
-  allPicks: DraftPick[];
   children: (
     filteredPicks: DraftPick[],
     showAllYears: boolean,
   ) => React.ReactNode;
 };
 
+const rankLabel = (n: number) => (
+  <>
+    {n}
+    <Ruby reading="い">位</Ruby>
+  </>
+);
+
 const baseRoundOptions = [
-  { value: "1", label: "1位" },
-  { value: "2", label: "2位" },
-  { value: "3", label: "3位" },
-  { value: "4", label: "4位" },
-  { value: "5", label: "5位" },
-  { value: "6", label: "6位" },
-  { value: "7", label: "7位以降" },
+  { value: "1", label: rankLabel(1) },
+  { value: "2", label: rankLabel(2) },
+  { value: "3", label: rankLabel(3) },
+  { value: "4", label: rankLabel(4) },
+  { value: "5", label: rankLabel(5) },
+  { value: "6", label: rankLabel(6) },
+  {
+    value: "7",
+    label: (
+      <>
+        {rankLabel(7)}
+        <Ruby reading="いこう">以降</Ruby>
+      </>
+    ),
+  },
 ];
 
 // round=0（自由獲得枠・希望入団枠など巡目なしの特別枠）の絞り込み値
@@ -33,27 +48,42 @@ function roundToFilterValue(round: number): string {
 }
 
 const categoryOptions = [
-  { value: "all", label: "全て" },
-  { value: "regular", label: "支配下" },
-  { value: "development", label: "育成" },
+  {
+    value: "all",
+    label: (
+      <>
+        <Ruby reading="すべ">全</Ruby>て
+      </>
+    ),
+  },
+  { value: "regular", label: <Ruby reading="しはいか">支配下</Ruby> },
+  { value: "development", label: <Ruby reading="いくせい">育成</Ruby> },
 ];
 
 const positionOptions = [
-  { value: "投手", label: "投手" },
-  { value: "捕手", label: "捕手" },
-  { value: "内野手", label: "内野手" },
-  { value: "外野手", label: "外野手" },
+  { value: "投手", label: <Ruby reading="とうしゅ">投手</Ruby> },
+  { value: "捕手", label: <Ruby reading="ほしゅ">捕手</Ruby> },
+  { value: "内野手", label: <Ruby reading="ないやしゅ">内野手</Ruby> },
+  { value: "外野手", label: <Ruby reading="がいやしゅ">外野手</Ruby> },
 ];
 
 export default function DraftFilters({
   singleYearPicks,
-  allPicks,
   children,
 }: DraftFiltersProps) {
   const [showAllYears, setShowAllYears] = useState(false);
+  // 全年分のデータは大きいため、初期HTMLには含めず「全年表示」時に遅延ロードする
+  const [allPicks, setAllPicks] = useState<DraftPick[] | null>(null);
   const [selectedRounds, setSelectedRounds] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [selectedPositions, setSelectedPositions] = useState<string[]>([]);
+
+  const handleToggleAllYears = useCallback(() => {
+    setShowAllYears((prev) => !prev);
+    if (!allPicks) {
+      import("@/lib/draft").then((mod) => setAllPicks(mod.allDraftPicks()));
+    }
+  }, [allPicks]);
 
   const handleRoundChange = useCallback((value: string) => {
     setSelectedRounds((prev) =>
@@ -67,12 +97,23 @@ export default function DraftFilters({
     );
   }, []);
 
-  const basePicks = showAllYears ? allPicks : singleYearPicks;
+  const basePicks =
+    showAllYears && allPicks !== null ? allPicks : singleYearPicks;
 
   const roundOptions = useMemo(() => {
     const hasOther = basePicks.some((p) => p.round <= 0);
     return hasOther
-      ? [...baseRoundOptions, { value: OTHER_ROUND, label: "その他" }]
+      ? [
+          ...baseRoundOptions,
+          {
+            value: OTHER_ROUND,
+            label: (
+              <>
+                その<Ruby reading="た">他</Ruby>
+              </>
+            ),
+          },
+        ]
       : baseRoundOptions;
   }, [basePicks]);
 
@@ -103,20 +144,21 @@ export default function DraftFilters({
       <div className="flex flex-col gap-3 p-4 bg-[var(--surface-card-subtle)] rounded-lg border border-[var(--border-card)]">
         <div className="flex items-center gap-3">
           <button
-            className={`text-sm rounded-full px-4 py-1.5 border cursor-pointer transition-colors ${
+            className={`text-sm rounded-full px-4 py-1.5 min-h-11 border cursor-pointer transition-colors ${
               showAllYears
                 ? "bg-[var(--interactive-primary)] text-white border-[var(--interactive-primary)]"
                 : "bg-transparent text-[var(--interactive-primary)] border-[var(--interactive-primary)]"
             }`}
-            onClick={() => setShowAllYears(!showAllYears)}
+            onClick={handleToggleAllYears}
+            aria-pressed={showAllYears}
           >
-            全年表示
+            <Ruby reading="ぜんねんひょうじ">全年表示</Ruby>
           </button>
         </div>
 
         <div className="flex flex-col gap-2">
           <p className="text-xs font-medium text-[var(--text-secondary)]">
-            順位
+            <Ruby reading="じゅんい">順位</Ruby>
           </p>
           <OptionGroup
             name="round"
@@ -129,7 +171,7 @@ export default function DraftFilters({
 
         <div className="flex flex-col gap-2">
           <p className="text-xs font-medium text-[var(--text-secondary)]">
-            種別
+            <Ruby reading="しゅべつ">種別</Ruby>
           </p>
           <OptionGroup
             name="category"
@@ -154,7 +196,8 @@ export default function DraftFilters({
       </div>
 
       <p className="text-sm text-[var(--text-secondary)]">
-        {filteredPicks.length}件
+        {filteredPicks.length}
+        <Ruby reading="けん">件</Ruby>
       </p>
 
       {children(filteredPicks, showAllYears)}

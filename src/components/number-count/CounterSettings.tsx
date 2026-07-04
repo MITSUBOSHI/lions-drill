@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FiChevronDown, FiChevronRight } from "react-icons/fi";
 import OptionGroup from "@/components/common/OptionGroup";
+import Ruby from "@/components/common/Ruby";
 import type { CountDirection } from "./NumberCounter";
 
 type Props = {
@@ -24,9 +25,30 @@ type Props = {
 const countLimitPresets = [10, 15, 20, 30, 45, 60, 90, 99];
 
 const speedOptions = [
-  { value: "2000", label: "ゆっくり (2秒)" },
-  { value: "1000", label: "ふつう (1秒)" },
-  { value: "500", label: "はやい (0.5秒)" },
+  {
+    value: "2000",
+    label: (
+      <>
+        ゆっくり (2<Ruby reading="びょう">秒</Ruby>)
+      </>
+    ),
+  },
+  {
+    value: "1000",
+    label: (
+      <>
+        ふつう (1<Ruby reading="びょう">秒</Ruby>)
+      </>
+    ),
+  },
+  {
+    value: "500",
+    label: (
+      <>
+        はやい (0.5<Ruby reading="びょう">秒</Ruby>)
+      </>
+    ),
+  },
 ];
 
 export default function CounterSettings({
@@ -58,13 +80,15 @@ export default function CounterSettings({
         className="flex items-center justify-between w-full p-4 cursor-pointer font-bold text-base bg-transparent border-none text-[var(--text-primary)]"
         onClick={() => setIsOpen(!isOpen)}
       >
-        設定
+        <Ruby reading="せってい">設定</Ruby>
         {isOpen ? <FiChevronDown /> : <FiChevronRight />}
       </button>
       {isOpen && (
         <div className="flex flex-col gap-4 items-stretch px-6 pb-6">
           <div>
-            <p className="font-bold mb-2">カウント数</p>
+            <p className="font-bold mb-2">
+              カウント<Ruby reading="すう">数</Ruby>
+            </p>
             <div className="flex items-center gap-2">
               <input
                 list="count-limit-options"
@@ -75,7 +99,7 @@ export default function CounterSettings({
                 onBlur={onCountLimitBlur}
                 disabled={disabled}
                 aria-label="カウント数"
-                className="w-16 text-sm px-2 py-1 border rounded text-center"
+                className="w-16 text-sm px-2 py-1 min-h-11 border rounded text-center"
                 style={{
                   borderColor: "var(--border-card)",
                   backgroundColor: "var(--surface-card-subtle)",
@@ -91,7 +115,9 @@ export default function CounterSettings({
           </div>
 
           <div>
-            <p className="font-bold mb-2">0を含める</p>
+            <p className="font-bold mb-2">
+              0を<Ruby reading="ふく">含</Ruby>める
+            </p>
             <OptionGroup
               name="includeZero"
               options={[
@@ -105,7 +131,9 @@ export default function CounterSettings({
           </div>
 
           <div>
-            <p className="font-bold mb-2">方向</p>
+            <p className="font-bold mb-2">
+              <Ruby reading="ほうこう">方向</Ruby>
+            </p>
             <OptionGroup
               name="direction"
               options={[
@@ -119,7 +147,9 @@ export default function CounterSettings({
           </div>
 
           <div>
-            <p className="font-bold mb-2">速度</p>
+            <p className="font-bold mb-2">
+              <Ruby reading="そくど">速度</Ruby>
+            </p>
             <OptionGroup
               name="speed"
               options={speedOptions}
@@ -130,7 +160,9 @@ export default function CounterSettings({
           </div>
 
           <div>
-            <p className="font-bold mb-2">音声</p>
+            <p className="font-bold mb-2">
+              <Ruby reading="おんせい">音声</Ruby>
+            </p>
             <OptionGroup
               name="speech"
               options={[

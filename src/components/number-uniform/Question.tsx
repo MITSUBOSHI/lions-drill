@@ -110,10 +110,10 @@ const Question: React.FC<Props> = ({ players }) => {
                 </p>
               </div>
               <button
-                className="text-xs px-2 py-1 text-red-600 hover:bg-red-50 rounded"
+                className="text-sm px-3 min-h-11 text-red-600 hover:bg-red-50 rounded"
                 onClick={handleReset}
               >
-                <Ruby reading="り">リ</Ruby>セット
+                リセット
               </button>
             </div>
           </div>

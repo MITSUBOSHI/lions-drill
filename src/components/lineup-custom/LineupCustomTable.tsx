@@ -4,6 +4,7 @@ import {
   DEFAULT_ITEM_LABEL,
   type CustomLineupSpot,
 } from "@/lib/lineupCustomUrl";
+import Ruby from "@/components/common/Ruby";
 
 type Props = {
   lineup: CustomLineupSpot[];
@@ -26,6 +27,10 @@ export default function LineupCustomTable({
     20,
   );
 
+  // html2canvas で画像化する際はルビを含めない
+  const withRuby = (text: string, reading: string) =>
+    isForImage ? text : <Ruby reading={reading}>{text}</Ruby>;
+
   return (
     <div
       className="border rounded-lg overflow-hidden p-4"
@@ -42,9 +47,15 @@ export default function LineupCustomTable({
           <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="border-b border-[var(--border-card)]">
-                <th className="text-left px-3 py-2 w-16">打順</th>
+                <th className="text-left px-3 py-2 w-16">
+                  {withRuby("打順", "だじゅん")}
+                </th>
                 <th className="text-left px-3 py-2">{displayItemLabel}</th>
-                {hasMemo && <th className="text-left px-3 py-2">メモ・理由</th>}
+                {hasMemo && (
+                  <th className="text-left px-3 py-2">
+                    メモ・{withRuby("理由", "りゆう")}
+                  </th>
+                )}
               </tr>
             </thead>
             <tbody>
@@ -65,7 +76,9 @@ export default function LineupCustomTable({
                 >
                   <td className="px-3 py-2">{spot.order}</td>
                   <td className="px-3 py-2 break-words">
-                    {spot.name.trim() ? spot.name : "未入力"}
+                    {spot.name.trim()
+                      ? spot.name
+                      : withRuby("未入力", "みにゅうりょく")}
                   </td>
                   {hasMemo && (
                     <td
@@ -83,7 +96,8 @@ export default function LineupCustomTable({
       ) : (
         <div className="text-center p-4">
           <p style={{ color: "var(--text-secondary)" }}>
-            {displayItemLabel}が入力されていません
+            {displayItemLabel}が{withRuby("入力", "にゅうりょく")}
+            されていません
           </p>
         </div>
       )}
@@ -94,7 +108,9 @@ export default function LineupCustomTable({
           style={{ backgroundColor: "var(--surface-card)" }}
         >
           <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-            残り{9 - filledCount}枠が未入力です
+            <Ruby reading="のこ">残</Ruby>り{9 - filledCount}
+            <Ruby reading="わく">枠</Ruby>が
+            <Ruby reading="みにゅうりょく">未入力</Ruby>です
           </p>
         </div>
       )}
@@ -108,7 +124,9 @@ export default function LineupCustomTable({
             className="text-sm font-bold"
             style={{ color: "var(--text-success)" }}
           >
-            打順設定完了 ⚾
+            <Ruby reading="だじゅん">打順</Ruby>
+            <Ruby reading="せってい">設定</Ruby>
+            <Ruby reading="かんりょう">完了</Ruby> ⚾
           </p>
         </div>
       )}

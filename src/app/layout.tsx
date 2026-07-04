@@ -100,9 +100,15 @@ export default function RootLayout({
             `,
           }}
         />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-[var(--interactive-primary)] focus:text-white focus:rounded-md"
+        >
+          本文へスキップ
+        </a>
         <Provider>
           <AppBreadcrumb />
-          {children}
+          <main id="main-content">{children}</main>
           <footer className="py-4 px-6 text-center flex flex-col items-center gap-1">
             <p className="text-xs text-[var(--text-secondary)]">
               {TEAM.disclaimer}
@@ -111,7 +117,7 @@ export default function RootLayout({
               href="https://buymeacoffee.com/MITSUBOSHI"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-[var(--text-secondary)] hover:underline"
+              className="text-xs text-[var(--text-secondary)] hover:underline inline-flex items-center min-h-11"
             >
               ☕ 開発者を応援する
             </a>

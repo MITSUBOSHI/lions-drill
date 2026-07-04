@@ -1,51 +1,7 @@
 @import "tailwindcss";
 
-@theme {
-  --color-brand-50: #E6ECF6;
-  --color-brand-100: #B3C2E0;
-  --color-brand-200: #8099CA;
-  --color-brand-300: #4D70B3;
-  --color-brand-400: #264C9C;
-  --color-brand-500: #003B89;
-  --color-brand-600: #00357B;
-  --color-brand-700: #002E6B;
-  --color-brand-800: #00265A;
-  --color-brand-900: #001D48;
-}
-
-:root {
-  --surface-card: #f9fafb;
-  --surface-card-subtle: #ffffff;
-  --surface-brand: #E6ECF6;
-  --surface-success: #f0fdf4;
-  --surface-error: #fef2f2;
-  --border-card: #e5e7eb;
-  --border-brand: #8099CA;
-  --border-success: #bbf7d0;
-  --border-error: #fecaca;
-  --text-primary: #111827;
-  --text-secondary: #4b5563;
-  --text-success: #16a34a;
-  --interactive-primary: #003B89;
-  --interactive-primary-hover: #00357B;
-}
-
-.dark {
-  --surface-card: #1f2937;
-  --surface-card-subtle: #374151;
-  --surface-brand: #001D48;
-  --surface-success: #14532d;
-  --surface-error: #7f1d1d;
-  --border-card: #4b5563;
-  --border-brand: #002E6B;
-  --border-success: #15803d;
-  --border-error: #b91c1c;
-  --text-primary: #f3f4f6;
-  --text-secondary: #9ca3af;
-  --text-success: #86efac;
-  --interactive-primary: #4D70B3;
-  --interactive-primary-hover: #8099CA;
-}
+/* チーム固有パレット（チーム所有・同期対象外） */
+@import "../config/theme.css";
 
 html,
 body {
@@ -56,12 +12,61 @@ body {
 body {
   background-color: var(--surface-card-subtle);
   color: var(--text-primary);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    "Noto Sans",
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
   line-height: 1.6;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* キーボード操作時の現在位置を全要素で可視化する */
+:focus-visible {
+  outline: 3px solid var(--interactive-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ルビが子どもにも読める最小サイズを下回らないようにする */
+rt {
+  font-size: max(0.6em, 10px);
+  line-height: 1;
+}
+
+/* 44px のタッチターゲットを確保しつつ見た目は変えないためのユーティリティ。
+   ::after で当たり判定だけを広げる */
+.tap-target {
+  position: relative;
+}
+.tap-target::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 44px;
+  min-height: 44px;
+  width: 100%;
+  height: 100%;
 }

@@ -85,36 +85,14 @@ export default function DrillQuestion({
       </div>
       <div className="flex gap-4 mt-6">
         <button
-          className="flex-1 font-bold text-white py-2 px-4 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer border-none"
-          style={{
-            backgroundColor: "var(--interactive-primary)",
-          }}
-          onMouseOver={(e) =>
-            (e.currentTarget.style.backgroundColor =
-              "var(--interactive-primary-hover)")
-          }
-          onMouseOut={(e) =>
-            (e.currentTarget.style.backgroundColor =
-              "var(--interactive-primary)")
-          }
+          className="flex-1 font-bold text-white min-h-12 py-2 px-4 rounded-md transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer border-none bg-[var(--interactive-primary)] hover:bg-[var(--interactive-primary-hover)]"
           onClick={onAnswer}
           disabled={showResult || inputValue === ""}
         >
           <Ruby reading="かいとう">解答</Ruby>する
         </button>
         <button
-          className="flex-1 font-bold text-white py-2 px-4 rounded-md transition-colors cursor-pointer border-none"
-          style={{
-            backgroundColor: "var(--interactive-primary)",
-          }}
-          onMouseOver={(e) =>
-            (e.currentTarget.style.backgroundColor =
-              "var(--interactive-primary-hover)")
-          }
-          onMouseOut={(e) =>
-            (e.currentTarget.style.backgroundColor =
-              "var(--interactive-primary)")
-          }
+          className="flex-1 font-bold text-white min-h-12 py-2 px-4 rounded-md transition-colors cursor-pointer border-none bg-[var(--interactive-primary)] hover:bg-[var(--interactive-primary-hover)]"
           onClick={onRetry}
         >
           <Ruby reading="さいちょうせん">再挑戦</Ruby>

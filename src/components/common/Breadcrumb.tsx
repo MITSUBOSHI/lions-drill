@@ -67,8 +67,17 @@ export default function AppBreadcrumb() {
         setMenuOpen(false);
       }
     }
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+      }
+    }
     document.addEventListener("click", handleClick);
-    return () => document.removeEventListener("click", handleClick);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("click", handleClick);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, [menuOpen]);
 
   const breadcrumbItems = useMemo(() => {
@@ -117,12 +126,12 @@ export default function AppBreadcrumb() {
       <div className="flex w-full max-w-[1200px] mx-auto mb-4 px-4 pt-4 justify-between items-center">
         <div className="flex items-center gap-2">
           <button
-            className="flex md:hidden p-1 bg-transparent border-none cursor-pointer"
+            className="flex md:hidden items-center justify-center min-w-11 min-h-11 -my-2 -ml-2 bg-transparent border-none cursor-pointer"
             onClick={() => setMenuOpen((prev) => !prev)}
-            aria-label="メニューを開く"
+            aria-label={menuOpen ? "メニューを閉じる" : "メニューを開く"}
             aria-expanded={menuOpen}
           >
-            {menuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
+            {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
 
           {breadcrumbItems.length > 1 ? (
@@ -169,7 +178,7 @@ export default function AppBreadcrumb() {
         </div>
 
         <button
-          className={`text-xs rounded-full px-3 py-1 border cursor-pointer transition-colors ${
+          className={`text-sm rounded-full px-4 min-h-11 border cursor-pointer transition-colors shrink-0 ${
             furigana
               ? "bg-[var(--interactive-primary)] text-white border-[var(--interactive-primary)]"
               : "bg-transparent text-[var(--interactive-primary)] border-[var(--interactive-primary)]"

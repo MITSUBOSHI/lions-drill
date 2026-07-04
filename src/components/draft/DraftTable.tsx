@@ -37,15 +37,25 @@ export default function DraftTable({
         <thead>
           <tr className="bg-[var(--interactive-primary)] text-white sticky top-0 z-10">
             {showYearColumn && (
-              <th className="px-3 py-2 text-left whitespace-nowrap">年</th>
+              <th className="px-3 py-2 text-left whitespace-nowrap">
+                <Ruby reading="ねん">年</Ruby>
+              </th>
             )}
-            <th className="px-3 py-2 text-left whitespace-nowrap">種別</th>
-            <th className="px-3 py-2 text-left whitespace-nowrap">順位</th>
-            <th className="px-3 py-2 text-left whitespace-nowrap">名前</th>
+            <th className="px-3 py-2 text-left whitespace-nowrap">
+              <Ruby reading="しゅべつ">種別</Ruby>
+            </th>
+            <th className="px-3 py-2 text-left whitespace-nowrap">
+              <Ruby reading="じゅんい">順位</Ruby>
+            </th>
+            <th className="px-3 py-2 text-left whitespace-nowrap">
+              <Ruby reading="なまえ">名前</Ruby>
+            </th>
             <th className="px-3 py-2 text-left whitespace-nowrap">
               ポジション
             </th>
-            <th className="px-3 py-2 text-left whitespace-nowrap">出身</th>
+            <th className="px-3 py-2 text-left whitespace-nowrap">
+              <Ruby reading="しゅっしん">出身</Ruby>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -71,12 +81,23 @@ export default function DraftTable({
                         : "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
                     }`}
                   >
-                    {pick.category === "regular" ? "支配下" : "育成"}
+                    {pick.category === "regular" ? (
+                      <Ruby reading="しはいか">支配下</Ruby>
+                    ) : (
+                      <Ruby reading="いくせい">育成</Ruby>
+                    )}
                   </span>
                 </td>
                 <td className="px-3 py-2 whitespace-nowrap">
                   <span className="flex items-center gap-1">
-                    {pick.round > 0 ? `${pick.round}位` : (pick.note ?? "ー")}
+                    {pick.round > 0 ? (
+                      <>
+                        {pick.round}
+                        <Ruby reading="い">位</Ruby>
+                      </>
+                    ) : (
+                      (pick.note ?? "ー")
+                    )}
                     {pick.isLotteryLoss && (
                       <span className="relative">
                         <button

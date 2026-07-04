@@ -1,0 +1,54 @@
+/*
+ * チーム固有のカラーパレット定義。
+ * このファイルはチーム所有（同期対象外）。共有コードは globals.css 側にある。
+ * 共有コード側は --color-brand-* / --surface-* / --border-* / --text-* /
+ * --interactive-* のトークン名だけに依存する。
+ */
+
+@theme {
+  --color-brand-50: #e6ecf6;
+  --color-brand-100: #b3c2e0;
+  --color-brand-200: #8099ca;
+  --color-brand-300: #4d70b3;
+  --color-brand-400: #264c9c;
+  --color-brand-500: #003b89;
+  --color-brand-600: #00357b;
+  --color-brand-700: #002e6b;
+  --color-brand-800: #00265a;
+  --color-brand-900: #001d48;
+}
+
+:root {
+  --surface-card: #f9fafb;
+  --surface-card-subtle: #ffffff;
+  --surface-brand: #e6ecf6;
+  --surface-success: #f0fdf4;
+  --surface-error: #fef2f2;
+  --border-card: #e5e7eb;
+  --border-brand: #8099ca;
+  --border-success: #bbf7d0;
+  --border-error: #fecaca;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  /* #16a34a は --surface-success 上で 3.4:1 と AA 未達のため濃くしている */
+  --text-success: #15803d;
+  --interactive-primary: #003b89;
+  --interactive-primary-hover: #00357b;
+}
+
+.dark {
+  --surface-card: #1f2937;
+  --surface-card-subtle: #374151;
+  --surface-brand: #001d48;
+  --surface-success: #14532d;
+  --surface-error: #7f1d1d;
+  --border-card: #4b5563;
+  --border-brand: #002e6b;
+  --border-success: #15803d;
+  --border-error: #b91c1c;
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-success: #86efac;
+  --interactive-primary: #4d70b3;
+  --interactive-primary-hover: #8099ca;
+}

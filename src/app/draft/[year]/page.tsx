@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { draftYears } from "@/constants/draft";
-import { draftByYear, allDraftPicks } from "@/lib/draft";
+import { draftByYear } from "@/lib/draft";
 import { DraftYear } from "@/types/DraftPick";
 import YearSelector from "@/components/common/YearSelector";
 import PageTitle from "@/components/common/PageTitle";
@@ -31,7 +31,6 @@ export default async function Page({
   const { year } = await params;
   const currentYear = Number(year) as DraftYear;
   const picks = draftByYear(currentYear);
-  const allPicks = allDraftPicks();
 
   return (
     <div className="flex flex-col items-center w-full gap-6 py-4">
@@ -42,11 +41,7 @@ export default async function Page({
         years={draftYears}
       />
       <div className="w-full max-w-full md:max-w-[800px] px-4">
-        <DraftPageClient
-          singleYearPicks={picks}
-          allPicks={allPicks}
-          year={currentYear}
-        />
+        <DraftPageClient singleYearPicks={picks} year={currentYear} />
       </div>
     </div>
   );

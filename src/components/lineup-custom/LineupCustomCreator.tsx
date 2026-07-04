@@ -13,6 +13,7 @@ import {
 import { FaXTwitter } from "react-icons/fa6";
 import { useSearchParams } from "next/navigation";
 import { Switch } from "@/components/ui/switch";
+import Ruby from "@/components/common/Ruby";
 import {
   CUSTOM_NAME_MAX_LENGTH,
   CUSTOM_MEMO_MAX_LENGTH,
@@ -184,17 +185,21 @@ export default function LineupCustomCreator() {
         }}
       >
         <button
-          className="flex items-center justify-between w-full p-4 cursor-pointer font-bold text-base bg-transparent border-none text-[var(--text-primary)]"
+          className="flex items-center justify-between w-full p-4 min-h-11 cursor-pointer font-bold text-base bg-transparent border-none text-[var(--text-primary)]"
           onClick={() => setSettingsOpen(!settingsOpen)}
         >
-          設定
+          <Ruby reading="せってい">設定</Ruby>
           {settingsOpen ? <FiChevronDown /> : <FiChevronRight />}
         </button>
         {settingsOpen && (
           <div className="flex flex-col gap-4 px-6 pb-6">
             <div>
-              <p className="mb-2">スタメン表の名前</p>
+              <label className="block mb-2" htmlFor="lineup-custom-title">
+                スタメン<Ruby reading="ひょう">表</Ruby>の
+                <Ruby reading="なまえ">名前</Ruby>
+              </label>
               <input
+                id="lineup-custom-title"
                 value={customTitle}
                 onChange={(e) =>
                   setCustomTitle(
@@ -212,11 +217,15 @@ export default function LineupCustomCreator() {
               />
             </div>
             <div>
-              <p className="mb-2">
-                項目ラベル（{CUSTOM_ITEM_LABEL_MAX_LENGTH}字以内・空欄なら「
+              <label className="block mb-2" htmlFor="lineup-custom-item-label">
+                <Ruby reading="こうもく">項目</Ruby>ラベル（
+                {CUSTOM_ITEM_LABEL_MAX_LENGTH}
+                <Ruby reading="じいない">字以内</Ruby>・
+                <Ruby reading="くうらん">空欄</Ruby>なら「
                 {DEFAULT_ITEM_LABEL}」）
-              </p>
+              </label>
               <input
+                id="lineup-custom-item-label"
                 value={itemLabel}
                 onChange={(e) =>
                   setItemLabel(
@@ -237,7 +246,8 @@ export default function LineupCustomCreator() {
               checked={showMemo}
               onCheckedChange={(e) => setShowMemo(e.checked)}
             >
-              メモ・理由を入力する
+              メモ・<Ruby reading="りゆう">理由</Ruby>を
+              <Ruby reading="にゅうりょく">入力</Ruby>する
             </Switch>
           </div>
         )}
@@ -246,56 +256,44 @@ export default function LineupCustomCreator() {
       <div className="w-full max-w-[800px]">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-semibold">スターティングメンバー</h3>
-          <div className="flex gap-2">
+          <div className="flex gap-1 items-center">
             <button
               onClick={handleShareLink}
               aria-label="URLをコピー"
-              style={{
-                background: "none",
-                border: "none",
-                padding: "4px",
-                cursor: "pointer",
-              }}
+              className="flex items-center justify-center min-w-11 min-h-11 bg-transparent border-none cursor-pointer text-[var(--interactive-primary)] hover:bg-[var(--surface-brand)] rounded-md"
             >
               {copied ? (
-                <FiCheck size={16} color="#28a745" />
+                <FiCheck size={20} color="var(--text-success)" />
               ) : (
-                <FiLink size={16} color="#004B98" style={{ opacity: 0.6 }} />
+                <FiLink size={20} />
               )}
             </button>
             <button
               onClick={handleShareTwitter}
               aria-label="Xで共有"
-              style={{
-                background: "none",
-                border: "none",
-                padding: "4px",
-                cursor: "pointer",
-              }}
+              className="flex items-center justify-center min-w-11 min-h-11 bg-transparent border-none cursor-pointer text-[var(--interactive-primary)] hover:bg-[var(--surface-brand)] rounded-md"
             >
-              <FaXTwitter size={16} color="#004B98" style={{ opacity: 0.6 }} />
+              <FaXTwitter size={20} />
             </button>
             {typeof navigator !== "undefined" && "share" in navigator && (
               <button
                 onClick={handleNativeShare}
                 aria-label="共有"
-                style={{
-                  background: "none",
-                  border: "none",
-                  padding: "4px",
-                  cursor: "pointer",
-                }}
+                className="flex items-center justify-center min-w-11 min-h-11 bg-transparent border-none cursor-pointer text-[var(--interactive-primary)] hover:bg-[var(--surface-brand)] rounded-md"
               >
-                <FiShare2 size={16} color="#004B98" style={{ opacity: 0.6 }} />
+                <FiShare2 size={20} />
               </button>
             )}
             <button
-              className="flex items-center gap-2 px-3 py-1.5 rounded-md text-white text-sm border-none cursor-pointer"
+              className="flex items-center gap-2 px-3 min-h-11 rounded-md text-white text-sm border-none cursor-pointer"
               style={{ backgroundColor: "var(--interactive-primary)" }}
               onClick={saveAsImage}
             >
-              <FiDownload />
-              <span>画像として保存</span>
+              <FiDownload aria-hidden="true" />
+              <span>
+                <Ruby reading="がぞう">画像</Ruby>として
+                <Ruby reading="ほぞん">保存</Ruby>
+              </span>
             </button>
           </div>
         </div>
@@ -310,7 +308,10 @@ export default function LineupCustomCreator() {
       </div>
 
       <div className="w-full max-w-[800px]">
-        <h3 className="text-lg font-semibold mb-4">打順入力</h3>
+        <h3 className="text-lg font-semibold mb-4">
+          <Ruby reading="だじゅん">打順</Ruby>
+          <Ruby reading="にゅうりょく">入力</Ruby>
+        </h3>
         <div className="flex flex-col gap-4">
           {lineup.map((spot) => (
             <div
@@ -323,7 +324,8 @@ export default function LineupCustomCreator() {
                   className="font-bold"
                   style={{ color: "var(--interactive-primary)" }}
                 >
-                  {spot.order}番
+                  {spot.order}
+                  <Ruby reading="ばん">番</Ruby>
                 </span>
               </div>
               <div className="flex flex-col gap-3">
@@ -333,7 +335,8 @@ export default function LineupCustomCreator() {
                     style={{ color: "var(--text-secondary)" }}
                     htmlFor={`name-${spot.order}`}
                   >
-                    {displayItemLabel}（{CUSTOM_NAME_MAX_LENGTH}字以内）
+                    {displayItemLabel}（{CUSTOM_NAME_MAX_LENGTH}
+                    <Ruby reading="じいない">字以内</Ruby>）
                   </label>
                   <input
                     id={`name-${spot.order}`}
@@ -365,7 +368,10 @@ export default function LineupCustomCreator() {
                       style={{ color: "var(--text-secondary)" }}
                       htmlFor={`memo-${spot.order}`}
                     >
-                      メモ・理由（任意・{CUSTOM_MEMO_MAX_LENGTH}字以内）
+                      メモ・<Ruby reading="りゆう">理由</Ruby>（
+                      <Ruby reading="にんい">任意</Ruby>・
+                      {CUSTOM_MEMO_MAX_LENGTH}
+                      <Ruby reading="じいない">字以内</Ruby>）
                     </label>
                     <textarea
                       id={`memo-${spot.order}`}
@@ -398,7 +404,7 @@ export default function LineupCustomCreator() {
       </div>
 
       <button
-        className="px-4 py-2 text-white rounded-md border-none cursor-pointer"
+        className="px-4 py-2 min-h-11 text-white rounded-md border-none cursor-pointer"
         style={{ backgroundColor: "#dc2626" }}
         onClick={resetLineup}
       >

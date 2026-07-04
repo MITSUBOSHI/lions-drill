@@ -55,28 +55,26 @@ export const NumberInputRoot = forwardRef<HTMLDivElement, NumberInputRootProps>(
     });
 
     return (
-      <div ref={ref} className="flex w-full">
+      <div ref={ref} className="flex w-full items-stretch">
+        <button
+          type="button"
+          onClick={handleDecrement}
+          className="min-w-11 min-h-11 px-3 text-xl font-bold text-[var(--interactive-primary)] bg-[var(--surface-card-subtle)] hover:bg-[var(--surface-brand)] border border-r-0 border-[var(--border-card)] rounded-l-md cursor-pointer"
+          aria-label="1減らす"
+          tabIndex={-1}
+        >
+          −
+        </button>
         <div className="relative flex-1">{enhancedChildren}</div>
-        <div className="flex flex-col border border-l-0 border-[var(--border-card)] rounded-r-md">
-          <button
-            type="button"
-            onClick={handleIncrement}
-            className="px-2 py-0.5 text-xs text-[var(--text-secondary)] hover:bg-[var(--surface-brand)] border-b border-[var(--border-card)]"
-            aria-label="increment"
-            tabIndex={-1}
-          >
-            +
-          </button>
-          <button
-            type="button"
-            onClick={handleDecrement}
-            className="px-2 py-0.5 text-xs text-[var(--text-secondary)] hover:bg-[var(--surface-brand)]"
-            aria-label="decrement"
-            tabIndex={-1}
-          >
-            -
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={handleIncrement}
+          className="min-w-11 min-h-11 px-3 text-xl font-bold text-[var(--interactive-primary)] bg-[var(--surface-card-subtle)] hover:bg-[var(--surface-brand)] border border-l-0 border-[var(--border-card)] rounded-r-md cursor-pointer"
+          aria-label="1増やす"
+          tabIndex={-1}
+        >
+          +
+        </button>
       </div>
     );
   },
@@ -98,7 +96,7 @@ export const NumberInputField = forwardRef<
     <input
       ref={ref}
       type="number"
-      className={`w-full px-3 py-2 border border-[var(--border-card)] rounded-l-md bg-[var(--surface-card-subtle)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] focus:outline-none focus:ring-2 focus:ring-[var(--interactive-primary)] ${className ?? ""}`}
+      className={`w-full h-full min-h-11 px-3 py-2 text-lg text-center border border-[var(--border-card)] bg-[var(--surface-card-subtle)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] placeholder:text-sm focus:outline-none focus:ring-2 focus:ring-[var(--interactive-primary)] ${className ?? ""}`}
       {...rest}
     />
   );

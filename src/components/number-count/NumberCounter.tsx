@@ -372,12 +372,12 @@ export default function NumberCounter({ players }: Props) {
         {/* リセット */}
         <button
           onClick={reset}
-          className="p-2 rounded-full border text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+          className="flex items-center justify-center min-w-11 min-h-11 rounded-full border text-sm disabled:opacity-50 disabled:cursor-not-allowed"
           style={{ borderColor: "var(--border-card)" }}
           aria-label="リセット"
           disabled={state === "idle"}
         >
-          <FiRotateCcw />
+          <FiRotateCcw size={20} />
         </button>
 
         {/* 再生/停止 */}

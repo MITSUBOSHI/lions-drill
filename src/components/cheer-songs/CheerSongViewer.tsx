@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, type ReactNode } from "react";
 import { useSearchParams } from "next/navigation";
 import { FiSearch } from "react-icons/fi";
 import { CheerSongType } from "@/types/CheerSong";
 import { useFurigana } from "@/contexts/FuriganaContext";
+import Ruby from "@/components/common/Ruby";
 import CheerSongCard from "./CheerSongCard";
 
 type CategoryTab =
@@ -15,19 +16,44 @@ type CategoryTab =
   | "chance"
   | "anthem";
 
-const tabs: { key: CategoryTab; label: string }[] = [
-  { key: "pitcher", label: "投手共通" },
-  { key: "individual", label: "野手個人" },
-  { key: "other", label: "その他共通" },
-  { key: "manager", label: "監督" },
+const tabs: { key: CategoryTab; label: ReactNode }[] = [
+  {
+    key: "pitcher",
+    label: (
+      <>
+        <Ruby reading="とうしゅ">投手</Ruby>
+        <Ruby reading="きょうつう">共通</Ruby>
+      </>
+    ),
+  },
+  {
+    key: "individual",
+    label: (
+      <>
+        <Ruby reading="やしゅ">野手</Ruby>
+        <Ruby reading="こじん">個人</Ruby>
+      </>
+    ),
+  },
+  {
+    key: "other",
+    label: (
+      <>
+        その<Ruby reading="た">他</Ruby>
+        <Ruby reading="きょうつう">共通</Ruby>
+      </>
+    ),
+  },
+  { key: "manager", label: <Ruby reading="かんとく">監督</Ruby> },
   { key: "chance", label: "チャンステーマ" },
-  { key: "anthem", label: "球団歌" },
+  { key: "anthem", label: <Ruby reading="きゅうだんか">球団歌</Ruby> },
 ];
 
 const categoryToTab: Record<string, CategoryTab> = {
   right_pitcher: "pitcher",
   left_pitcher: "pitcher",
   foreign_pitcher: "pitcher",
+  individual_pitcher: "pitcher",
   individual_batter: "individual",
   pinch_hitter: "other",
   catcher: "other",
@@ -42,9 +68,12 @@ function filterByTab(songs: CheerSongType[], tab: CategoryTab) {
   switch (tab) {
     case "pitcher":
       return songs.filter((s) =>
-        ["right_pitcher", "left_pitcher", "foreign_pitcher"].includes(
-          s.category,
-        ),
+        [
+          "right_pitcher",
+          "left_pitcher",
+          "foreign_pitcher",
+          "individual_pitcher",
+        ].includes(s.category),
       );
     case "individual":
       return songs.filter((s) => s.category === "individual_batter");
@@ -184,7 +213,7 @@ export default function CheerSongViewer({ songs, year }: CheerSongViewerProps) {
                   id={`tab-${tab.key}`}
                   aria-selected={activeTab === tab.key}
                   aria-controls={`tabpanel-${tab.key}`}
-                  className={`px-4 py-3 rounded-md border whitespace-nowrap cursor-pointer transition-all duration-200 hover:border-[var(--interactive-primary)] ${
+                  className={`px-4 py-3 min-h-11 rounded-md border whitespace-nowrap cursor-pointer transition-all duration-200 hover:border-[var(--interactive-primary)] ${
                     activeTab === tab.key
                       ? "font-bold text-white"
                       : "font-normal"

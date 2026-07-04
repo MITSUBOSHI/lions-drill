@@ -17,7 +17,7 @@ export default function Ruby({ children, reading }: RubyProps) {
   return (
     <ruby>
       {children}
-      <rt style={{ fontSize: "0.6em", lineHeight: 1 }}>{reading}</rt>
+      <rt>{reading}</rt>
     </ruby>
   );
 }

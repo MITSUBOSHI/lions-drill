@@ -21,9 +21,9 @@ jest.mock("@next/third-parties/google", () => ({
 
 const mockPlayers: PlayerType[] = [
   {
-    name: "中村 剛也",
-    name_kana: "なかむら たけや",
-    uniform_name: "NAKAMURA",
+    name: "佐野 恵太",
+    name_kana: "さの けいた",
+    uniform_name: "SANO",
     number_disp: "7",
     number_calc: 7,
     role: Role.Roster,
@@ -34,9 +34,9 @@ const mockPlayers: PlayerType[] = [
     weight_kg: 88,
   },
   {
-    name: "外崎 修汰",
-    name_kana: "とのさき しゅうた",
-    uniform_name: "TONOSAKI",
+    name: "牧 秀悟",
+    name_kana: "まき しゅうご",
+    uniform_name: "MAKI",
     number_disp: "2",
     number_calc: 2,
     role: Role.Roster,
@@ -49,7 +49,7 @@ const mockPlayers: PlayerType[] = [
   {
     name: "山本 祐大",
     name_kana: "やまもと ゆうだい",
-    uniform_name: "YAMADA",
+    uniform_name: "YAMAMOTO",
     number_disp: "50",
     number_calc: 50,
     role: Role.Roster,
@@ -60,9 +60,9 @@ const mockPlayers: PlayerType[] = [
     weight_kg: 87,
   },
   {
-    name: "栗山 巧",
-    name_kana: "くりやま たくみ",
-    uniform_name: "KURIYAMA",
+    name: "宮﨑 敏郎",
+    name_kana: "みやざき としろう",
+    uniform_name: "MIYAZAKI",
     number_disp: "51",
     number_calc: 51,
     role: Role.Roster,
@@ -135,9 +135,9 @@ describe("Question Component", () => {
     it("should show correct result when answer is correct", () => {
       const mockPlayers: PlayerType[] = [
         {
-          name: "中村 剛也",
+          name: "佐野 恵太",
           name_kana: "さのけいた",
-          uniform_name: "NAKAMURA",
+          uniform_name: "SANO",
           number_disp: "7",
           number_calc: 7,
           role: Role.Roster,
@@ -148,9 +148,9 @@ describe("Question Component", () => {
           weight_kg: 88,
         },
         {
-          name: "外崎 修汰",
+          name: "牧 秀悟",
           name_kana: "まきしゅうご",
-          uniform_name: "TONOSAKI",
+          uniform_name: "MAKI",
           number_disp: "2",
           number_calc: 2,
           role: Role.Roster,
@@ -180,9 +180,9 @@ describe("Question Component", () => {
     it("should show incorrect result when answer is incorrect", () => {
       const mockPlayers: PlayerType[] = [
         {
-          name: "中村 剛也",
+          name: "佐野 恵太",
           name_kana: "さのけいた",
-          uniform_name: "NAKAMURA",
+          uniform_name: "SANO",
           number_disp: "7",
           number_calc: 7,
           role: Role.Roster,
@@ -193,9 +193,9 @@ describe("Question Component", () => {
           weight_kg: 88,
         },
         {
-          name: "外崎 修汰",
+          name: "牧 秀悟",
           name_kana: "まきしゅうご",
-          uniform_name: "TONOSAKI",
+          uniform_name: "MAKI",
           number_disp: "2",
           number_calc: 2,
           role: Role.Roster,
@@ -248,9 +248,9 @@ describe("Question Component", () => {
   describe("when using arithmetic operators", () => {
     const mockPlayers: PlayerType[] = [
       {
-        name: "中村 剛也",
-        name_kana: "なかむら たけや",
-        uniform_name: "NAKAMURA",
+        name: "佐野 恵太",
+        name_kana: "さの けいた",
+        uniform_name: "SANO",
         number_disp: "7",
         number_calc: 7,
         role: Role.Roster,
@@ -261,9 +261,9 @@ describe("Question Component", () => {
         weight_kg: 88,
       },
       {
-        name: "外崎 修汰",
-        name_kana: "とのさき しゅうた",
-        uniform_name: "TONOSAKI",
+        name: "牧 秀悟",
+        name_kana: "まき しゅうご",
+        uniform_name: "MAKI",
         number_disp: "2",
         number_calc: 2,
         role: Role.Roster,

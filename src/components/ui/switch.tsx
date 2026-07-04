@@ -22,17 +22,19 @@ export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
     const s = sizeClasses[size];
 
     return (
-      <label className="inline-flex items-center gap-2 cursor-pointer select-none">
+      <label className="inline-flex items-center gap-2 min-h-11 cursor-pointer select-none">
         <input
           ref={ref}
           type="checkbox"
-          className="sr-only"
+          className="peer sr-only"
           checked={checked}
           onChange={(e) => onCheckedChange?.({ checked: e.target.checked })}
         />
         <span
-          className={`${s.track} relative inline-flex items-center rounded-full transition-colors ${
-            checked ? "bg-[var(--interactive-primary)]" : "bg-gray-300"
+          className={`${s.track} relative inline-flex items-center rounded-full transition-colors border peer-focus-visible:outline-3 peer-focus-visible:outline-[var(--interactive-primary)] peer-focus-visible:outline-offset-2 ${
+            checked
+              ? "bg-[var(--interactive-primary)] border-[var(--interactive-primary)]"
+              : "bg-gray-400 border-gray-500 dark:bg-gray-600 dark:border-gray-400"
           }`}
         >
           <span

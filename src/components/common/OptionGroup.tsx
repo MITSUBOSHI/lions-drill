@@ -25,7 +25,7 @@ export default function OptionGroup({
 }: OptionGroupProps) {
   return (
     <div
-      className="flex flex-wrap gap-6"
+      className="flex flex-wrap gap-4"
       role={multiple ? "group" : "radiogroup"}
       aria-label={name}
     >
@@ -34,13 +34,11 @@ export default function OptionGroup({
         return (
           <label
             key={option.value}
-            className={`p-2 border rounded-md cursor-pointer transition-all duration-150 hover:border-[var(--interactive-primary-hover)] ${
+            className={`inline-flex items-center min-h-11 p-2 border rounded-md cursor-pointer transition-all duration-150 hover:border-[var(--interactive-primary-hover)] has-[:focus-visible]:outline-3 has-[:focus-visible]:outline-[var(--interactive-primary)] has-[:focus-visible]:outline-offset-2 ${
               isSelected
                 ? "border-[var(--interactive-primary)] bg-[var(--interactive-primary)] text-white"
                 : "border-[var(--border-card)] bg-[var(--surface-card-subtle)] text-[var(--text-primary)]"
             }`}
-            role={multiple ? "checkbox" : "radio"}
-            aria-checked={isSelected}
           >
             <input
               type={multiple ? "checkbox" : "radio"}
@@ -48,7 +46,7 @@ export default function OptionGroup({
               value={option.value}
               checked={isSelected}
               onChange={() => onChange(option.value)}
-              hidden
+              className="sr-only"
             />
             {option.label}
           </label>

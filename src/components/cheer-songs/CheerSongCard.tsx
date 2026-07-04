@@ -7,6 +7,7 @@ import { GiClothes } from "react-icons/gi";
 import { FiBook } from "react-icons/fi";
 import { CheerSongType, YouTubeUrl } from "@/types/CheerSong";
 import { replaceNamePlaceholder } from "@/lib/rubyParser";
+import Ruby from "@/components/common/Ruby";
 import LyricLine from "./LyricLine";
 
 function extractYouTubeVideoId(url: YouTubeUrl): string | null {
@@ -35,6 +36,7 @@ const categoryLabel: Record<string, { text: string; kana: string }> = {
     text: "外国人投手共通",
     kana: "がいこくじんとうしゅきょうつう",
   },
+  individual_pitcher: { text: "投手個人", kana: "とうしゅこじん" },
   individual_batter: { text: "野手個人", kana: "やしゅこじん" },
   pinch_hitter: { text: "代打", kana: "だいだ" },
   catcher: { text: "捕手", kana: "ほしゅ" },
@@ -98,9 +100,7 @@ export default function CheerSongCard({
                       <span key={i}>
                         <ruby>
                           {part}
-                          <rt style={{ fontSize: "0.6em", lineHeight: 1 }}>
-                            {kanaWords[i] || ""}
-                          </rt>
+                          <rt>{kanaWords[i] || ""}</rt>
                         </ruby>
                         {i < arr.length - 1 ? " " : ""}
                       </span>
@@ -117,9 +117,7 @@ export default function CheerSongCard({
               {showRuby && categoryLabel[song.category] ? (
                 <ruby>
                   {categoryLabel[song.category].text}
-                  <rt style={{ fontSize: "0.6em", lineHeight: 1 }}>
-                    {categoryLabel[song.category].kana}
-                  </rt>
+                  <rt>{categoryLabel[song.category].kana}</rt>
                 </ruby>
               ) : (
                 categoryLabel[song.category]?.text || song.category
@@ -169,26 +167,56 @@ export default function CheerSongCard({
               <LyricLine key={i} line={line} showRuby={showRuby} />
             ))}
           </div>
+          {song.audioUrl && (
+            <audio
+              controls
+              preload="none"
+              src={song.audioUrl}
+              className="mt-3 w-full"
+              onPlay={() =>
+                sendGAEvent("event", "cheer_song_audio_play", {
+                  song_title: song.title,
+                  player_number: song.playerNumber ?? "",
+                })
+              }
+            >
+              お使いのブラウザは音声再生に対応していません
+            </audio>
+          )}
+          {song.sourceUrl && (
+            <p className="mt-3 text-xs text-[var(--text-secondary)]">
+              <Ruby reading="しゅってん">出典</Ruby>:{" "}
+              <a
+                href={song.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline inline-flex items-center min-h-11"
+              >
+                <span>
+                  <Ruby reading="おうえんだん">応援団</Ruby>サイトで
+                  <Ruby reading="しょうさい">詳細</Ruby>を
+                  <Ruby reading="み">見</Ruby>る
+                </span>
+              </a>
+            </p>
+          )}
           {year && song.playerNumber && (
             <div className="flex mt-3 gap-1">
               <Link
                 href={`/uniform-view/${year}?number=${song.playerNumber}`}
                 title="ユニフォームを見る"
+                aria-label={`${song.title}のユニフォームを見る`}
+                className="flex items-center justify-center min-w-11 min-h-11 text-[var(--interactive-primary)] hover:bg-[var(--surface-card-subtle)] rounded"
               >
-                <button
-                  aria-label={`${song.title}のユニフォームを見る`}
-                  className="p-1 text-[var(--interactive-primary)] hover:bg-[var(--surface-card-subtle)] rounded"
-                >
-                  <GiClothes />
-                </button>
+                <GiClothes size={20} aria-hidden="true" />
               </Link>
-              <Link href={`/player-directory/${year}`} title="選手名鑑を見る">
-                <button
-                  aria-label="選手名鑑を見る"
-                  className="p-1 text-[var(--interactive-primary)] hover:bg-[var(--surface-card-subtle)] rounded"
-                >
-                  <FiBook />
-                </button>
+              <Link
+                href={`/player-directory/${year}`}
+                title="選手名鑑を見る"
+                aria-label="選手名鑑を見る"
+                className="flex items-center justify-center min-w-11 min-h-11 text-[var(--interactive-primary)] hover:bg-[var(--surface-card-subtle)] rounded"
+              >
+                <FiBook size={20} aria-hidden="true" />
               </Link>
             </div>
           )}
@@ -199,7 +227,7 @@ export default function CheerSongCard({
               return (
                 <>
                   <button
-                    className="mt-3 inline-flex items-center gap-1 text-[var(--interactive-primary)] text-sm cursor-pointer hover:underline bg-transparent border-none"
+                    className="mt-3 inline-flex items-center gap-1 min-h-11 text-[var(--interactive-primary)] text-sm cursor-pointer hover:underline bg-transparent border-none"
                     onClick={() => {
                       const next = !showVideo;
                       setShowVideo(next);
@@ -211,7 +239,17 @@ export default function CheerSongCard({
                       }
                     }}
                   >
-                    {showVideo ? "▲ 動画を閉じる" : "▶ 動画を見る"}
+                    {showVideo ? (
+                      <>
+                        ▲ <Ruby reading="どうが">動画</Ruby>を
+                        <Ruby reading="と">閉</Ruby>じる
+                      </>
+                    ) : (
+                      <>
+                        ▶ <Ruby reading="どうが">動画</Ruby>を
+                        <Ruby reading="み">見</Ruby>る
+                      </>
+                    )}
                   </button>
                   {showVideo && (
                     <div className="mt-2 relative w-full pt-[56.25%]">

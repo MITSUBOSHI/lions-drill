@@ -183,7 +183,7 @@ export default function UniformViewer({
           onCheckedChange={(e) => setRosterOnly(e.checked)}
           size="sm"
         >
-          支配下のみ
+          <Ruby reading="しはいか">支配下</Ruby>のみ
         </Switch>
       </div>
 
@@ -236,20 +236,12 @@ export default function UniformViewer({
           <button
             onClick={handleCopyLink}
             aria-label="URLをコピー"
-            style={{
-              background: "none",
-              border: "none",
-              padding: "4px",
-              cursor: "pointer",
-              borderRadius: "4px",
-              display: "flex",
-              alignItems: "center",
-            }}
+            className="flex items-center justify-center min-w-11 min-h-11 bg-transparent border-none cursor-pointer text-[var(--interactive-primary)] hover:bg-[var(--surface-brand)] rounded-md"
           >
             {copied ? (
-              <FiCheck size={16} color="#28a745" />
+              <FiCheck size={20} color="var(--text-success)" />
             ) : (
-              <FiLink size={16} color="#004B98" style={{ opacity: 0.6 }} />
+              <FiLink size={20} />
             )}
           </button>
           {cheerSongNumbers?.has(currentPlayer.number_disp) && (
@@ -259,10 +251,10 @@ export default function UniformViewer({
             >
               <button
                 aria-label={`${currentPlayer.name}の応援歌を見る`}
-                className="p-1 rounded hover:bg-gray-100"
+                className="flex items-center justify-center min-w-11 min-h-11 rounded hover:bg-[var(--surface-brand)]"
                 style={{ color: "var(--interactive-primary)" }}
               >
-                <FiMusic />
+                <FiMusic size={20} />
               </button>
             </Link>
           )}
@@ -275,10 +267,10 @@ export default function UniformViewer({
             >
               <button
                 aria-label={`${currentPlayer.name}のNPBページを開く`}
-                className="p-1 rounded hover:bg-gray-100"
+                className="flex items-center justify-center min-w-11 min-h-11 rounded hover:bg-[var(--surface-brand)]"
                 style={{ color: "var(--interactive-primary)" }}
               >
-                <FiExternalLink />
+                <FiExternalLink size={20} />
               </button>
             </a>
           )}
@@ -297,28 +289,28 @@ export default function UniformViewer({
         />
 
         {/* 左半分タップ領域 */}
-        <div
-          className="absolute top-0 left-0 w-1/2 h-full flex items-center justify-start pl-2 rounded-md group"
+        <button
+          type="button"
+          className="absolute top-0 left-0 w-1/2 h-full flex items-center justify-start p-0 pl-2 rounded-md group bg-transparent border-none cursor-pointer"
           onClick={handlePrev}
           aria-label="前の選手"
-          role="button"
         >
           <div className="bg-black/10 rounded-full p-1 opacity-70 transition-all duration-200 flex items-center justify-center group-hover:opacity-100 group-hover:bg-black/20">
-            <FiChevronLeft size={32} color="#004B98" />
+            <FiChevronLeft size={32} color="var(--interactive-primary)" />
           </div>
-        </div>
+        </button>
 
         {/* 右半分タップ領域 */}
-        <div
-          className="absolute top-0 right-0 w-1/2 h-full flex items-center justify-end pr-2 rounded-md group"
+        <button
+          type="button"
+          className="absolute top-0 right-0 w-1/2 h-full flex items-center justify-end p-0 pr-2 rounded-md group bg-transparent border-none cursor-pointer"
           onClick={handleNext}
           aria-label="次の選手"
-          role="button"
         >
           <div className="bg-black/10 rounded-full p-1 opacity-70 transition-all duration-200 flex items-center justify-center group-hover:opacity-100 group-hover:bg-black/20">
-            <FiChevronRight size={32} color="#004B98" />
+            <FiChevronRight size={32} color="var(--interactive-primary)" />
           </div>
-        </div>
+        </button>
       </div>
 
       <p

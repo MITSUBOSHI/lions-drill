@@ -126,7 +126,7 @@ export default function YearSelector({
 
       <button
         className={`w-full flex items-center justify-between bg-[var(--surface-brand)] border border-[var(--border-brand)] rounded-md cursor-pointer hover:bg-[var(--interactive-primary-hover)] hover:text-white transition-colors ${
-          isInline ? "h-9 text-lg px-3" : "h-11 text-lg px-4"
+          isInline ? "min-h-11 text-lg px-3" : "h-11 text-lg px-4"
         }`}
         onClick={toggleDropdown}
         onKeyDown={handleKeyDown}
@@ -148,13 +148,19 @@ export default function YearSelector({
           role="listbox"
           ref={listRef}
           aria-label={label}
+          aria-activedescendant={
+            highlightedIndex >= 0
+              ? `year-option-${highlightedIndex}`
+              : undefined
+          }
         >
           {sortedYears.map((year, index) => (
             <div
               key={year}
+              id={`year-option-${index}`}
               role="option"
               aria-selected={year === currentYear}
-              className={`cursor-pointer hover:bg-[var(--surface-brand)] ${
+              className={`flex items-center min-h-11 cursor-pointer hover:bg-[var(--surface-brand)] ${
                 isInline ? "p-2" : "p-3"
               } ${
                 index === highlightedIndex || year === currentYear

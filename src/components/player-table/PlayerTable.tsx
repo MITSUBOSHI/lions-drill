@@ -109,11 +109,12 @@ export default function PlayerTable({
           className="text-sm whitespace-nowrap"
           style={{ color: "var(--text-secondary)" }}
         >
-          {sortedPlayers.length}名
+          {sortedPlayers.length}
+          <Ruby reading="めい">名</Ruby>
         </span>
       </div>
       <div
-        className="border rounded-md overflow-auto h-[600px] md:h-[900px]"
+        className="border rounded-md overflow-auto max-h-[600px] md:max-h-[900px]"
         style={{ borderColor: "var(--border-card)" }}
       >
         <table className="w-full text-sm border-collapse min-w-[640px]">
@@ -123,87 +124,71 @@ export default function PlayerTable({
           >
             <tr className="border-b border-[var(--border-card)]">
               <th
-                className="text-left px-3 py-2 whitespace-nowrap w-16"
+                className="text-left px-1 py-1 whitespace-nowrap w-16"
                 aria-sort={getAriaSort("number_disp")}
               >
-                <div className="flex items-center gap-1">
-                  <span>
-                    <Ruby reading="せばんごう">背番号</Ruby>
-                  </span>
-                  <button
-                    aria-label="背番号でソート"
-                    onClick={() => handleSort("number_disp")}
-                    className="p-1 rounded hover:bg-[var(--surface-brand)] bg-transparent border-none cursor-pointer"
-                  >
-                    {(() => {
-                      const Icon = getSortIcon("number_disp");
-                      return <Icon />;
-                    })()}
-                  </button>
-                </div>
+                <button
+                  aria-label="背番号でソート"
+                  onClick={() => handleSort("number_disp")}
+                  className="flex items-center gap-1 min-h-11 px-2 rounded hover:bg-[var(--surface-brand)] bg-transparent border-none cursor-pointer font-bold"
+                >
+                  <Ruby reading="せばんごう">背番号</Ruby>
+                  {(() => {
+                    const Icon = getSortIcon("number_disp");
+                    return <Icon aria-hidden="true" />;
+                  })()}
+                </button>
               </th>
               <th className="text-left px-3 py-2 whitespace-nowrap">
                 <Ruby reading="なまえ">名前</Ruby>
               </th>
               <th
-                className="text-left px-3 py-2 whitespace-nowrap w-28"
+                className="text-left px-1 py-1 whitespace-nowrap w-28"
                 aria-sort={getAriaSort("date_of_birth")}
               >
-                <div className="flex items-center gap-1">
-                  <span>
-                    <Ruby reading="せいねんがっぴ">生年月日</Ruby>
-                  </span>
-                  <button
-                    aria-label="生年月日でソート"
-                    onClick={() => handleSort("date_of_birth")}
-                    className="p-1 rounded hover:bg-[var(--surface-brand)] bg-transparent border-none cursor-pointer"
-                  >
-                    {(() => {
-                      const Icon = getSortIcon("date_of_birth");
-                      return <Icon />;
-                    })()}
-                  </button>
-                </div>
+                <button
+                  aria-label="生年月日でソート"
+                  onClick={() => handleSort("date_of_birth")}
+                  className="flex items-center gap-1 min-h-11 px-2 rounded hover:bg-[var(--surface-brand)] bg-transparent border-none cursor-pointer font-bold"
+                >
+                  <Ruby reading="せいねんがっぴ">生年月日</Ruby>
+                  {(() => {
+                    const Icon = getSortIcon("date_of_birth");
+                    return <Icon aria-hidden="true" />;
+                  })()}
+                </button>
               </th>
               <th
-                className="text-left px-3 py-2 whitespace-nowrap w-20"
+                className="text-left px-1 py-1 whitespace-nowrap w-20"
                 aria-sort={getAriaSort("height_cm")}
               >
-                <div className="flex items-center gap-1">
-                  <span>
-                    <Ruby reading="しんちょう">身長</Ruby>
-                  </span>
-                  <button
-                    aria-label="身長でソート"
-                    onClick={() => handleSort("height_cm")}
-                    className="p-1 rounded hover:bg-[var(--surface-brand)] bg-transparent border-none cursor-pointer"
-                  >
-                    {(() => {
-                      const Icon = getSortIcon("height_cm");
-                      return <Icon />;
-                    })()}
-                  </button>
-                </div>
+                <button
+                  aria-label="身長でソート"
+                  onClick={() => handleSort("height_cm")}
+                  className="flex items-center gap-1 min-h-11 px-2 rounded hover:bg-[var(--surface-brand)] bg-transparent border-none cursor-pointer font-bold"
+                >
+                  <Ruby reading="しんちょう">身長</Ruby>
+                  {(() => {
+                    const Icon = getSortIcon("height_cm");
+                    return <Icon aria-hidden="true" />;
+                  })()}
+                </button>
               </th>
               <th
-                className="text-left px-3 py-2 whitespace-nowrap w-20"
+                className="text-left px-1 py-1 whitespace-nowrap w-20"
                 aria-sort={getAriaSort("weight_kg")}
               >
-                <div className="flex items-center gap-1">
-                  <span>
-                    <Ruby reading="たいじゅう">体重</Ruby>
-                  </span>
-                  <button
-                    aria-label="体重でソート"
-                    onClick={() => handleSort("weight_kg")}
-                    className="p-1 rounded hover:bg-[var(--surface-brand)] bg-transparent border-none cursor-pointer"
-                  >
-                    {(() => {
-                      const Icon = getSortIcon("weight_kg");
-                      return <Icon />;
-                    })()}
-                  </button>
-                </div>
+                <button
+                  aria-label="体重でソート"
+                  onClick={() => handleSort("weight_kg")}
+                  className="flex items-center gap-1 min-h-11 px-2 rounded hover:bg-[var(--surface-brand)] bg-transparent border-none cursor-pointer font-bold"
+                >
+                  <Ruby reading="たいじゅう">体重</Ruby>
+                  {(() => {
+                    const Icon = getSortIcon("weight_kg");
+                    return <Icon aria-hidden="true" />;
+                  })()}
+                </button>
               </th>
               <th className="text-left px-3 py-2 whitespace-nowrap w-16">
                 リンク
@@ -255,27 +240,21 @@ export default function PlayerTable({
                     <Link
                       href={`/uniform-view/${year}?number=${player.number_disp}`}
                       title="ユニフォームを見る"
+                      aria-label={`${player.name}のユニフォームを見る`}
+                      className="flex items-center justify-center min-w-11 min-h-11 rounded hover:bg-[var(--surface-brand)]"
+                      style={{ color: "var(--interactive-primary)" }}
                     >
-                      <button
-                        aria-label={`${player.name}のユニフォームを見る`}
-                        className="p-1 rounded hover:bg-[var(--surface-brand)] bg-transparent border-none cursor-pointer"
-                        style={{ color: "var(--interactive-primary)" }}
-                      >
-                        <GiClothes />
-                      </button>
+                      <GiClothes aria-hidden="true" size={18} />
                     </Link>
                     {cheerSongNumbers?.has(player.number_disp) && (
                       <Link
                         href={`/cheer-songs/${year}?number=${player.number_disp}`}
                         title="応援歌を見る"
+                        aria-label={`${player.name}の応援歌を見る`}
+                        className="flex items-center justify-center min-w-11 min-h-11 rounded hover:bg-[var(--surface-brand)]"
+                        style={{ color: "var(--interactive-primary)" }}
                       >
-                        <button
-                          aria-label={`応援歌を見る`}
-                          className="p-1 rounded hover:bg-[var(--surface-brand)] bg-transparent border-none cursor-pointer"
-                          style={{ color: "var(--interactive-primary)" }}
-                        >
-                          <FiMusic />
-                        </button>
+                        <FiMusic aria-hidden="true" size={18} />
                       </Link>
                     )}
                   </div>

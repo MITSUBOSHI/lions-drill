@@ -7,12 +7,16 @@ import {
   type DropResult,
 } from "@hello-pangea/dnd";
 import { useState, useEffect } from "react";
+import { FiArrowUp, FiArrowDown } from "react-icons/fi";
 import { LineupSpot, Position } from "./LineupCreator";
 import { PlayerType } from "@/types/Player";
+import { POSITION_READINGS } from "@/types/common";
+import Ruby from "@/components/common/Ruby";
 
 type DraggableLineupProps = {
   orderedPlayers: LineupSpot[];
   onDragEnd: (result: DropResult) => void;
+  onMove: (index: number, delta: number) => void;
   removePlayerFromOrder: (position: Position) => void;
   getDisplayName: (player: PlayerType | null) => string;
 };
@@ -20,6 +24,7 @@ type DraggableLineupProps = {
 export default function DraggableLineup({
   orderedPlayers,
   onDragEnd,
+  onMove,
   removePlayerFromOrder,
   getDisplayName,
 }: DraggableLineupProps) {
@@ -69,7 +74,8 @@ export default function DraggableLineup({
                 className="text-center py-2"
                 style={{ color: "var(--text-secondary)" }}
               >
-                打順が設定されていません
+                <Ruby reading="だじゅん">打順</Ruby>が
+                <Ruby reading="せってい">設定</Ruby>されていません
               </p>
             ) : (
               orderedPlayers.map((spot, index) => (
@@ -99,16 +105,19 @@ export default function DraggableLineup({
                         ...provided.draggableProps.style,
                       }}
                     >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center">
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center flex-wrap">
                           <span
                             className="font-bold mr-3 text-lg"
                             style={{ color: "var(--interactive-primary)" }}
                           >
-                            {spot.order}番
+                            {spot.order}
+                            <Ruby reading="ばん">番</Ruby>
                           </span>
                           <span className="mr-2 px-2 py-0.5 rounded bg-gray-100 text-gray-800 text-sm">
-                            {spot.position}
+                            <Ruby reading={POSITION_READINGS[spot.position]}>
+                              {spot.position}
+                            </Ruby>
                           </span>
                           <span className="font-bold">
                             {spot.player && (
@@ -121,12 +130,30 @@ export default function DraggableLineup({
                             )}
                           </span>
                         </div>
-                        <button
-                          className="text-xs px-2 py-1 text-red-600 border border-red-300 rounded hover:bg-red-50"
-                          onClick={() => removePlayerFromOrder(spot.position)}
-                        >
-                          打順を解除
-                        </button>
+                        <div className="flex items-center gap-1 shrink-0">
+                          <button
+                            className="flex items-center justify-center min-w-11 min-h-11 rounded border border-[var(--border-card)] bg-[var(--surface-card)] hover:bg-[var(--surface-brand)] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                            onClick={() => onMove(index, -1)}
+                            disabled={index === 0}
+                            aria-label={`${spot.order}番を1つ上へ移動`}
+                          >
+                            <FiArrowUp aria-hidden="true" />
+                          </button>
+                          <button
+                            className="flex items-center justify-center min-w-11 min-h-11 rounded border border-[var(--border-card)] bg-[var(--surface-card)] hover:bg-[var(--surface-brand)] disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                            onClick={() => onMove(index, 1)}
+                            disabled={index === orderedPlayers.length - 1}
+                            aria-label={`${spot.order}番を1つ下へ移動`}
+                          >
+                            <FiArrowDown aria-hidden="true" />
+                          </button>
+                          <button
+                            className="text-sm px-3 min-h-11 text-red-600 border border-red-300 rounded hover:bg-red-50 cursor-pointer"
+                            onClick={() => removePlayerFromOrder(spot.position)}
+                          >
+                            <Ruby reading="かいじょ">解除</Ruby>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   )}

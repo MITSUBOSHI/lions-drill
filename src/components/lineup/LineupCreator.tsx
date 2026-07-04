@@ -5,7 +5,9 @@ import {
   type NameDisplayMode,
   type Position,
   NAME_DISPLAY_OPTIONS,
+  POSITION_READINGS,
 } from "@/types/common";
+import Ruby from "@/components/common/Ruby";
 export type { Position } from "@/types/common";
 import { sendGAEvent } from "@next/third-parties/google";
 import { getDisplayName as getDisplayNameBase } from "@/lib/nameUtils";
@@ -183,29 +185,25 @@ export default function LineupCreator({ players }: Props) {
     });
   };
 
-  // ドラッグ＆ドロップ終了時の処理
-  const handleDragEnd = (result: DropResult) => {
-    const { destination, source } = result;
-
-    // ドロップ先がない場合や同じ位置の場合は何もしない
-    if (!destination || destination.index === source.index) {
+  // 打順リスト内で選手を移動し、打順を1から振り直す
+  const reorderPlayers = (fromIndex: number, toIndex: number) => {
+    if (
+      fromIndex === toIndex ||
+      toIndex < 0 ||
+      toIndex >= orderedPlayers.length
+    ) {
       return;
     }
 
-    // 現在の打順付き選手リストをコピー
     const itemsCopy = [...orderedPlayers];
+    const [reorderedItem] = itemsCopy.splice(fromIndex, 1);
+    itemsCopy.splice(toIndex, 0, reorderedItem);
 
-    // ドラッグされた選手を移動
-    const [reorderedItem] = itemsCopy.splice(source.index, 1);
-    itemsCopy.splice(destination.index, 0, reorderedItem);
-
-    // 打順を1から順番に振り直す
     const updatedItems = itemsCopy.map((item, index) => ({
       ...item,
       order: index + 1,
     }));
 
-    // 全ラインナップの打順を更新
     const updatedLineup = lineup.map((spot) => {
       const foundItem = updatedItems.find(
         (item) => item.position === spot.position,
@@ -216,8 +214,14 @@ export default function LineupCreator({ players }: Props) {
       return spot;
     });
 
-    // 状態を更新
     setLineup(updatedLineup);
+  };
+
+  // ドラッグ＆ドロップ終了時の処理
+  const handleDragEnd = (result: DropResult) => {
+    const { destination, source } = result;
+    if (!destination) return;
+    reorderPlayers(source.index, destination.index);
   };
 
   // ラインナップをリセットする（DHあり設定を保ったままリセット）
@@ -437,11 +441,16 @@ export default function LineupCreator({ players }: Props) {
         }}
       >
         <button
-          className="flex items-center justify-between w-full p-4 cursor-pointer font-bold text-base bg-transparent border-none text-[var(--text-primary)]"
+          className="flex items-center justify-between w-full min-h-11 p-4 cursor-pointer font-bold text-base bg-transparent border-none text-[var(--text-primary)]"
           onClick={() => setSettingsOpen(!settingsOpen)}
+          aria-expanded={settingsOpen}
         >
-          設定
-          {settingsOpen ? <FiChevronDown /> : <FiChevronRight />}
+          <Ruby reading="せってい">設定</Ruby>
+          {settingsOpen ? (
+            <FiChevronDown aria-hidden="true" />
+          ) : (
+            <FiChevronRight aria-hidden="true" />
+          )}
         </button>
         {settingsOpen && (
           <div className="flex flex-col gap-4 px-6 pb-6">
@@ -456,26 +465,38 @@ export default function LineupCreator({ players }: Props) {
               checked={isFarmMode}
               onCheckedChange={(e) => setIsFarmMode(e.checked)}
             >
-              育成枠含む(ファーム対応)
+              <Ruby reading="いくせいわく">育成枠</Ruby>
+              <Ruby reading="ふく">含</Ruby>む(ファーム
+              <Ruby reading="たいおう">対応</Ruby>)
             </Switch>
 
             <div>
-              <p className="mb-2">選手名の表示</p>
+              <p className="mb-2">
+                <Ruby reading="せんしゅめい">選手名</Ruby>の
+                <Ruby reading="ひょうじ">表示</Ruby>
+              </p>
               <OptionGroup
                 name="nameDisplay"
-                options={[...NAME_DISPLAY_OPTIONS]}
+                options={NAME_DISPLAY_OPTIONS.map((opt) => ({
+                  value: opt.value,
+                  label: <Ruby reading={opt.reading}>{opt.label}</Ruby>,
+                }))}
                 selectedValues={[nameDisplay]}
                 onChange={(value) => setNameDisplay(value as NameDisplayMode)}
               />
             </div>
 
             <div>
-              <p className="mb-2">スタメン表の名前</p>
+              <label htmlFor="lineup-custom-title" className="block mb-2">
+                スタメン<Ruby reading="ひょう">表</Ruby>の
+                <Ruby reading="なまえ">名前</Ruby>
+              </label>
               <input
+                id="lineup-custom-title"
                 value={customTitle}
                 onChange={(e) => setCustomTitle(e.target.value)}
                 placeholder="表のタイトルを入力"
-                className="w-full max-w-[500px] px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--interactive-primary)]"
+                className="w-full max-w-[500px] min-h-11 px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[var(--interactive-primary)]"
                 style={{
                   borderColor: "var(--border-card)",
                   backgroundColor: "var(--surface-card-subtle)",
@@ -490,56 +511,43 @@ export default function LineupCreator({ players }: Props) {
       <div className="w-full max-w-[800px]">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-semibold">スターティングメンバー</h3>
-          <div className="flex gap-2">
+          <div className="flex gap-1 items-center">
             <button
               onClick={handleShareLink}
               aria-label="URLをコピー"
-              style={{
-                background: "none",
-                border: "none",
-                padding: "4px",
-                cursor: "pointer",
-              }}
+              className="flex items-center justify-center min-w-11 min-h-11 bg-transparent border-none cursor-pointer text-[var(--interactive-primary)] hover:bg-[var(--surface-brand)] rounded-md"
             >
               {copied ? (
-                <FiCheck size={16} color="#28a745" />
+                <FiCheck size={20} color="var(--text-success)" />
               ) : (
-                <FiLink size={16} color="#004B98" style={{ opacity: 0.6 }} />
+                <FiLink size={20} />
               )}
             </button>
             <button
               onClick={handleShareTwitter}
               aria-label="Xで共有"
-              style={{
-                background: "none",
-                border: "none",
-                padding: "4px",
-                cursor: "pointer",
-              }}
+              className="flex items-center justify-center min-w-11 min-h-11 bg-transparent border-none cursor-pointer text-[var(--interactive-primary)] hover:bg-[var(--surface-brand)] rounded-md"
             >
-              <FaXTwitter size={16} color="#004B98" style={{ opacity: 0.6 }} />
+              <FaXTwitter size={20} />
             </button>
             {typeof navigator !== "undefined" && "share" in navigator && (
               <button
                 onClick={handleNativeShare}
                 aria-label="共有"
-                style={{
-                  background: "none",
-                  border: "none",
-                  padding: "4px",
-                  cursor: "pointer",
-                }}
+                className="flex items-center justify-center min-w-11 min-h-11 bg-transparent border-none cursor-pointer text-[var(--interactive-primary)] hover:bg-[var(--surface-brand)] rounded-md"
               >
-                <FiShare2 size={16} color="#004B98" style={{ opacity: 0.6 }} />
+                <FiShare2 size={20} />
               </button>
             )}
             <button
-              className="flex items-center gap-2 px-3 py-1.5 rounded-md text-white text-sm border-none cursor-pointer"
-              style={{ backgroundColor: "var(--interactive-primary)" }}
+              className="flex items-center gap-2 px-3 min-h-11 rounded-md text-white text-sm border-none cursor-pointer bg-[var(--interactive-primary)] hover:bg-[var(--interactive-primary-hover)]"
               onClick={saveAsImage}
             >
-              <FiDownload />
-              <span>画像として保存</span>
+              <FiDownload aria-hidden="true" />
+              <span>
+                <Ruby reading="がぞう">画像</Ruby>として
+                <Ruby reading="ほぞん">保存</Ruby>
+              </span>
             </button>
           </div>
         </div>
@@ -557,11 +565,13 @@ export default function LineupCreator({ players }: Props) {
       {showDragDropUI && isMounted && (
         <div className="w-full max-w-[800px] mb-4">
           <h3 className="text-lg font-semibold mb-4">
-            打順（ドラッグ＆ドロップで並べ替え）
+            <Ruby reading="だじゅん">打順</Ruby>（ドラッグ＆ドロップで
+            <Ruby reading="なら">並</Ruby>べ<Ruby reading="か">替</Ruby>え）
           </h3>
           <DraggableLineup
             orderedPlayers={orderedPlayers}
             onDragEnd={handleDragEnd}
+            onMove={(index, delta) => reorderPlayers(index, index + delta)}
             removePlayerFromOrder={removePlayerFromOrder}
             getDisplayName={getDisplayName}
           />
@@ -571,7 +581,9 @@ export default function LineupCreator({ players }: Props) {
       <div className="w-full max-w-[800px]">
         <div className="flex flex-col gap-4">
           {/* 先発投手選択は常に表示 */}
-          <h3 className="text-lg font-semibold">投手選択</h3>
+          <h3 className="text-lg font-semibold">
+            <Ruby reading="とうしゅせんたく">投手選択</Ruby>
+          </h3>
           <PlayerSelector
             players={selectablePlayers}
             onSelectPlayer={handleSelectPitcher}
@@ -580,7 +592,10 @@ export default function LineupCreator({ players }: Props) {
             getDisplayName={getDisplayName}
           />
 
-          <h3 className="text-lg font-semibold">ポジション別選手設定</h3>
+          <h3 className="text-lg font-semibold">
+            ポジション<Ruby reading="べつ">別</Ruby>
+            <Ruby reading="せんしゅせってい">選手設定</Ruby>
+          </h3>
           {lineup.map((spot) => (
             <div
               key={spot.position}
@@ -588,30 +603,37 @@ export default function LineupCreator({ players }: Props) {
               style={{ borderColor: "var(--border-card)" }}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="font-bold">{spot.position}</span>
+                <span className="font-bold">
+                  <Ruby reading={POSITION_READINGS[spot.position]}>
+                    {spot.position}
+                  </Ruby>
+                </span>
                 {spot.order !== null ? (
                   <div className="flex items-center">
                     <span
                       className="font-bold"
                       style={{ color: "var(--interactive-primary)" }}
                     >
-                      {spot.order}番
+                      {spot.order}
+                      <Ruby reading="ばん">番</Ruby>
                     </span>
                     <button
-                      className="text-xs ml-2 px-2 py-1 text-red-600 hover:bg-red-50 rounded"
+                      className="text-sm ml-2 px-3 min-h-11 text-red-600 hover:bg-red-50 rounded border border-red-300"
                       onClick={() => removePlayerFromOrder(spot.position)}
                     >
-                      打順を解除
+                      <Ruby reading="だじゅん">打順</Ruby>を
+                      <Ruby reading="かいじょ">解除</Ruby>
                     </button>
                   </div>
                 ) : (
                   spot.player && (
                     <button
-                      className="text-xs px-2 py-1 text-blue-600 bg-blue-50 hover:bg-blue-100 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="text-sm px-3 min-h-11 text-blue-700 bg-blue-50 hover:bg-blue-100 rounded border border-blue-300 disabled:opacity-50 disabled:cursor-not-allowed"
                       onClick={() => addPlayerToOrder(spot.position)}
                       disabled={orderedPlayers.length >= 9}
                     >
-                      打順に追加
+                      <Ruby reading="だじゅん">打順</Ruby>に
+                      <Ruby reading="ついか">追加</Ruby>
                     </button>
                   )
                 )}
@@ -631,8 +653,7 @@ export default function LineupCreator({ players }: Props) {
       </div>
 
       <button
-        className="px-4 py-2 text-white rounded-md border-none cursor-pointer"
-        style={{ backgroundColor: "#dc2626" }}
+        className="px-6 min-h-12 text-white rounded-md border-none cursor-pointer bg-red-600 hover:bg-red-700"
         onClick={resetLineup}
       >
         リセット

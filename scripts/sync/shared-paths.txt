@@ -1,0 +1,43 @@
+# 共有コードのマニフェスト。
+# baystars-drill を正本(upstream)とし、hawks-drill / lions-drill へ同期する。
+#
+# 書式:
+#   - 1行1パス(リポジトリルートからの相対パス)。ディレクトリは再帰同期。
+#   - `+` で始まるディレクトリは「追加同期」(upstream のファイルを上書きするが、
+#     同期先にしかないファイルは削除しない)。チーム固有ファイルが混在する場所用。
+#   - `!` で始まる行は共有ディレクトリ内の「チーム所有」除外。
+#   - `#` 以降はコメント。
+#
+# チーム所有(同期しない)ものの例:
+#   src/data/**(選手・応援歌・ドラフトデータ、draft/index.ts マニフェスト含む)
+#   src/config/team.config.json, src/config/theme.css
+#   src/constants/player.ts, src/constants/draft.ts(年範囲)
+#   ロゴ・favicon・OG画像、public/(アイコン類)
+#   package.json / package-lock.json(name がチーム固有)
+#   android/ ios/(Capacitor ネイティブプロジェクト)
+
+src/app
+!src/app/favicon.ico
+!src/app/logo.png
+!src/app/logo.svg
+!src/app/opengraph-image.png
+src/components
+src/contexts
+src/lib
+src/types
+src/config/team.ts
+src/constants/navigation.ts
+e2e
+# scripts はデータ取得ユーティリティやチーム固有オーバーライド JSON が混在するため追加同期
++scripts
+.github
+next.config.mjs
+postcss.config.mjs
+tsconfig.json
+jest.config.ts
+jest.setup.ts
+playwright.config.ts
+next-sitemap.config.js
+capacitor.config.ts
+.eslintrc.json
+.mise.toml
