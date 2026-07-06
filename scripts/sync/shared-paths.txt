@@ -28,8 +28,10 @@ src/types
 src/config/team.ts
 src/constants/navigation.ts
 e2e
-# scripts はデータ取得ユーティリティやチーム固有オーバーライド JSON が混在するため追加同期
+# scripts はデータ取得ユーティリティやチーム固有オーバーライド JSON が混在するため追加同期。
+# オーバーライド JSON はチーム所有（同名ファイルが複数リポジトリに存在するため明示除外）
 +scripts
+!scripts/*-overrides.json
 .github
 next.config.mjs
 postcss.config.mjs

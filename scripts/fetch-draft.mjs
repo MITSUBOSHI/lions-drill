@@ -30,10 +30,19 @@ async function processYear(year, urlTemplate) {
   console.log(`[${year}] wrote ${out}`);
 }
 
+// 球団名変更などで年代によりページ URL が異なる場合は
+// npb.draftUrlTemplateOverrides: [{ from, to, template }] で上書きできる
+// （例: 横浜ベイスターズ時代の 2001-2011 は draftlist_yb.html）。
+function resolveUrlTemplate(year) {
+  for (const o of team.npb.draftUrlTemplateOverrides ?? []) {
+    if (year >= o.from && year <= o.to) return o.template;
+  }
+  return team.npb.draftUrlTemplate;
+}
+
 async function main() {
   const args = parseArgs(process.argv);
-  const urlTemplate = team.npb.draftUrlTemplate;
-  if (!urlTemplate) {
+  if (!team.npb.draftUrlTemplate) {
     throw new Error("team.config.json npb.draftUrlTemplate not set");
   }
 
@@ -47,7 +56,7 @@ async function main() {
 
   for (const year of years) {
     try {
-      await processYear(year, urlTemplate);
+      await processYear(year, resolveUrlTemplate(year));
     } catch (e) {
       console.error(`[${year}] FAILED: ${e.message}`);
     }
