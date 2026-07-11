@@ -4,14 +4,18 @@ test.describe("背番号計算ドリル", () => {
   test("ページが表示され問題が出題される", async ({ page }) => {
     await page.goto("/number-drill/2026");
 
-    await expect(page.getByRole("heading", { name: "背番号計算ドリル" })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "背番号計算ドリル" }),
+    ).toBeVisible();
     await expect(page.getByText("問題", { exact: false })).toBeVisible();
 
     // 入力フィールドと解答ボタン
     const input = page.getByTestId("number-input");
     await expect(input).toBeVisible();
     await expect(page.getByRole("button", { name: "解答する" })).toBeVisible();
-    await expect(page.getByRole("button", { name: "再挑戦" })).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: "問題をかえる" }),
+    ).toBeVisible();
   });
 
   test("未入力状態では解答ボタンが無効", async ({ page }) => {
@@ -39,7 +43,7 @@ test.describe("背番号計算ドリル", () => {
     await expect(page.getByRole("button", { name: "解答する" })).toBeDisabled();
   });
 
-  test("再挑戦で新しい問題に切り替わる", async ({ page }) => {
+  test("問題をかえると新しい問題に切り替わる", async ({ page }) => {
     await page.goto("/number-drill/2026");
 
     // 解答する
@@ -52,8 +56,8 @@ test.describe("背番号計算ドリル", () => {
     const result = page.getByRole("alert").filter({ hasText: /正解/ });
     await expect(result).toBeVisible();
 
-    // 再挑戦
-    await page.getByRole("button", { name: "再挑戦" }).click();
+    // 問題を変更
+    await page.getByRole("button", { name: "問題をかえる" }).click();
 
     // 結果がリセットされる
     await expect(result).not.toBeAttached();

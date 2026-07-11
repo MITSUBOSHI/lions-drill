@@ -1,29 +1,17 @@
 import { Suspense } from "react";
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Year } from "@/types/Player";
 import YearSelector from "@/components/common/YearSelector";
 import CheerSongViewer from "@/components/cheer-songs/CheerSongViewer";
 import PageTitle from "@/components/common/PageTitle";
 import { cheerSongsByYear, cheerSongYears } from "@/lib/cheerSongs";
-import { describe, TEAM } from "@/config/team";
+import { TEAM } from "@/config/team";
+import { yearMetadata, yearStaticParams } from "@/lib/yearPages";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ year: Year }>;
-}): Promise<Metadata> {
-  const { year } = await params;
-  return {
-    title: `${year}年 応援歌`,
-    description: describe("cheerSongs", { year }),
-  };
-}
+export const generateMetadata = yearMetadata("応援歌", "cheerSongs");
 
-export async function generateStaticParams() {
-  if (!TEAM.features.cheerSongs) return [];
-  return cheerSongYears.map((y) => ({ year: y.toString() }));
-}
+export const generateStaticParams = () =>
+  TEAM.features.cheerSongs ? yearStaticParams(cheerSongYears) : [];
 
 export default async function Page({
   params,

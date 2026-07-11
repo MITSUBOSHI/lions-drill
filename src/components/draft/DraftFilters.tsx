@@ -56,7 +56,7 @@ const categoryOptions = [
       </>
     ),
   },
-  { value: "regular", label: <Ruby reading="しはいか">支配下</Ruby> },
+  { value: "regular", label: <Ruby reading="ほんしめい">本指名</Ruby> },
   { value: "development", label: <Ruby reading="いくせい">育成</Ruby> },
 ];
 

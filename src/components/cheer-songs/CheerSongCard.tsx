@@ -6,9 +6,7 @@ import { sendGAEvent } from "@next/third-parties/google";
 import { GiClothes } from "react-icons/gi";
 import { FiBook } from "react-icons/fi";
 import { CheerSongType, YouTubeUrl } from "@/types/CheerSong";
-import { replaceNamePlaceholder } from "@/lib/rubyParser";
 import Ruby from "@/components/common/Ruby";
-import LyricLine from "./LyricLine";
 
 function extractYouTubeVideoId(url: YouTubeUrl): string | null {
   const longMatch = url.match(/[?&]v=([^&]+)/);
@@ -43,6 +41,8 @@ const categoryLabel: Record<string, { text: string; kana: string }> = {
   right_batter: { text: "右打者共通", kana: "みぎだしゃきょうつう" },
   left_batter: { text: "左打者共通", kana: "ひだりだしゃきょうつう" },
   manager: { text: "監督", kana: "かんとく" },
+  multi: { text: "マルチテーマ", kana: "まるちてーま" },
+  other: { text: "その他", kana: "そのた" },
   anthem: { text: "球団歌", kana: "きゅうだんか" },
   chance: { text: "チャンステーマ", kana: "ちゃんすてーま" },
 };
@@ -57,13 +57,10 @@ export default function CheerSongCard({
 }: CheerSongCardProps) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const [showVideo, setShowVideo] = useState(false);
+  const [selectedName, setSelectedName] = useState(selectedPlayerName);
 
   const displayName =
-    selectedPlayerName && song.namePlaceholder ? selectedPlayerName : undefined;
-
-  const lyricsToDisplay = song.lyrics.map((line) =>
-    displayName ? replaceNamePlaceholder(line, displayName) : line,
-  );
+    selectedName && song.namePlaceholder ? selectedName : undefined;
 
   return (
     <div
@@ -152,21 +149,21 @@ export default function CheerSongCard({
                 <span
                   key={p.number}
                   className={`inline-flex items-center px-1.5 py-0.5 rounded text-xs cursor-pointer ${
-                    selectedPlayerName === p.callName
+                    selectedName === p.callName
                       ? "bg-blue-600 text-white"
                       : "border"
                   }`}
+                  onClick={() => setSelectedName(p.callName)}
                 >
                   #{p.number} {p.callName}
                 </span>
               ))}
             </div>
           )}
-          <div className="flex flex-col">
-            {lyricsToDisplay.map((line, i) => (
-              <LyricLine key={i} line={line} showRuby={showRuby} />
-            ))}
-          </div>
+          <p className="text-sm text-[var(--text-secondary)]">
+            {displayName ? `${displayName}の` : ""}応援歌の歌詞と歌い方は、
+            出典元の応援団公式サイトでご確認ください。
+          </p>
           {song.audioUrl && (
             <audio
               controls

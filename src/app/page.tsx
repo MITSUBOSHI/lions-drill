@@ -5,48 +5,112 @@ import { navItems } from "@/constants/navigation";
 import Ruby from "@/components/common/Ruby";
 import { TEAM } from "@/config/team";
 
+const cardStyles = [
+  "feature-card--sky",
+  "feature-card--yellow",
+  "feature-card--green",
+  "feature-card--pink",
+  "feature-card--purple",
+  "feature-card--orange",
+  "feature-card--blue",
+] as const;
+
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center gap-8 py-8 px-4">
-      <Image src={Logo.src} width={160} height={160} alt={TEAM.logo.alt} />
-      <div className="flex flex-col items-center gap-2">
-        <h1 className="text-4xl md:text-5xl font-bold text-center">
-          {TEAM.name}
-        </h1>
-        <p className="text-lg text-[var(--text-secondary)]">
-          {TEAM.subtitleSegments.map((seg, i) =>
-            seg.reading ? (
-              <Ruby key={i} reading={seg.reading}>
-                {seg.text}
+    <div className="home-shell">
+      <section className="home-hero" aria-labelledby="home-title">
+        <div className="hero-dots" aria-hidden="true" />
+        <div className="hero-content">
+          <div className="hero-copy">
+            <p className="hero-kicker">
+              <span aria-hidden="true">⚾</span>
+              <Ruby reading={`${TEAM.shortNameReading}でまなぼう`}>
+                {`${TEAM.shortName}で学ぼう`}
               </Ruby>
-            ) : (
-              <span key={i}>{seg.text}</span>
-            ),
-          )}
-        </p>
-      </div>
+            </p>
+            <h1 id="home-title">
+              {TEAM.name}
+              <span>
+                {TEAM.subtitleSegments.map((seg, i) =>
+                  seg.reading ? (
+                    <Ruby key={i} reading={seg.reading}>
+                      {seg.text}
+                    </Ruby>
+                  ) : (
+                    <span key={i}>{seg.text}</span>
+                  ),
+                )}
+              </span>
+            </h1>
+            <p className="hero-message">
+              <Ruby reading="すきなあそびをえらんで、さっそくはじめよう！">
+                好きな遊びをえらんで、さっそくはじめよう！
+              </Ruby>
+            </p>
+          </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-[900px]">
-        {navItems.map((feature) => (
-          <Link key={feature.href} href={feature.href}>
-            <div className="p-6 border border-[var(--border-card)] rounded-lg bg-[var(--surface-card)] cursor-pointer transition-all duration-200 hover:border-[var(--interactive-primary)] hover:-translate-y-0.5 hover:shadow-md h-full">
-              <div className="flex flex-col gap-3 items-start">
-                <span className="text-3xl" aria-hidden="true">
-                  {feature.icon}
-                </span>
-                <h2 className="text-lg font-bold">
+          <div className="hero-logo-wrap" aria-hidden="true">
+            <span className="hero-star hero-star--one">★</span>
+            <span className="hero-star hero-star--two">★</span>
+            <div className="hero-logo-circle">
+              <Image
+                src={Logo.src}
+                width={184}
+                height={184}
+                alt={TEAM.logo.alt}
+                priority
+              />
+            </div>
+          </div>
+        </div>
+        <div className="hero-wave" aria-hidden="true" />
+      </section>
+
+      <section className="feature-section" aria-labelledby="feature-title">
+        <div className="section-heading">
+          <span className="section-heading-icon" aria-hidden="true">
+            ✨
+          </span>
+          <div>
+            <p>
+              <Ruby reading="なにしてあそぶ？">なにして遊ぶ？</Ruby>
+            </p>
+            <h2 id="feature-title">
+              <Ruby reading="めにゅーをえらぼう">メニューをえらぼう</Ruby>
+            </h2>
+          </div>
+        </div>
+
+        <div className="feature-grid">
+          {navItems.map((feature, index) => (
+            <Link
+              key={feature.href}
+              href={feature.href}
+              className={`feature-card ${cardStyles[index % cardStyles.length]}`}
+            >
+              <span className="feature-number" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="feature-icon" aria-hidden="true">
+                {feature.icon}
+              </span>
+              <span className="feature-copy">
+                <strong>
                   <Ruby reading={feature.titleReading}>{feature.title}</Ruby>
-                </h2>
-                <p className="text-sm text-[var(--text-secondary)]">
+                </strong>
+                <span>
                   <Ruby reading={feature.descReading}>
                     {feature.description}
                   </Ruby>
-                </p>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+                </span>
+              </span>
+              <span className="feature-arrow" aria-hidden="true">
+                →
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

@@ -95,9 +95,9 @@ describe("Question Component", () => {
     // Check if radio buttons are present
     expect(screen.getByText("支配下選手のみ")).toBeInTheDocument();
     expect(screen.getByText("すべて")).toBeInTheDocument();
-    expect(screen.getByText("Easy")).toBeInTheDocument();
-    expect(screen.getByText("Normal")).toBeInTheDocument();
-    expect(screen.getByText("Hard")).toBeInTheDocument();
+    expect(screen.getByText("かんたん（2人）")).toBeInTheDocument();
+    expect(screen.getByText("ふつう（3人）")).toBeInTheDocument();
+    expect(screen.getByText("むずかしい（4人）")).toBeInTheDocument();
 
     // Check if operator checkboxes are present
     expect(screen.getByText(/足し算/)).toBeInTheDocument();
@@ -107,7 +107,7 @@ describe("Question Component", () => {
 
     // Check if buttons are present
     expect(screen.getByText("解答する")).toBeInTheDocument();
-    expect(screen.getByText("再挑戦")).toBeInTheDocument();
+    expect(screen.getByText("問題をかえる")).toBeInTheDocument();
   });
 
   it("allows user to input answer", () => {
@@ -228,7 +228,7 @@ describe("Question Component", () => {
 
     const input = screen.getByTestId("number-input");
     const submitButton = screen.getByText("解答する");
-    const retryButton = screen.getByText("再挑戦");
+    const retryButton = screen.getByText("問題をかえる");
 
     fireEvent.change(input, { target: { value: "999" } });
     fireEvent.click(submitButton);
@@ -327,7 +327,7 @@ describe("Question Component", () => {
       fireEvent.click(addLabel.querySelector("input")!);
       fireEvent.click(screen.getByText("設定"));
 
-      const retryButton = screen.getByText("再挑戦");
+      const retryButton = screen.getByText("問題をかえる");
       fireEvent.click(retryButton);
 
       expect(screen.getByText(/×/)).toBeInTheDocument();
@@ -373,7 +373,7 @@ describe("Question Component", () => {
       fireEvent.click(addLabel.querySelector("input")!);
       fireEvent.click(screen.getByText("設定"));
 
-      const retryButton = screen.getByText("再挑戦");
+      const retryButton = screen.getByText("問題をかえる");
       fireEvent.click(retryButton);
 
       expect(screen.getByText(/÷/)).toBeInTheDocument();
@@ -395,7 +395,7 @@ describe("Question Component", () => {
       // Close settings to avoid duplicate text matches
       fireEvent.click(screen.getByText("設定"));
 
-      const retryButton = screen.getByText("再挑戦");
+      const retryButton = screen.getByText("問題をかえる");
       fireEvent.click(retryButton);
 
       // 引き算を使用した問題が表示されていることを確認
@@ -416,7 +416,7 @@ describe("Question Component", () => {
       fireEvent.click(multiplyCheckbox);
       fireEvent.click(divideCheckbox);
 
-      const retryButton = screen.getByText("再挑戦");
+      const retryButton = screen.getByText("問題をかえる");
       fireEvent.click(retryButton);
 
       // Check if operators are still enabled by looking for their labels

@@ -122,11 +122,11 @@ export default function AppBreadcrumb() {
   }, [pathname]);
 
   return (
-    <div className="relative" ref={menuRef}>
-      <div className="flex w-full max-w-[1200px] mx-auto mb-4 px-4 pt-4 justify-between items-center">
+    <div className="relative z-40" ref={menuRef}>
+      <div className="flex w-[calc(100%-2rem)] max-w-[1120px] mx-auto mb-4 px-3 md:px-4 min-h-14 justify-between items-center rounded-2xl bg-white/95 border border-white shadow-[0_5px_20px_rgba(0,45,95,0.12)] backdrop-blur-md">
         <div className="flex items-center gap-2">
           <button
-            className="flex md:hidden items-center justify-center min-w-11 min-h-11 -my-2 -ml-2 bg-transparent border-none cursor-pointer"
+            className="flex md:hidden items-center justify-center min-w-11 min-h-11 bg-[var(--surface-brand)] rounded-xl border-none cursor-pointer text-[var(--interactive-primary)]"
             onClick={() => setMenuOpen((prev) => !prev)}
             aria-label={menuOpen ? "メニューを閉じる" : "メニューを開く"}
             aria-expanded={menuOpen}
@@ -178,7 +178,7 @@ export default function AppBreadcrumb() {
         </div>
 
         <button
-          className={`text-sm rounded-full px-4 min-h-11 border cursor-pointer transition-colors shrink-0 ${
+          className={`text-sm font-bold rounded-xl px-4 min-h-11 border-2 cursor-pointer transition-colors shrink-0 ${
             furigana
               ? "bg-[var(--interactive-primary)] text-white border-[var(--interactive-primary)]"
               : "bg-transparent text-[var(--interactive-primary)] border-[var(--interactive-primary)]"

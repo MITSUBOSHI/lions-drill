@@ -9,6 +9,8 @@ export type SongCategory =
   | "right_batter"
   | "left_batter"
   | "manager"
+  | "multi"
+  | "other"
   | "anthem"
   | "chance";
 

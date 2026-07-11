@@ -52,8 +52,8 @@ const allNavItems: NavItem[] = [
     titleReading: "せばんごうたいまー",
     href: `/number-count/${maxYear}`,
     icon: "🔢",
-    description: "秒数を選手名で読み上げてカウント",
-    descReading: "びょうすうをせんしゅめいでよみあげてかうんと",
+    description: "背番号ごとに選手を表示しながらカウント",
+    descReading: "せばんごうごとにせんしゅをひょうじしながらかうんと",
   },
   {
     title: "応援歌",

@@ -1,8 +1,7 @@
 import { redirect } from "next/navigation";
 import { registeredYears } from "@/constants/player";
+import { latestYear } from "@/lib/yearPages";
 
 export default function NumberDrillRedirect() {
-  const maxYear = Math.max(...registeredYears);
-  redirect(`/number-drill/${maxYear}`);
-  return null;
+  redirect(`/number-drill/${latestYear(registeredYears)}`);
 }

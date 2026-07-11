@@ -48,6 +48,57 @@ type Props = {
   cheerSongNumbers?: Set<string>;
 };
 
+type SortableHeaderProps = {
+  column: string;
+  label: string;
+  reading: string;
+  widthClass: string;
+  sortColumn: string;
+  sortOrder: SortOrder;
+  onSort: (column: string) => void;
+};
+
+function SortableHeader({
+  column,
+  label,
+  reading,
+  widthClass,
+  sortColumn,
+  sortOrder,
+  onSort,
+}: SortableHeaderProps) {
+  const isActive = sortColumn === column;
+  const Icon = !isActive
+    ? FaSort
+    : sortOrder === "asc"
+      ? FaSortUp
+      : sortOrder === "desc"
+        ? FaSortDown
+        : FaSort;
+  const ariaSort =
+    !isActive || !sortOrder
+      ? "none"
+      : sortOrder === "asc"
+        ? "ascending"
+        : "descending";
+
+  return (
+    <th
+      className={`text-left px-1 py-1 whitespace-nowrap ${widthClass}`}
+      aria-sort={ariaSort}
+    >
+      <button
+        aria-label={`${label}でソート`}
+        onClick={() => onSort(column)}
+        className="flex items-center gap-1 min-h-11 px-2 rounded hover:bg-[var(--surface-brand)] bg-transparent border-none cursor-pointer font-bold"
+      >
+        <Ruby reading={reading}>{label}</Ruby>
+        <Icon aria-hidden="true" />
+      </button>
+    </th>
+  );
+}
+
 export default function PlayerTable({
   players,
   year,
@@ -69,13 +120,6 @@ export default function PlayerTable({
     : players;
   const sortedPlayers = sortPlayers(filteredPlayers, sortOrder, sortColumn);
 
-  const getSortIcon = (column: string) => {
-    if (sortColumn !== column) return FaSort;
-    if (sortOrder === "asc") return FaSortUp;
-    if (sortOrder === "desc") return FaSortDown;
-    return FaSort;
-  };
-
   const handleSort = (column: string) => {
     if (sortColumn === column) {
       setSortOrder(sortOrder === "asc" ? "desc" : "asc");
@@ -83,11 +127,6 @@ export default function PlayerTable({
       setSortColumn(column);
       setSortOrder("asc");
     }
-  };
-
-  const getAriaSort = (column: string): "ascending" | "descending" | "none" => {
-    if (sortColumn !== column || !sortOrder) return "none";
-    return sortOrder === "asc" ? "ascending" : "descending";
   };
 
   return (
@@ -123,73 +162,45 @@ export default function PlayerTable({
             style={{ backgroundColor: "var(--surface-card)" }}
           >
             <tr className="border-b border-[var(--border-card)]">
-              <th
-                className="text-left px-1 py-1 whitespace-nowrap w-16"
-                aria-sort={getAriaSort("number_disp")}
-              >
-                <button
-                  aria-label="背番号でソート"
-                  onClick={() => handleSort("number_disp")}
-                  className="flex items-center gap-1 min-h-11 px-2 rounded hover:bg-[var(--surface-brand)] bg-transparent border-none cursor-pointer font-bold"
-                >
-                  <Ruby reading="せばんごう">背番号</Ruby>
-                  {(() => {
-                    const Icon = getSortIcon("number_disp");
-                    return <Icon aria-hidden="true" />;
-                  })()}
-                </button>
-              </th>
+              <SortableHeader
+                column="number_disp"
+                label="背番号"
+                reading="せばんごう"
+                widthClass="w-16"
+                sortColumn={sortColumn}
+                sortOrder={sortOrder}
+                onSort={handleSort}
+              />
               <th className="text-left px-3 py-2 whitespace-nowrap">
                 <Ruby reading="なまえ">名前</Ruby>
               </th>
-              <th
-                className="text-left px-1 py-1 whitespace-nowrap w-28"
-                aria-sort={getAriaSort("date_of_birth")}
-              >
-                <button
-                  aria-label="生年月日でソート"
-                  onClick={() => handleSort("date_of_birth")}
-                  className="flex items-center gap-1 min-h-11 px-2 rounded hover:bg-[var(--surface-brand)] bg-transparent border-none cursor-pointer font-bold"
-                >
-                  <Ruby reading="せいねんがっぴ">生年月日</Ruby>
-                  {(() => {
-                    const Icon = getSortIcon("date_of_birth");
-                    return <Icon aria-hidden="true" />;
-                  })()}
-                </button>
-              </th>
-              <th
-                className="text-left px-1 py-1 whitespace-nowrap w-20"
-                aria-sort={getAriaSort("height_cm")}
-              >
-                <button
-                  aria-label="身長でソート"
-                  onClick={() => handleSort("height_cm")}
-                  className="flex items-center gap-1 min-h-11 px-2 rounded hover:bg-[var(--surface-brand)] bg-transparent border-none cursor-pointer font-bold"
-                >
-                  <Ruby reading="しんちょう">身長</Ruby>
-                  {(() => {
-                    const Icon = getSortIcon("height_cm");
-                    return <Icon aria-hidden="true" />;
-                  })()}
-                </button>
-              </th>
-              <th
-                className="text-left px-1 py-1 whitespace-nowrap w-20"
-                aria-sort={getAriaSort("weight_kg")}
-              >
-                <button
-                  aria-label="体重でソート"
-                  onClick={() => handleSort("weight_kg")}
-                  className="flex items-center gap-1 min-h-11 px-2 rounded hover:bg-[var(--surface-brand)] bg-transparent border-none cursor-pointer font-bold"
-                >
-                  <Ruby reading="たいじゅう">体重</Ruby>
-                  {(() => {
-                    const Icon = getSortIcon("weight_kg");
-                    return <Icon aria-hidden="true" />;
-                  })()}
-                </button>
-              </th>
+              <SortableHeader
+                column="date_of_birth"
+                label="生年月日"
+                reading="せいねんがっぴ"
+                widthClass="w-28"
+                sortColumn={sortColumn}
+                sortOrder={sortOrder}
+                onSort={handleSort}
+              />
+              <SortableHeader
+                column="height_cm"
+                label="身長"
+                reading="しんちょう"
+                widthClass="w-20"
+                sortColumn={sortColumn}
+                sortOrder={sortOrder}
+                onSort={handleSort}
+              />
+              <SortableHeader
+                column="weight_kg"
+                label="体重"
+                reading="たいじゅう"
+                widthClass="w-20"
+                sortColumn={sortColumn}
+                sortOrder={sortOrder}
+                onSort={handleSort}
+              />
               <th className="text-left px-3 py-2 whitespace-nowrap w-16">
                 リンク
               </th>

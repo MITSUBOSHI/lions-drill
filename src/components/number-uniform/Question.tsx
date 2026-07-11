@@ -121,7 +121,11 @@ const Question: React.FC<Props> = ({ players }) => {
 
         <DrillSettings
           mode={drillState.mode}
-          onModeChange={(mode) => dispatch({ type: "settings", mode })}
+          onModeChange={(mode) => {
+            // 設定内容と表示中の問題が食い違わないよう、変更と同時に再生成する。
+            dispatch({ type: "settings", mode });
+            dispatch({ type: "retry", allPlayers: players });
+          }}
         />
 
         <DrillQuestion

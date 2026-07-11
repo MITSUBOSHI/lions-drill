@@ -232,43 +232,16 @@ function calculateExpression(
   };
 }
 
-export function generateQuestionWithOperators(
+// 新しい演算子シーケンスを生成
+// 優先順位で評価した答えが0以上の整数になる組み合わせを探す。
+// 見つからない場合はすべて加算にフォールバックする。
+function generateOperatorSequence(
   players: PlayerType[],
   operators: Operator[],
-  fixedOperatorSequence?: Operator[],
-): QuestionType & { operatorSequence: Operator[] } {
-  if (
-    fixedOperatorSequence &&
-    fixedOperatorSequence.length === players.length - 1
-  ) {
-    const {
-      result,
-      expression,
-      explanationExpression,
-      effectiveOperatorSymbols,
-    } = calculateExpression(players, fixedOperatorSequence);
-
-    return {
-      questionSentence: expression,
-      correctNumber: result,
-      explanationSentence: explanationExpression,
-      players: players.map((p) => ({
-        name: p.name,
-        nameKana: p.name_kana,
-        numberDisp: p.number_disp,
-      })),
-      operatorSymbols: effectiveOperatorSymbols,
-      operatorSequence: fixedOperatorSequence,
-    };
-  }
-
-  // 新しい演算子シーケンスを生成
-  // 優先順位で評価した答えが0以上の整数になる組み合わせを探す。
-  // 見つからない場合はすべて加算にフォールバックする。
+): Operator[] {
   const sequenceLength = Math.max(players.length - 1, 0);
   const numbers = players.map((p) => p.number_calc);
   const maxSequenceAttempts = 100;
-  let operatorSequence: Operator[] | null = null;
 
   for (let attempt = 0; attempt < maxSequenceAttempts; attempt++) {
     const candidate = Array.from(
@@ -277,14 +250,22 @@ export function generateQuestionWithOperators(
     );
     const result = evaluateExpression(numbers, candidate);
     if (result !== null && result >= 0 && Number.isInteger(result)) {
-      operatorSequence = candidate;
-      break;
+      return candidate;
     }
   }
 
-  if (operatorSequence === null) {
-    operatorSequence = Array<Operator>(sequenceLength).fill("+");
-  }
+  return Array<Operator>(sequenceLength).fill("+");
+}
+
+export function generateQuestionWithOperators(
+  players: PlayerType[],
+  operators: Operator[],
+  fixedOperatorSequence?: Operator[],
+): QuestionType & { operatorSequence: Operator[] } {
+  const operatorSequence =
+    fixedOperatorSequence && fixedOperatorSequence.length === players.length - 1
+      ? fixedOperatorSequence
+      : generateOperatorSequence(players, operators);
 
   const {
     result,

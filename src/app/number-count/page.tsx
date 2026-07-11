@@ -1,8 +1,7 @@
 import { redirect } from "next/navigation";
 import { registeredYears } from "@/constants/player";
+import { latestYear } from "@/lib/yearPages";
 
 export default function NumberCountRedirect() {
-  const maxYear = Math.max(...registeredYears);
-  redirect(`/number-count/${maxYear}`);
-  return null;
+  redirect(`/number-count/${latestYear(registeredYears)}`);
 }

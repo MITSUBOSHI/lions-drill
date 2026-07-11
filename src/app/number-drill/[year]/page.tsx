@@ -1,27 +1,17 @@
-import type { Metadata } from "next";
 import { registeredYears } from "@/constants/player";
 import { playersByYear } from "@/lib/players";
 import { Year } from "@/types/Player";
 import Question from "@/components/number-uniform/Question";
 import YearSelector from "@/components/common/YearSelector";
 import PageTitle from "@/components/common/PageTitle";
-import { describe } from "@/config/team";
+import { yearMetadata, yearStaticParams } from "@/lib/yearPages";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ year: Year }>;
-}): Promise<Metadata> {
-  const { year } = await params;
-  return {
-    title: `${year}年 背番号計算ドリル`,
-    description: describe("numberDrill", { year }),
-  };
-}
+export const generateMetadata = yearMetadata(
+  "背番号計算ドリル",
+  "numberDrill",
+);
 
-export async function generateStaticParams() {
-  return registeredYears.map((y) => ({ year: y.toString() }));
-}
+export const generateStaticParams = () => yearStaticParams(registeredYears);
 
 export default async function Page({
   params,

@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import type { Metadata } from "next";
 import Link from "next/link";
 import { registeredYears } from "@/constants/player";
 import { playersByYear } from "@/lib/players";
@@ -7,23 +6,11 @@ import { Year } from "@/types/Player";
 import LineupCreator from "@/components/lineup/LineupCreator";
 import YearSelector from "@/components/common/YearSelector";
 import PageTitle from "@/components/common/PageTitle";
-import { describe } from "@/config/team";
+import { yearMetadata, yearStaticParams } from "@/lib/yearPages";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ year: Year }>;
-}): Promise<Metadata> {
-  const { year } = await params;
-  return {
-    title: `${year}年 スタメン作成`,
-    description: describe("lineupMaker", { year }),
-  };
-}
+export const generateMetadata = yearMetadata("スタメン作成", "lineupMaker");
 
-export async function generateStaticParams() {
-  return registeredYears.map((y) => ({ year: y.toString() }));
-}
+export const generateStaticParams = () => yearStaticParams(registeredYears);
 
 export default async function Page({
   params,

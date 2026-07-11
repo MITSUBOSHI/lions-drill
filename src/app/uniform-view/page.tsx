@@ -1,8 +1,7 @@
 import { redirect } from "next/navigation";
 import { registeredYears } from "@/constants/player";
+import { latestYear } from "@/lib/yearPages";
 
 export default function UniformViewRedirect() {
-  const maxYear = Math.max(...registeredYears);
-  redirect(`/uniform-view/${maxYear}`);
-  return null;
+  redirect(`/uniform-view/${latestYear(registeredYears)}`);
 }

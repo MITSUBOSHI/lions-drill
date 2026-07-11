@@ -76,9 +76,9 @@ export default function DrillSettings({ mode, onModeChange }: Props) {
             <OptionGroup
               name="playerNum"
               options={[
-                { value: "2", label: "Easy" },
-                { value: "3", label: "Normal" },
-                { value: "4", label: "Hard" },
+                { value: "2", label: "かんたん（2人）" },
+                { value: "3", label: "ふつう（3人）" },
+                { value: "4", label: "むずかしい（4人）" },
               ]}
               selectedValues={[String(mode.playerNum)]}
               onChange={(value) => {
@@ -91,8 +91,7 @@ export default function DrillSettings({ mode, onModeChange }: Props) {
           </div>
           <div>
             <p className="font-bold mb-2">
-              <Ruby reading="しようする">使用する</Ruby>
-              <Ruby reading="えんざんし">演算子</Ruby>
+              <Ruby reading="つかうけいさん">使う計算</Ruby>
             </p>
             <OptionGroup
               name="operators"

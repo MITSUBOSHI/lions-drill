@@ -2,18 +2,14 @@
 
 import { sendGAEvent } from "@next/third-parties/google";
 import { useState, useEffect, useRef, useCallback } from "react";
-import {
-  FiChevronDown,
-  FiChevronRight,
-  FiDownload,
-  FiLink,
-  FiCheck,
-  FiShare2,
-} from "react-icons/fi";
-import { FaXTwitter } from "react-icons/fa6";
+import { FiChevronDown, FiChevronRight } from "react-icons/fi";
 import { useSearchParams } from "next/navigation";
 import { Switch } from "@/components/ui/switch";
 import Ruby from "@/components/common/Ruby";
+import ShareToolbar, {
+  type ShareMethod,
+} from "@/components/common/ShareToolbar";
+import { buildShareUrl, saveElementAsImage } from "@/lib/share";
 import {
   CUSTOM_NAME_MAX_LENGTH,
   CUSTOM_MEMO_MAX_LENGTH,
@@ -36,7 +32,6 @@ export default function LineupCustomCreator() {
   const [itemLabel, setItemLabel] = useState("");
   const [showMemo, setShowMemo] = useState(false);
   const [isForImage, setIsForImage] = useState(false);
-  const [copied, setCopied] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const lineupTableRef = useRef<HTMLDivElement>(null);
 
@@ -93,17 +88,8 @@ export default function LineupCustomCreator() {
       setIsForImage(true);
       await new Promise((resolve) => setTimeout(resolve, 50));
 
-      const { default: html2canvas } = await import("html2canvas");
-      const canvas = await html2canvas(lineupTableRef.current, {
-        scale: 2,
-        backgroundColor: "#ffffff",
-      });
-
-      const link = document.createElement("a");
       const fileName = customTitle ? `${customTitle}.png` : "custom-lineup.png";
-      link.download = fileName;
-      link.href = canvas.toDataURL("image/png");
-      link.click();
+      await saveElementAsImage(lineupTableRef.current, fileName);
       sendGAEvent("event", "lineup_custom_save_image", {
         filled_count: filledCount,
       });
@@ -120,7 +106,7 @@ export default function LineupCustomCreator() {
       customTitle,
       itemLabel,
     });
-    return `${window.location.origin}${window.location.pathname}?${params.toString()}`;
+    return buildShareUrl(params);
   }, [lineup, customTitle, itemLabel]);
 
   const getShareText = useCallback(() => {
@@ -134,46 +120,14 @@ export default function LineupCustomCreator() {
     return [title, ...lines].join("\n");
   }, [lineup, customTitle]);
 
-  const handleShareLink = useCallback(async () => {
-    const url = getShareUrl();
-    try {
-      await navigator.clipboard.writeText(url);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
-    } catch {
-      console.warn("Clipboard API not available");
-    }
-    sendGAEvent("event", "lineup_custom_share_link", {
-      filled_count: filledCount,
-    });
-  }, [getShareUrl, filledCount]);
-
-  const handleShareTwitter = useCallback(() => {
-    const text = getShareText();
-    const url = getShareUrl();
-    const twitterUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
-    window.open(twitterUrl, "_blank", "noopener,noreferrer");
-    sendGAEvent("event", "lineup_custom_share_twitter", {
-      filled_count: filledCount,
-    });
-  }, [getShareText, getShareUrl, filledCount]);
-
-  const handleNativeShare = useCallback(async () => {
-    const text = getShareText();
-    const url = getShareUrl();
-    try {
-      await navigator.share({
-        title: customTitle || "カスタムスタメン",
-        text,
-        url,
-      });
-      sendGAEvent("event", "lineup_custom_share_native", {
+  const handleShare = useCallback(
+    (method: ShareMethod) => {
+      sendGAEvent("event", `lineup_custom_share_${method}`, {
         filled_count: filledCount,
       });
-    } catch {
-      // user cancelled or not supported
-    }
-  }, [getShareText, getShareUrl, customTitle, filledCount]);
+    },
+    [filledCount],
+  );
 
   return (
     <div className="flex flex-col items-center gap-8">
@@ -256,46 +210,13 @@ export default function LineupCustomCreator() {
       <div className="w-full max-w-[800px]">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-semibold">スターティングメンバー</h3>
-          <div className="flex gap-1 items-center">
-            <button
-              onClick={handleShareLink}
-              aria-label="URLをコピー"
-              className="flex items-center justify-center min-w-11 min-h-11 bg-transparent border-none cursor-pointer text-[var(--interactive-primary)] hover:bg-[var(--surface-brand)] rounded-md"
-            >
-              {copied ? (
-                <FiCheck size={20} color="var(--text-success)" />
-              ) : (
-                <FiLink size={20} />
-              )}
-            </button>
-            <button
-              onClick={handleShareTwitter}
-              aria-label="Xで共有"
-              className="flex items-center justify-center min-w-11 min-h-11 bg-transparent border-none cursor-pointer text-[var(--interactive-primary)] hover:bg-[var(--surface-brand)] rounded-md"
-            >
-              <FaXTwitter size={20} />
-            </button>
-            {typeof navigator !== "undefined" && "share" in navigator && (
-              <button
-                onClick={handleNativeShare}
-                aria-label="共有"
-                className="flex items-center justify-center min-w-11 min-h-11 bg-transparent border-none cursor-pointer text-[var(--interactive-primary)] hover:bg-[var(--surface-brand)] rounded-md"
-              >
-                <FiShare2 size={20} />
-              </button>
-            )}
-            <button
-              className="flex items-center gap-2 px-3 min-h-11 rounded-md text-white text-sm border-none cursor-pointer"
-              style={{ backgroundColor: "var(--interactive-primary)" }}
-              onClick={saveAsImage}
-            >
-              <FiDownload aria-hidden="true" />
-              <span>
-                <Ruby reading="がぞう">画像</Ruby>として
-                <Ruby reading="ほぞん">保存</Ruby>
-              </span>
-            </button>
-          </div>
+          <ShareToolbar
+            getShareUrl={getShareUrl}
+            getShareText={getShareText}
+            shareTitle={customTitle || "カスタムスタメン"}
+            onShare={handleShare}
+            onSaveImage={saveAsImage}
+          />
         </div>
         <div ref={lineupTableRef}>
           <LineupCustomTable

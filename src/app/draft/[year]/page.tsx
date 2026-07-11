@@ -1,27 +1,14 @@
-import type { Metadata } from "next";
 import { draftYears } from "@/constants/draft";
 import { draftByYear } from "@/lib/draft";
 import { DraftYear } from "@/types/DraftPick";
 import YearSelector from "@/components/common/YearSelector";
 import PageTitle from "@/components/common/PageTitle";
 import DraftPageClient from "@/components/draft/DraftPageClient";
-import { describe } from "@/config/team";
+import { yearMetadata, yearStaticParams } from "@/lib/yearPages";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ year: DraftYear }>;
-}): Promise<Metadata> {
-  const { year } = await params;
-  return {
-    title: `${year}年 ドラフト一覧`,
-    description: describe("draft", { year }),
-  };
-}
+export const generateMetadata = yearMetadata("ドラフト一覧", "draft");
 
-export async function generateStaticParams() {
-  return draftYears.map((y) => ({ year: y.toString() }));
-}
+export const generateStaticParams = () => yearStaticParams(draftYears);
 
 export default async function Page({
   params,

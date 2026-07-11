@@ -60,6 +60,8 @@ const categoryToTab: Record<string, CategoryTab> = {
   right_batter: "other",
   left_batter: "other",
   manager: "manager",
+  multi: "other",
+  other: "other",
   chance: "chance",
   anthem: "anthem",
 };
@@ -79,9 +81,14 @@ function filterByTab(songs: CheerSongType[], tab: CategoryTab) {
       return songs.filter((s) => s.category === "individual_batter");
     case "other":
       return songs.filter((s) =>
-        ["pinch_hitter", "catcher", "right_batter", "left_batter"].includes(
-          s.category,
-        ),
+        [
+          "pinch_hitter",
+          "catcher",
+          "right_batter",
+          "left_batter",
+          "multi",
+          "other",
+        ].includes(s.category),
       );
     case "manager":
       return songs.filter((s) => s.category === "manager");

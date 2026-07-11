@@ -1,8 +1,7 @@
 import { redirect } from "next/navigation";
 import { registeredYears } from "@/constants/player";
+import { latestYear } from "@/lib/yearPages";
 
 export default function PlayerDirectoryRedirect() {
-  const maxYear = Math.max(...registeredYears);
-  redirect(`/player-directory/${maxYear}`);
-  return null;
+  redirect(`/player-directory/${latestYear(registeredYears)}`);
 }

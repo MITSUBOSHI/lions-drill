@@ -49,9 +49,9 @@ describe("DrillSettings", () => {
   it("難易度の選択肢が表示される", () => {
     render(<DrillSettings mode={defaultMode} onModeChange={() => {}} />);
     openSettings();
-    expect(screen.getByText("Easy")).toBeInTheDocument();
-    expect(screen.getByText("Normal")).toBeInTheDocument();
-    expect(screen.getByText("Hard")).toBeInTheDocument();
+    expect(screen.getByText("かんたん（2人）")).toBeInTheDocument();
+    expect(screen.getByText("ふつう（3人）")).toBeInTheDocument();
+    expect(screen.getByText("むずかしい（4人）")).toBeInTheDocument();
   });
 
   it("演算子の選択肢が表示される", () => {

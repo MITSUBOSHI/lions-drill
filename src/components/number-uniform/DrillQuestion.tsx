@@ -76,7 +76,7 @@ export default function DrillQuestion({
           >
             <NumberInputField
               disabled={!!showResult}
-              placeholder="背番号の合計を入力..."
+              placeholder="計算の答えを入力..."
               aria-label="答えの入力欄"
               data-testid="number-input"
             />
@@ -95,7 +95,11 @@ export default function DrillQuestion({
           className="flex-1 font-bold text-white min-h-12 py-2 px-4 rounded-md transition-colors cursor-pointer border-none bg-[var(--interactive-primary)] hover:bg-[var(--interactive-primary-hover)]"
           onClick={onRetry}
         >
-          <Ruby reading="さいちょうせん">再挑戦</Ruby>
+          {showResult ? (
+            <Ruby reading="つぎのもんだい">つぎの問題</Ruby>
+          ) : (
+            <Ruby reading="もんだいをかえる">問題をかえる</Ruby>
+          )}
         </button>
       </div>
     </div>
