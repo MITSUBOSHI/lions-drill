@@ -6,7 +6,9 @@ import { sendGAEvent } from "@next/third-parties/google";
 import { GiClothes } from "react-icons/gi";
 import { FiBook } from "react-icons/fi";
 import { CheerSongType, YouTubeUrl } from "@/types/CheerSong";
+import { replaceNamePlaceholder } from "@/lib/rubyParser";
 import Ruby from "@/components/common/Ruby";
+import LyricLine from "./LyricLine";
 
 function extractYouTubeVideoId(url: YouTubeUrl): string | null {
   const longMatch = url.match(/[?&]v=([^&]+)/);
@@ -61,6 +63,10 @@ export default function CheerSongCard({
 
   const displayName =
     selectedName && song.namePlaceholder ? selectedName : undefined;
+
+  const lyricsToDisplay = song.lyrics.map((line) =>
+    displayName ? replaceNamePlaceholder(line, displayName) : line,
+  );
 
   return (
     <div
@@ -160,10 +166,11 @@ export default function CheerSongCard({
               ))}
             </div>
           )}
-          <p className="text-sm text-[var(--text-secondary)]">
-            {displayName ? `${displayName}の` : ""}応援歌の歌詞と歌い方は、
-            出典元の応援団公式サイトでご確認ください。
-          </p>
+          <div className="flex flex-col">
+            {lyricsToDisplay.map((line, i) => (
+              <LyricLine key={i} line={line} showRuby={showRuby} />
+            ))}
+          </div>
           {song.audioUrl && (
             <audio
               controls

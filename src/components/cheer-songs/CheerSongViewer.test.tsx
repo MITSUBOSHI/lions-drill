@@ -115,12 +115,9 @@ describe("CheerSongViewer", () => {
     expect(panel).toHaveAttribute("aria-labelledby", "tab-pitcher");
   });
 
-  it("歌詞本文を表示せず公式出典へ案内する", () => {
+  it("歌詞本文を表示する", () => {
     render(<CheerSongViewer songs={mockSongs} year={2026} />);
     fireEvent.click(screen.getByText("右投手の歌"));
-    expect(screen.queryByText("テスト歌詞")).not.toBeInTheDocument();
-    expect(
-      screen.getByText(/応援団公式サイトでご確認ください/),
-    ).toBeInTheDocument();
+    expect(screen.getByText("テスト歌詞")).toBeInTheDocument();
   });
 });

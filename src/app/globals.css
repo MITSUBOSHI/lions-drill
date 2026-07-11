@@ -9,10 +9,14 @@ body {
   overflow-x: hidden;
 }
 
+html {
+  color-scheme: light;
+}
+
 body {
   background:
-    radial-gradient(circle at 12px 12px, var(--home-dot) 2px, transparent 2px)
-      0 0 / 32px 32px,
+    radial-gradient(circle at 12px 12px, var(--home-dot) 2px, transparent 2px) 0
+      0 / 32px 32px,
     var(--home-page-bg);
   color: var(--text-primary);
   font-family:

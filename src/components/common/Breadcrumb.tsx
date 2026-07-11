@@ -123,8 +123,8 @@ export default function AppBreadcrumb() {
 
   return (
     <div className="relative z-40" ref={menuRef}>
-      <div className="flex w-[calc(100%-2rem)] max-w-[1120px] mx-auto mb-4 px-3 md:px-4 min-h-14 justify-between items-center rounded-2xl bg-white/95 border border-white shadow-[0_5px_20px_rgba(0,45,95,0.12)] backdrop-blur-md">
-        <div className="flex items-center gap-2">
+      <div className="flex w-[calc(100%-2rem)] max-w-[1120px] mx-auto mb-4 px-3 md:px-4 min-h-14 justify-between items-center gap-3 rounded-2xl bg-white/95 border border-white shadow-[0_5px_20px_rgba(0,45,95,0.12)] backdrop-blur-md">
+        <div className="flex min-w-0 flex-1 items-center gap-2">
           <button
             className="flex md:hidden items-center justify-center min-w-11 min-h-11 bg-[var(--surface-brand)] rounded-xl border-none cursor-pointer text-[var(--interactive-primary)]"
             onClick={() => setMenuOpen((prev) => !prev)}
@@ -135,8 +135,11 @@ export default function AppBreadcrumb() {
           </button>
 
           {breadcrumbItems.length > 1 ? (
-            <nav aria-label="パンくずリスト">
-              <ol className="flex items-center gap-2 list-none">
+            <nav
+              aria-label="パンくずリスト"
+              className="hidden min-w-0 flex-1 overflow-hidden md:block"
+            >
+              <ol className="flex min-w-max items-center gap-2 whitespace-nowrap list-none">
                 {breadcrumbItems.map((item, index) => (
                   <li key={index} className="flex items-center">
                     {index > 0 && (
