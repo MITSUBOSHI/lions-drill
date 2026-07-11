@@ -10,7 +10,7 @@ body {
 }
 
 html {
-  color-scheme: light;
+  color-scheme: light dark;
 }
 
 body {
@@ -204,7 +204,7 @@ a {
   width: 3.25rem;
   height: 3.25rem;
   border-radius: 1rem;
-  background: #fff1a8;
+  background: var(--surface-brand);
   font-size: 1.5rem;
   transform: rotate(-4deg);
 }
@@ -239,9 +239,9 @@ a {
   min-height: 146px;
   overflow: hidden;
   padding: 1.25rem;
-  border: 2px solid white;
+  border: 2px solid var(--border-card);
   border-radius: 1.4rem;
-  background: white;
+  background: var(--surface-card-subtle);
   box-shadow:
     0 7px 0 rgb(25 74 120 / 10%),
     0 12px 28px rgb(26 81 132 / 8%);
@@ -349,6 +349,40 @@ a {
 .feature-card--blue {
   --feature-accent: #2564b7;
   --feature-soft: #e4efff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .feature-card {
+    box-shadow:
+      0 7px 0 rgb(0 0 0 / 18%),
+      0 12px 28px rgb(0 0 0 / 22%);
+  }
+  .feature-card:hover {
+    box-shadow:
+      0 9px 0 color-mix(in srgb, var(--feature-accent) 18%, transparent),
+      0 18px 32px rgb(0 0 0 / 28%);
+  }
+  .feature-number {
+    color: color-mix(in srgb, var(--feature-accent) 62%, white);
+  }
+  .feature-card--yellow {
+    --feature-soft: #4a3510;
+  }
+  .feature-card--green {
+    --feature-soft: #123d2d;
+  }
+  .feature-card--pink {
+    --feature-soft: #4a2030;
+  }
+  .feature-card--purple {
+    --feature-soft: #33275a;
+  }
+  .feature-card--orange {
+    --feature-soft: #4a291b;
+  }
+  .feature-card--blue {
+    --feature-soft: #18355a;
+  }
 }
 
 @media (max-width: 700px) {
