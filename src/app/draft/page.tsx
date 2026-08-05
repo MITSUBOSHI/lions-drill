@@ -1,8 +1,7 @@
 import { redirect } from "next/navigation";
 import { draftYears } from "@/constants/draft";
-
-const maxYear = Math.max(...draftYears);
+import { latestYear } from "@/lib/yearPages";
 
 export default function DraftPage() {
-  redirect(`/draft/${maxYear}`);
+  redirect(`/draft/${latestYear(draftYears)}`);
 }

@@ -1,5 +1,3 @@
-"use client";
-
 import Ruby from "@/components/common/Ruby";
 
 type PageTitleProps = {

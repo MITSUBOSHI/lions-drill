@@ -7,9 +7,7 @@ export function latestYear(years: readonly number[]): number {
   return Math.max(...years);
 }
 
-export function yearStaticParams(
-  years: readonly number[],
-): { year: string }[] {
+export function yearStaticParams(years: readonly number[]): { year: string }[] {
   return years.map((year) => ({ year: year.toString() }));
 }
 

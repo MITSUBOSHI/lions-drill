@@ -6,10 +6,7 @@ import YearSelector from "@/components/common/YearSelector";
 import PageTitle from "@/components/common/PageTitle";
 import { yearMetadata, yearStaticParams } from "@/lib/yearPages";
 
-export const generateMetadata = yearMetadata(
-  "背番号計算ドリル",
-  "numberDrill",
-);
+export const generateMetadata = yearMetadata("背番号計算ドリル", "numberDrill");
 
 export const generateStaticParams = () => yearStaticParams(registeredYears);
 

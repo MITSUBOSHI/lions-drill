@@ -7,7 +7,9 @@ test.describe("背番号計算ドリル", () => {
     await expect(
       page.getByRole("heading", { name: "背番号計算ドリル" }),
     ).toBeVisible();
-    await expect(page.getByText("問題", { exact: false })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "問題" }),
+    ).toBeVisible();
 
     // 入力フィールドと解答ボタン
     const input = page.getByTestId("number-input");
@@ -57,7 +59,7 @@ test.describe("背番号計算ドリル", () => {
     await expect(result).toBeVisible();
 
     // 問題を変更
-    await page.getByRole("button", { name: "問題をかえる" }).click();
+    await page.getByRole("button", { name: "つぎの問題" }).click();
 
     // 結果がリセットされる
     await expect(result).not.toBeAttached();
@@ -72,6 +74,6 @@ test.describe("背番号計算ドリル", () => {
 
     await expect(page.getByText("対象選手")).toBeVisible();
     await expect(page.getByText("難易度")).toBeVisible();
-    await expect(page.getByText(/使用する演算子/)).toBeVisible();
+    await expect(page.getByText("使う計算")).toBeVisible();
   });
 });
